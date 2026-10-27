@@ -1,0 +1,2 @@
+# Already available in the checked vul-rag environment: httpx==0.28.1.
+httpx>=0.24,<1

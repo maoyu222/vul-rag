@@ -1,0 +1,106 @@
+{
+  "source_sha256": "28ef4aee849e02c8f9876f918968126abf4ab4e415522031c1390b53bf75aad4",
+  "total_records": 1279,
+  "unique_samples": 1279,
+  "input_descriptions_and_code_unchanged": true,
+  "reviewed_evidence_and_patch_diffs_unchanged": true,
+  "removed_call_candidates": 14,
+  "samples_with_removed_call_candidates": 5,
+  "added_call_candidates": 0,
+  "samples_with_added_call_candidates": 0,
+  "removed_condition_candidates": 0,
+  "added_condition_candidates": 0,
+  "newly_recovered_prerequisite_clauses": 541,
+  "samples_with_recovered_prerequisite_clauses": 460,
+  "removed_unreliable_prerequisite_clauses": 1183,
+  "retrieval_text_cwe_or_category_label_leaks": 0,
+  "retrieval_metadata_retains_labels": true,
+  "all_source_boundary_clauses_recoverable": true,
+  "example_removed_call_candidates": {
+    "cleanvul_s4_004724": [
+      {
+        "sample_id": "cleanvul_s4_004724",
+        "callee": "size",
+        "invocation": "size (proto-max-bulk-len)"
+      }
+    ],
+    "cleanvul_s4_005974": [
+      {
+        "sample_id": "cleanvul_s4_005974",
+        "callee": "length",
+        "invocation": "length (%llu)"
+      }
+    ],
+    "megavul_096746": [
+      {
+        "sample_id": "megavul_096746",
+        "callee": "length",
+        "invocation": "length (%d > %d)"
+      }
+    ],
+    "megavul_324039": [
+      {
+        "sample_id": "megavul_324039",
+        "callee": "length",
+        "invocation": "length (MUST be minimum 3)"
+      }
+    ],
+    "primevul_train_002652": [
+      {
+        "sample_id": "primevul_train_002652",
+        "callee": "strlen",
+        "invocation": "strlen($path)"
+      },
+      {
+        "sample_id": "primevul_train_002652",
+        "callee": "strlen",
+        "invocation": "strlen($m)"
+      },
+      {
+        "sample_id": "primevul_train_002652",
+        "callee": "strlen",
+        "invocation": "strlen(\";\n\tstatic const char newstub1_1[] = \"Extract_Phar::$temp)"
+      },
+      {
+        "sample_id": "primevul_train_002652",
+        "callee": "strlen",
+        "invocation": "strlen($basename)"
+      },
+      {
+        "sample_id": "primevul_train_002652",
+        "callee": "strlen",
+        "invocation": "strlen($last)"
+      },
+      {
+        "sample_id": "primevul_train_002652",
+        "callee": "fread",
+        "invocation": "fread($fp, $read)"
+      },
+      {
+        "sample_id": "primevul_train_002652",
+        "callee": "sprintf",
+        "invocation": "sprintf('%u', $ret['m'][$savepath][3]\\n& 0xffffffff)"
+      },
+      {
+        "sample_id": "primevul_train_002652",
+        "callee": "strlen",
+        "invocation": "strlen(dirname($a))"
+      },
+      {
+        "sample_id": "primevul_train_002652",
+        "callee": "fopen",
+        "invocation": "fopen(__FILE__, 'rb')"
+      },
+      {
+        "sample_id": "primevul_train_002652",
+        "callee": "fread",
+        "invocation": "fread($fp, 4)"
+      }
+    ]
+  },
+  "example_megavul_295294_new_prerequisites": [
+    "Retain the bounded error-message formatting mechanism, on the condition that os_errbuflen is no greater than the actual writable capacity."
+  ],
+  "semantic_status": "not_independently_reviewed",
+  "interpretation": "Lexical and clause-classification projections corrected; data are grounded in original repair pairs. Guard dominance, API contracts and equivalence remain unproven."
+}

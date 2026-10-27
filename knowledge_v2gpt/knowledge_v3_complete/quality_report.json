@@ -1,0 +1,52 @@
+{
+  "schema_version": "3.0-source-grounded",
+  "total": 1279,
+  "unique_ids": 1279,
+  "datasets": {
+    "MegaVul": 369,
+    "ReposVul": 18,
+    "PrimeVul": 417,
+    "CleanVul": 475
+  },
+  "vulnerability_type_distribution": {
+    "integer_overflow": 97,
+    "bounds_write": 174,
+    "bounds_read": 272,
+    "authorization_bypass": 50,
+    "logic_validation": 242,
+    "buffer_size_mismatch": 64,
+    "path_traversal": 21,
+    "uninitialized_use": 22,
+    "integer_truncation": 13,
+    "integer_underflow": 23,
+    "null_dereference": 95,
+    "resource_leak": 25,
+    "cryptographic_validation": 18,
+    "infinite_loop": 9,
+    "race_condition": 8,
+    "injection": 11,
+    "assertion_dos": 9,
+    "resource_exhaustion": 40,
+    "other": 38,
+    "use_after_free": 19,
+    "division_by_zero": 8,
+    "type_confusion": 11,
+    "format_string": 3,
+    "double_free": 6,
+    "signedness": 1
+  },
+  "source_sha256": "28ef4aee849e02c8f9876f918968126abf4ab4e415522031c1390b53bf75aad4",
+  "total_reviewed_before_fragments": 2007,
+  "total_reviewed_after_fragments": 1994,
+  "total_changed_code_segments": 5054,
+  "records_with_alignment_notes": 11,
+  "alignment_issue_distribution": {
+    "reported_line_range_disagrees": 15,
+    "whitespace_equivalent": 4
+  },
+  "records_with_code_guard_candidates": 1009,
+  "semantic_review_status": {
+    "not_independently_reviewed": 1279
+  },
+  "claim": "All records reconstructed from uploaded file with original narratives and full review fragments preserved; code guards and roles are syntactic candidates only, not independently proven semantic judgments."
+}

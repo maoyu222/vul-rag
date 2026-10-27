@@ -1,0 +1,3639 @@
+{
+  "grouping": "漏洞类型 × 修复模式；不将不同样本合并为同一机制",
+  "group_count": 87,
+  "total_sample_count": 1279,
+  "groups": [
+    {
+      "group_key": "bounds_read__bounds_check",
+      "vulnerability_type": "bounds_read",
+      "vulnerability_name_zh": "越界读取",
+      "repair_pattern": "bounds_check",
+      "repair_pattern_zh": "索引与范围检查",
+      "count": 142,
+      "cwe_counts": {
+        "CWE-125": 43,
+        "CWE-787": 11,
+        "CWE-119": 5,
+        "CWE-189": 2,
+        "CWE-190": 3,
+        "CWE-415": 1,
+        "CWE-502": 1,
+        "CWE-120": 3,
+        "CWE-284": 1,
+        "CWE-20": 1,
+        "CWE-193": 1,
+        "CWE-703": 3,
+        "CWE-200": 1,
+        "CWE-476": 1,
+        "CWE-369": 1
+      },
+      "datasets": {
+        "MegaVul": 35,
+        "PrimeVul": 36,
+        "CleanVul": 70,
+        "ReposVul": 1
+      },
+      "representative_sample_ids": [
+        "megavul_176114",
+        "megavul_040695",
+        "megavul_008109"
+      ],
+      "sample_ids": [
+        "megavul_176114",
+        "megavul_040695",
+        "megavul_008109",
+        "primevul_valid_000177",
+        "primevul_train_003086",
+        "primevul_train_002376",
+        "cleanvul_s4_006022",
+        "cleanvul_s4_000789",
+        "cleanvul_s4_006175",
+        "cleanvul_s4_003928",
+        "cleanvul_s4_003452",
+        "cleanvul_s4_003047",
+        "cleanvul_s4_002649",
+        "cleanvul_s4_004471",
+        "cleanvul_s4_004243",
+        "cleanvul_s4_003969",
+        "cleanvul_s4_003554",
+        "cleanvul_s4_003035",
+        "primevul_train_002153",
+        "cleanvul_s4_005246",
+        "cleanvul_s4_003494",
+        "megavul_214766",
+        "cleanvul_s4_005219",
+        "cleanvul_s4_005092",
+        "primevul_train_003007",
+        "primevul_valid_000290",
+        "primevul_train_002592",
+        "primevul_train_001023",
+        "primevul_valid_000253",
+        "primevul_train_002755",
+        "primevul_train_002375",
+        "megavul_242115",
+        "megavul_065470",
+        "reposvul_003316_000_000",
+        "megavul_085891",
+        "megavul_040638",
+        "megavul_215215",
+        "megavul_231874",
+        "megavul_221070",
+        "megavul_151279",
+        "megavul_122629",
+        "megavul_317297",
+        "megavul_304043",
+        "primevul_train_003272",
+        "cleanvul_s4_006034",
+        "cleanvul_s4_005388",
+        "cleanvul_s4_005383",
+        "cleanvul_s4_004972",
+        "cleanvul_s4_004573",
+        "cleanvul_s4_006163",
+        "primevul_train_000218",
+        "cleanvul_s4_004711",
+        "cleanvul_s4_004405",
+        "cleanvul_s4_004270",
+        "cleanvul_s4_004264",
+        "cleanvul_s4_003704",
+        "cleanvul_s4_003279",
+        "cleanvul_s4_002368",
+        "cleanvul_s4_002329",
+        "cleanvul_s4_002311",
+        "cleanvul_s4_002198",
+        "cleanvul_s4_002194",
+        "cleanvul_s4_002188",
+        "cleanvul_s4_001896",
+        "cleanvul_s4_001425",
+        "cleanvul_s4_001829",
+        "cleanvul_s4_001472",
+        "megavul_258504",
+        "cleanvul_s4_005478",
+        "cleanvul_s4_001341",
+        "cleanvul_s4_004386",
+        "cleanvul_s4_006366",
+        "cleanvul_s4_005117",
+        "cleanvul_s4_005096",
+        "cleanvul_s4_004352",
+        "megavul_333297",
+        "megavul_323087",
+        "primevul_train_002870",
+        "primevul_test_000334",
+        "primevul_valid_000382",
+        "primevul_valid_000278",
+        "primevul_test_000204",
+        "primevul_train_001729",
+        "primevul_train_000311",
+        "primevul_train_003543",
+        "primevul_train_003337",
+        "primevul_train_003311",
+        "primevul_train_003112",
+        "primevul_test_000029",
+        "primevul_test_000387",
+        "primevul_train_002796",
+        "primevul_train_002504",
+        "primevul_train_002262",
+        "primevul_train_001978",
+        "primevul_valid_000368",
+        "primevul_train_002280",
+        "primevul_test_000362",
+        "primevul_test_000097",
+        "primevul_train_002026",
+        "cleanvul_s4_002592",
+        "cleanvul_s4_002542",
+        "cleanvul_s4_002098",
+        "cleanvul_s4_001964",
+        "cleanvul_s4_001411",
+        "cleanvul_s4_000300",
+        "cleanvul_s4_005895",
+        "cleanvul_s4_005653",
+        "cleanvul_s4_005609",
+        "cleanvul_s4_005299",
+        "cleanvul_s4_004725",
+        "cleanvul_s4_004672",
+        "cleanvul_s4_004484",
+        "cleanvul_s4_004409",
+        "cleanvul_s4_003359",
+        "cleanvul_s4_002325",
+        "cleanvul_s4_001046",
+        "cleanvul_s4_000486",
+        "cleanvul_s4_004054",
+        "cleanvul_s4_000078",
+        "cleanvul_s4_000039",
+        "cleanvul_s4_006307",
+        "megavul_082994",
+        "megavul_078444",
+        "megavul_040764",
+        "megavul_040494",
+        "megavul_037520",
+        "megavul_012301",
+        "megavul_258755",
+        "megavul_183594",
+        "megavul_145603",
+        "megavul_089659",
+        "megavul_087638",
+        "megavul_040719",
+        "megavul_040599",
+        "megavul_020498",
+        "megavul_012264",
+        "megavul_012258",
+        "megavul_343334",
+        "primevul_valid_000282",
+        "cleanvul_s4_003393",
+        "cleanvul_s4_001695",
+        "cleanvul_s4_002375"
+      ],
+      "minimum_evidence": "确认输入到长度/偏移的传递、实际源缓冲区界限、读操作前全部路径的检查",
+      "counterevidence_to_seek": "读取前验证偏移、长度、真实对象容量；检查加法溢出",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "logic_validation__input_validation",
+      "vulnerability_type": "logic_validation",
+      "vulnerability_name_zh": "逻辑或输入验证缺陷",
+      "repair_pattern": "input_validation",
+      "repair_pattern_zh": "输入字段、格式或状态的合法性校验",
+      "count": 140,
+      "cwe_counts": {
+        "CWE-119": 3,
+        "CWE-125": 12,
+        "CWE-787": 9,
+        "CWE-284": 1,
+        "CWE-120": 4,
+        "CWE-287": 1,
+        "CWE-190": 8,
+        "CWE-189": 3,
+        "CWE-22": 1,
+        "CWE-295": 1,
+        "CWE-770": 2,
+        "CWE-843": 1,
+        "CWE-415": 2,
+        "CWE-601": 1,
+        "CWE-476": 7,
+        "CWE-347": 1,
+        "CWE-200": 4,
+        "CWE-213": 1,
+        "CWE-706": 1,
+        "CWE-703": 3,
+        "CWE-20": 8,
+        "CWE-754": 1,
+        "CWE-400": 1,
+        "CWE-863": 1,
+        "CWE-269": 1,
+        "CWE-399": 2,
+        "CWE-697": 1,
+        "CWE-763": 1,
+        "CWE-131": 1,
+        "CWE-416": 1
+      },
+      "datasets": {
+        "PrimeVul": 45,
+        "MegaVul": 34,
+        "CleanVul": 59,
+        "ReposVul": 2
+      },
+      "representative_sample_ids": [
+        "primevul_train_000598",
+        "megavul_326803",
+        "primevul_train_002754"
+      ],
+      "sample_ids": [
+        "primevul_train_000598",
+        "megavul_326803",
+        "primevul_train_002754",
+        "primevul_train_001248",
+        "cleanvul_s4_002383",
+        "cleanvul_s4_003876",
+        "megavul_213572",
+        "megavul_311082",
+        "primevul_valid_000022",
+        "primevul_train_003284",
+        "reposvul_002275_000_000",
+        "cleanvul_s4_005658",
+        "cleanvul_s4_006333",
+        "cleanvul_s4_006211",
+        "cleanvul_s4_005599",
+        "cleanvul_s4_005584",
+        "cleanvul_s4_005324",
+        "cleanvul_s4_005073",
+        "cleanvul_s4_005037",
+        "cleanvul_s4_004949",
+        "cleanvul_s4_004631",
+        "cleanvul_s4_004403",
+        "cleanvul_s4_003875",
+        "cleanvul_s4_002546",
+        "cleanvul_s4_002437",
+        "cleanvul_s4_001869",
+        "cleanvul_s4_001015",
+        "cleanvul_s4_000820",
+        "cleanvul_s4_000763",
+        "cleanvul_s4_000694",
+        "cleanvul_s4_002391",
+        "cleanvul_s4_001106",
+        "megavul_279603",
+        "megavul_260181",
+        "cleanvul_s4_000748",
+        "cleanvul_s4_006266",
+        "cleanvul_s4_003252",
+        "cleanvul_s4_001388",
+        "cleanvul_s4_001099",
+        "cleanvul_s4_005829",
+        "cleanvul_s4_005130",
+        "cleanvul_s4_004135",
+        "megavul_008120",
+        "megavul_336376",
+        "megavul_326083",
+        "megavul_323680",
+        "megavul_270390",
+        "primevul_train_001734",
+        "primevul_train_003552",
+        "primevul_train_003218",
+        "primevul_train_002715",
+        "primevul_train_002161",
+        "primevul_train_000974",
+        "primevul_test_000163",
+        "primevul_valid_000155",
+        "primevul_valid_000058",
+        "primevul_train_003066",
+        "primevul_train_002661",
+        "primevul_train_002628",
+        "primevul_train_001726",
+        "primevul_train_001017",
+        "primevul_train_000742",
+        "reposvul_002005_001_000",
+        "primevul_valid_000243",
+        "primevul_valid_000011",
+        "primevul_train_003194",
+        "primevul_train_002787",
+        "primevul_train_002608",
+        "primevul_train_002226",
+        "primevul_train_002098",
+        "primevul_valid_000242",
+        "primevul_train_003290",
+        "primevul_train_002716",
+        "primevul_train_002598",
+        "primevul_train_001803",
+        "primevul_train_000887",
+        "primevul_train_002335",
+        "primevul_train_002086",
+        "primevul_test_000167",
+        "cleanvul_s4_002444",
+        "cleanvul_s4_001794",
+        "cleanvul_s4_005625",
+        "cleanvul_s4_004568",
+        "cleanvul_s4_002408",
+        "cleanvul_s4_001933",
+        "cleanvul_s4_000429",
+        "cleanvul_s4_000064",
+        "cleanvul_s4_004035",
+        "cleanvul_s4_003507",
+        "cleanvul_s4_002806",
+        "cleanvul_s4_000249",
+        "megavul_112734",
+        "megavul_143740",
+        "megavul_180383",
+        "megavul_082646",
+        "cleanvul_s4_000980",
+        "cleanvul_s4_003645",
+        "cleanvul_s4_005142",
+        "cleanvul_s4_002660",
+        "primevul_train_001742",
+        "primevul_train_002278",
+        "primevul_train_002043",
+        "primevul_train_001286",
+        "primevul_test_000364",
+        "primevul_train_003252",
+        "primevul_train_002419",
+        "primevul_train_003118",
+        "cleanvul_s4_005177",
+        "cleanvul_s4_002957",
+        "cleanvul_s4_003907",
+        "cleanvul_s4_003388",
+        "cleanvul_s4_003219",
+        "cleanvul_s4_002977",
+        "megavul_229250",
+        "megavul_012344",
+        "megavul_322934",
+        "megavul_184188",
+        "megavul_135293",
+        "cleanvul_s4_004510",
+        "primevul_valid_000255",
+        "cleanvul_s4_003988",
+        "cleanvul_s4_002744",
+        "cleanvul_s4_000838",
+        "cleanvul_s4_001304",
+        "megavul_340080",
+        "megavul_254058",
+        "megavul_222711",
+        "megavul_200355",
+        "megavul_153083",
+        "megavul_003015",
+        "megavul_311439",
+        "megavul_258747",
+        "megavul_132653",
+        "megavul_131740",
+        "megavul_112856",
+        "megavul_055341",
+        "megavul_055114",
+        "megavul_326950",
+        "megavul_279473",
+        "cleanvul_s4_005483"
+      ],
+      "minimum_evidence": "核查数据合法范围、非法状态的分支行为和修复前遗漏的条件",
+      "counterevidence_to_seek": "检查所有与安全性质相关的输入约束及分支一致性",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "bounds_read__length_or_capacity_check",
+      "vulnerability_type": "bounds_read",
+      "vulnerability_name_zh": "越界读取",
+      "repair_pattern": "length_or_capacity_check",
+      "repair_pattern_zh": "写入/读取前的长度与实际容量约束",
+      "count": 112,
+      "cwe_counts": {
+        "CWE-120": 5,
+        "CWE-125": 45,
+        "CWE-20": 2,
+        "CWE-787": 10,
+        "CWE-119": 12,
+        "CWE-191": 1,
+        "CWE-200": 2,
+        "CWE-189": 1,
+        "CWE-287": 1,
+        "CWE-476": 1
+      },
+      "datasets": {
+        "MegaVul": 43,
+        "PrimeVul": 32,
+        "CleanVul": 35,
+        "ReposVul": 2
+      },
+      "representative_sample_ids": [
+        "megavul_319215",
+        "megavul_175700",
+        "primevul_train_000908"
+      ],
+      "sample_ids": [
+        "megavul_319215",
+        "megavul_175700",
+        "primevul_train_000908",
+        "primevul_train_003237",
+        "cleanvul_s4_001121",
+        "cleanvul_s4_000102",
+        "cleanvul_s4_005680",
+        "cleanvul_s4_004943",
+        "cleanvul_s4_003772",
+        "megavul_099408",
+        "primevul_train_002065",
+        "megavul_339738",
+        "megavul_241756",
+        "primevul_train_000963",
+        "cleanvul_s4_004605",
+        "cleanvul_s4_000547",
+        "megavul_011177",
+        "megavul_325877",
+        "megavul_310931",
+        "reposvul_001382_000_000",
+        "reposvul_002342_000_000",
+        "primevul_train_002496",
+        "primevul_test_000348",
+        "primevul_valid_000352",
+        "primevul_valid_000266",
+        "primevul_valid_000095",
+        "primevul_train_003108",
+        "primevul_train_002236",
+        "primevul_train_000536",
+        "primevul_valid_000339",
+        "megavul_226573",
+        "primevul_valid_000222",
+        "primevul_test_000322",
+        "megavul_012630",
+        "megavul_241999",
+        "megavul_124460",
+        "primevul_train_000131",
+        "primevul_train_001020",
+        "cleanvul_s4_006248",
+        "cleanvul_s4_006179",
+        "cleanvul_s4_005848",
+        "primevul_test_000336",
+        "primevul_train_003094",
+        "primevul_train_003131",
+        "primevul_train_001118",
+        "cleanvul_s4_003774",
+        "cleanvul_s4_002036",
+        "cleanvul_s4_001917",
+        "cleanvul_s4_005461",
+        "cleanvul_s4_003778",
+        "cleanvul_s4_003071",
+        "cleanvul_s4_001047",
+        "cleanvul_s4_002839",
+        "megavul_065382",
+        "megavul_282616",
+        "megavul_319188",
+        "cleanvul_s4_002638",
+        "cleanvul_s4_001710",
+        "cleanvul_s4_001188",
+        "cleanvul_s4_000508",
+        "cleanvul_s4_006049",
+        "cleanvul_s4_005850",
+        "megavul_060960",
+        "megavul_343132",
+        "primevul_test_000078",
+        "primevul_train_003263",
+        "primevul_train_002546",
+        "primevul_train_002383",
+        "primevul_train_002078",
+        "primevul_train_002018",
+        "primevul_train_002871",
+        "primevul_train_001997",
+        "primevul_valid_000272",
+        "cleanvul_s4_000231",
+        "cleanvul_s4_002851",
+        "cleanvul_s4_003777",
+        "cleanvul_s4_002778",
+        "cleanvul_s4_002205",
+        "cleanvul_s4_002884",
+        "cleanvul_s4_002537",
+        "cleanvul_s4_001084",
+        "cleanvul_s4_002717",
+        "megavul_111031",
+        "megavul_037513",
+        "megavul_324039",
+        "megavul_202045",
+        "megavul_185104",
+        "megavul_151212",
+        "megavul_142491",
+        "megavul_063834",
+        "megavul_040742",
+        "megavul_040664",
+        "megavul_040662",
+        "megavul_011196",
+        "megavul_319207",
+        "megavul_299077",
+        "megavul_275276",
+        "megavul_260604",
+        "megavul_234623",
+        "megavul_226436",
+        "megavul_208814",
+        "megavul_183609",
+        "megavul_153062",
+        "megavul_107232",
+        "megavul_094459",
+        "megavul_040741",
+        "megavul_040682",
+        "megavul_008357",
+        "primevul_train_002070",
+        "primevul_train_002843",
+        "cleanvul_s4_002628",
+        "cleanvul_s4_006048"
+      ],
+      "minimum_evidence": "确认输入到长度/偏移的传递、实际源缓冲区界限、读操作前全部路径的检查",
+      "counterevidence_to_seek": "读取前验证偏移、长度、真实对象容量；检查加法溢出",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "bounds_write__length_or_capacity_check",
+      "vulnerability_type": "bounds_write",
+      "vulnerability_name_zh": "越界写入",
+      "repair_pattern": "length_or_capacity_check",
+      "repair_pattern_zh": "写入/读取前的长度与实际容量约束",
+      "count": 109,
+      "cwe_counts": {
+        "CWE-787": 27,
+        "CWE-121": 1,
+        "CWE-119": 25,
+        "CWE-120": 6,
+        "CWE-703": 2,
+        "CWE-189": 1,
+        "CWE-20": 4,
+        "CWE-264": 2,
+        "CWE-125": 2,
+        "CWE-193": 1,
+        "CWE-1284": 1
+      },
+      "datasets": {
+        "MegaVul": 35,
+        "CleanVul": 38,
+        "PrimeVul": 34,
+        "ReposVul": 2
+      },
+      "representative_sample_ids": [
+        "megavul_248517",
+        "megavul_070459",
+        "cleanvul_s4_003657"
+      ],
+      "sample_ids": [
+        "megavul_248517",
+        "megavul_070459",
+        "cleanvul_s4_003657",
+        "cleanvul_s4_003139",
+        "cleanvul_s4_002128",
+        "cleanvul_s4_002044",
+        "cleanvul_s4_001115",
+        "cleanvul_s4_006272",
+        "megavul_209142",
+        "cleanvul_s4_000964",
+        "cleanvul_s4_000913",
+        "cleanvul_s4_000884",
+        "cleanvul_s4_004127",
+        "megavul_309024",
+        "megavul_086169",
+        "megavul_290805",
+        "primevul_valid_000411",
+        "reposvul_001928_000_001",
+        "primevul_train_002024",
+        "megavul_113836",
+        "megavul_191933",
+        "megavul_064661",
+        "megavul_174010",
+        "megavul_301182",
+        "megavul_292251",
+        "megavul_291580",
+        "primevul_valid_000378",
+        "primevul_train_000734",
+        "primevul_train_000441",
+        "cleanvul_s4_005226",
+        "cleanvul_s4_004119",
+        "cleanvul_s4_003711",
+        "cleanvul_s4_002508",
+        "cleanvul_s4_002173",
+        "cleanvul_s4_001640",
+        "cleanvul_s4_000771",
+        "cleanvul_s4_005301",
+        "cleanvul_s4_004419",
+        "megavul_343615",
+        "megavul_324325",
+        "primevul_train_002909",
+        "primevul_valid_000052",
+        "primevul_train_000747",
+        "primevul_train_002385",
+        "primevul_train_002242",
+        "primevul_train_002944",
+        "cleanvul_s4_004898",
+        "cleanvul_s4_003524",
+        "cleanvul_s4_002800",
+        "cleanvul_s4_005541",
+        "cleanvul_s4_005394",
+        "primevul_train_001043",
+        "primevul_train_003103",
+        "primevul_train_002188",
+        "primevul_train_001039",
+        "primevul_train_000958",
+        "primevul_train_000788",
+        "primevul_train_000328",
+        "primevul_test_000352",
+        "primevul_train_003206",
+        "primevul_train_002306",
+        "primevul_train_000569",
+        "primevul_train_003227",
+        "primevul_train_002762",
+        "primevul_test_000193",
+        "primevul_train_002002",
+        "primevul_train_000745",
+        "primevul_test_000394",
+        "primevul_train_002444",
+        "primevul_train_002019",
+        "primevul_test_000271",
+        "cleanvul_s4_003728",
+        "cleanvul_s4_003075",
+        "cleanvul_s4_002114",
+        "cleanvul_s4_001691",
+        "cleanvul_s4_001625",
+        "cleanvul_s4_003499",
+        "megavul_240089",
+        "megavul_081060",
+        "megavul_077895",
+        "megavul_077877",
+        "megavul_237519",
+        "megavul_237509",
+        "megavul_134567",
+        "megavul_081129",
+        "megavul_081049",
+        "megavul_221247",
+        "primevul_valid_000131",
+        "primevul_train_002918",
+        "cleanvul_s4_006140",
+        "cleanvul_s4_004451",
+        "cleanvul_s4_001578",
+        "cleanvul_s4_002975",
+        "cleanvul_s4_000173",
+        "cleanvul_s4_000016",
+        "megavul_040602",
+        "megavul_019237",
+        "megavul_305613",
+        "megavul_010345",
+        "megavul_258930",
+        "megavul_247773",
+        "megavul_236873",
+        "megavul_153237",
+        "megavul_153086",
+        "megavul_055343",
+        "reposvul_000636_000_000",
+        "primevul_train_003328",
+        "cleanvul_s4_004681",
+        "cleanvul_s4_000415"
+      ],
+      "minimum_evidence": "确认写入长度与目标对象容量、整数运算溢出情况、写入前约束是否覆盖路径",
+      "counterevidence_to_seek": "写入前证明目标实际可写容量足够（含结束符）；分支容量应匹配",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "null_dereference__null_or_result_check",
+      "vulnerability_type": "null_dereference",
+      "vulnerability_name_zh": "空指针解引用",
+      "repair_pattern": "null_or_result_check",
+      "repair_pattern_zh": "空值或返回结果检查",
+      "count": 92,
+      "cwe_counts": {
+        "CWE-476": 43,
+        "CWE-834": 1,
+        "CWE-22": 1,
+        "CWE-59": 1,
+        "CWE-703": 2,
+        "CWE-20": 3,
+        "CWE-287": 1,
+        "CWE-755": 1,
+        "CWE-190": 1
+      },
+      "datasets": {
+        "CleanVul": 39,
+        "MegaVul": 18,
+        "PrimeVul": 35
+      },
+      "representative_sample_ids": [
+        "cleanvul_s4_002814",
+        "cleanvul_s4_004961",
+        "cleanvul_s4_004528"
+      ],
+      "sample_ids": [
+        "cleanvul_s4_002814",
+        "cleanvul_s4_004961",
+        "cleanvul_s4_004528",
+        "cleanvul_s4_003177",
+        "megavul_155831",
+        "megavul_318240",
+        "megavul_313564",
+        "primevul_train_002146",
+        "primevul_train_000798",
+        "primevul_test_000030",
+        "cleanvul_s4_006288",
+        "cleanvul_s4_006133",
+        "cleanvul_s4_005328",
+        "cleanvul_s4_004878",
+        "cleanvul_s4_004732",
+        "cleanvul_s4_004601",
+        "cleanvul_s4_004221",
+        "cleanvul_s4_004129",
+        "cleanvul_s4_003538",
+        "cleanvul_s4_002815",
+        "cleanvul_s4_001835",
+        "cleanvul_s4_002302",
+        "cleanvul_s4_001959",
+        "megavul_265871",
+        "cleanvul_s4_000388",
+        "cleanvul_s4_002465",
+        "cleanvul_s4_002950",
+        "megavul_320435",
+        "primevul_train_002163",
+        "megavul_313312",
+        "cleanvul_s4_000028",
+        "cleanvul_s4_005881",
+        "cleanvul_s4_005868",
+        "cleanvul_s4_005121",
+        "cleanvul_s4_005018",
+        "cleanvul_s4_004976",
+        "cleanvul_s4_004504",
+        "cleanvul_s4_004347",
+        "megavul_296558",
+        "megavul_343160",
+        "megavul_326663",
+        "megavul_314149",
+        "primevul_train_002561",
+        "primevul_train_002816",
+        "primevul_train_002594",
+        "primevul_train_001144",
+        "primevul_valid_000062",
+        "primevul_train_003213",
+        "primevul_train_003192",
+        "primevul_train_001719",
+        "primevul_valid_000111",
+        "primevul_train_003352",
+        "primevul_train_002493",
+        "primevul_train_002350",
+        "primevul_train_002087",
+        "primevul_train_001277",
+        "primevul_train_000854",
+        "cleanvul_s4_001852",
+        "megavul_070718",
+        "primevul_train_000423",
+        "primevul_test_000397",
+        "primevul_test_000187",
+        "primevul_test_000105",
+        "primevul_test_000006",
+        "primevul_valid_000271",
+        "primevul_valid_000139",
+        "primevul_valid_000115",
+        "primevul_train_002938",
+        "primevul_train_002203",
+        "primevul_train_002174",
+        "primevul_train_002139",
+        "primevul_train_002120",
+        "primevul_test_000176",
+        "primevul_train_002734",
+        "primevul_train_001887",
+        "cleanvul_s4_002883",
+        "cleanvul_s4_002422",
+        "cleanvul_s4_000276",
+        "cleanvul_s4_005665",
+        "cleanvul_s4_005521",
+        "cleanvul_s4_001961",
+        "cleanvul_s4_004033",
+        "cleanvul_s4_002672",
+        "cleanvul_s4_002610",
+        "megavul_116821",
+        "megavul_015965",
+        "megavul_349402",
+        "megavul_335143",
+        "megavul_060512",
+        "megavul_335793",
+        "megavul_325798",
+        "cleanvul_s4_002218"
+      ],
+      "minimum_evidence": "找出指针产生点、失败返回路径、解引用位置与支配关系",
+      "counterevidence_to_seek": "证明每条可达路径均已判空或取得非空保证",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "integer_overflow__checked_arithmetic",
+      "vulnerability_type": "integer_overflow",
+      "vulnerability_name_zh": "整数溢出",
+      "repair_pattern": "checked_arithmetic",
+      "repair_pattern_zh": "加减乘除前后溢出检查",
+      "count": 75,
+      "cwe_counts": {
+        "CWE-190": 45,
+        "CWE-125": 4,
+        "CWE-681": 1,
+        "CWE-787": 6,
+        "CWE-189": 4,
+        "CWE-200": 2,
+        "CWE-20": 2,
+        "CWE-119": 1,
+        "CWE-264": 1
+      },
+      "datasets": {
+        "MegaVul": 41,
+        "ReposVul": 2,
+        "CleanVul": 20,
+        "PrimeVul": 12
+      },
+      "representative_sample_ids": [
+        "megavul_339805",
+        "megavul_118884",
+        "megavul_226758"
+      ],
+      "sample_ids": [
+        "megavul_339805",
+        "megavul_118884",
+        "megavul_226758",
+        "reposvul_001720_000_000",
+        "reposvul_000905_000_006",
+        "cleanvul_s4_004724",
+        "cleanvul_s4_003039",
+        "cleanvul_s4_002876",
+        "cleanvul_s4_001300",
+        "cleanvul_s4_000881",
+        "cleanvul_s4_000726",
+        "cleanvul_s4_000521",
+        "cleanvul_s4_006136",
+        "cleanvul_s4_005382",
+        "cleanvul_s4_005316",
+        "cleanvul_s4_003588",
+        "cleanvul_s4_004288",
+        "megavul_013507",
+        "megavul_098719",
+        "megavul_348172",
+        "megavul_344426",
+        "megavul_213694",
+        "megavul_006490",
+        "megavul_000143",
+        "primevul_train_000948",
+        "megavul_301681",
+        "primevul_train_001904",
+        "cleanvul_s4_000326",
+        "cleanvul_s4_004664",
+        "megavul_344887",
+        "megavul_304861",
+        "megavul_285113",
+        "primevul_train_003175",
+        "primevul_train_002322",
+        "primevul_valid_000232",
+        "primevul_valid_000059",
+        "primevul_train_003223",
+        "primevul_valid_000347",
+        "primevul_train_001962",
+        "primevul_train_002821",
+        "primevul_train_002294",
+        "primevul_train_003485",
+        "cleanvul_s4_001936",
+        "cleanvul_s4_001785",
+        "cleanvul_s4_000303",
+        "cleanvul_s4_005974",
+        "cleanvul_s4_001409",
+        "megavul_159450",
+        "megavul_116040",
+        "megavul_075807",
+        "megavul_159302",
+        "cleanvul_s4_005250",
+        "megavul_016935",
+        "megavul_151244",
+        "megavul_133048",
+        "megavul_105874",
+        "megavul_077411",
+        "megavul_033502",
+        "megavul_277365",
+        "megavul_258509",
+        "megavul_237428",
+        "megavul_148751",
+        "megavul_146912",
+        "megavul_070842",
+        "megavul_336386",
+        "megavul_288284",
+        "megavul_285240",
+        "megavul_241830",
+        "megavul_225495",
+        "megavul_145125",
+        "megavul_116943",
+        "megavul_115844",
+        "megavul_111614",
+        "megavul_046733",
+        "megavul_013304"
+      ],
+      "minimum_evidence": "确认参与运算变量的取值范围、提升转换、后续内存操作所用结果",
+      "counterevidence_to_seek": "运算前做范围检查或扩大运算类型；检查后续缩窄转换",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "authorization_bypass__authorization_check",
+      "vulnerability_type": "authorization_bypass",
+      "vulnerability_name_zh": "授权绕过",
+      "repair_pattern": "authorization_check",
+      "repair_pattern_zh": "权限、身份与资源归属验证",
+      "count": 48,
+      "cwe_counts": {
+        "CWE-732": 3,
+        "CWE-862": 1,
+        "CWE-281": 2,
+        "CWE-287": 2,
+        "CWE-838": 1,
+        "CWE-284": 3,
+        "CWE-200": 2,
+        "CWE-522": 1,
+        "CWE-703": 1,
+        "CWE-20": 2,
+        "CWE-22": 2,
+        "CWE-264": 4,
+        "CWE-346": 1,
+        "CWE-285": 1
+      },
+      "datasets": {
+        "MegaVul": 9,
+        "PrimeVul": 15,
+        "CleanVul": 23,
+        "ReposVul": 1
+      },
+      "representative_sample_ids": [
+        "megavul_250927",
+        "megavul_201689",
+        "primevul_train_002429"
+      ],
+      "sample_ids": [
+        "megavul_250927",
+        "megavul_201689",
+        "primevul_train_002429",
+        "primevul_train_000516",
+        "cleanvul_s4_006142",
+        "cleanvul_s4_005509",
+        "cleanvul_s4_003485",
+        "cleanvul_s4_002284",
+        "cleanvul_s4_001635",
+        "cleanvul_s4_000400",
+        "cleanvul_s4_002034",
+        "cleanvul_s4_001676",
+        "cleanvul_s4_001166",
+        "cleanvul_s4_006206",
+        "cleanvul_s4_000150",
+        "cleanvul_s4_005887",
+        "cleanvul_s4_005194",
+        "cleanvul_s4_005084",
+        "cleanvul_s4_004237",
+        "megavul_331601",
+        "reposvul_003056_000_001",
+        "primevul_train_002305",
+        "primevul_train_002540",
+        "primevul_test_000378",
+        "primevul_train_003196",
+        "primevul_train_003084",
+        "primevul_train_000537",
+        "primevul_valid_000220",
+        "primevul_train_003548",
+        "primevul_train_003079",
+        "primevul_train_001951",
+        "primevul_train_000857",
+        "primevul_train_002095",
+        "primevul_train_000944",
+        "cleanvul_s4_003679",
+        "megavul_273006",
+        "cleanvul_s4_005206",
+        "cleanvul_s4_004150",
+        "cleanvul_s4_004100",
+        "cleanvul_s4_003036",
+        "cleanvul_s4_000270",
+        "cleanvul_s4_001902",
+        "cleanvul_s4_001042",
+        "megavul_155997",
+        "megavul_005537",
+        "megavul_223843",
+        "megavul_207604",
+        "megavul_063660"
+      ],
+      "minimum_evidence": "梳理请求身份、资源归属、认证授权顺序与绕过路径",
+      "counterevidence_to_seek": "在敏感操作前校验主体、资源与对应权限及其绑定",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "bounds_write__bounds_check",
+      "vulnerability_type": "bounds_write",
+      "vulnerability_name_zh": "越界写入",
+      "repair_pattern": "bounds_check",
+      "repair_pattern_zh": "索引与范围检查",
+      "count": 45,
+      "cwe_counts": {
+        "CWE-787": 13,
+        "CWE-125": 3,
+        "CWE-399": 1,
+        "CWE-20": 4,
+        "CWE-119": 5,
+        "CWE-129": 1,
+        "CWE-120": 1,
+        "CWE-122": 1
+      },
+      "datasets": {
+        "MegaVul": 13,
+        "CleanVul": 16,
+        "PrimeVul": 16
+      },
+      "representative_sample_ids": [
+        "megavul_300133",
+        "megavul_289664",
+        "cleanvul_s4_004137"
+      ],
+      "sample_ids": [
+        "megavul_300133",
+        "megavul_289664",
+        "cleanvul_s4_004137",
+        "cleanvul_s4_006040",
+        "cleanvul_s4_005168",
+        "cleanvul_s4_003258",
+        "megavul_212129",
+        "primevul_train_002180",
+        "primevul_train_000220",
+        "megavul_008140",
+        "megavul_334748",
+        "megavul_345326",
+        "megavul_116644",
+        "megavul_046667",
+        "cleanvul_s4_004123",
+        "cleanvul_s4_005261",
+        "primevul_train_002067",
+        "cleanvul_s4_000258",
+        "cleanvul_s4_001531",
+        "cleanvul_s4_003948",
+        "cleanvul_s4_000198",
+        "cleanvul_s4_004562",
+        "cleanvul_s4_004300",
+        "primevul_train_002017",
+        "primevul_test_000154",
+        "primevul_train_000994",
+        "primevul_valid_000285",
+        "primevul_train_002964",
+        "primevul_train_001980",
+        "primevul_test_000357",
+        "primevul_train_002008",
+        "cleanvul_s4_002976",
+        "megavul_348854",
+        "megavul_161715",
+        "primevul_train_001263",
+        "primevul_train_001163",
+        "primevul_test_000164",
+        "primevul_train_003246",
+        "cleanvul_s4_001339",
+        "cleanvul_s4_002331",
+        "cleanvul_s4_006176",
+        "megavul_037573",
+        "megavul_216178",
+        "megavul_075585",
+        "primevul_valid_000178"
+      ],
+      "minimum_evidence": "确认写入长度与目标对象容量、整数运算溢出情况、写入前约束是否覆盖路径",
+      "counterevidence_to_seek": "写入前证明目标实际可写容量足够（含结束符）；分支容量应匹配",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "buffer_size_mismatch__length_or_capacity_check",
+      "vulnerability_type": "buffer_size_mismatch",
+      "vulnerability_name_zh": "缓冲区大小不匹配",
+      "repair_pattern": "length_or_capacity_check",
+      "repair_pattern_zh": "写入/读取前的长度与实际容量约束",
+      "count": 39,
+      "cwe_counts": {
+        "CWE-787": 9,
+        "CWE-119": 9,
+        "CWE-20": 5,
+        "CWE-125": 3,
+        "CWE-120": 4,
+        "CWE-703": 1
+      },
+      "datasets": {
+        "PrimeVul": 14,
+        "MegaVul": 16,
+        "CleanVul": 9
+      },
+      "representative_sample_ids": [
+        "primevul_test_000236",
+        "primevul_valid_000333",
+        "primevul_test_000061"
+      ],
+      "sample_ids": [
+        "primevul_test_000236",
+        "primevul_valid_000333",
+        "primevul_test_000061",
+        "megavul_053950",
+        "megavul_336927",
+        "megavul_151282",
+        "megavul_293707",
+        "primevul_train_000235",
+        "cleanvul_s4_005582",
+        "cleanvul_s4_003720",
+        "cleanvul_s4_003662",
+        "cleanvul_s4_000826",
+        "megavul_300187",
+        "megavul_002536",
+        "megavul_332608",
+        "megavul_278424",
+        "primevul_train_000221",
+        "primevul_train_002931",
+        "primevul_train_002403",
+        "primevul_train_002316",
+        "primevul_train_003048",
+        "cleanvul_s4_003865",
+        "cleanvul_s4_002356",
+        "megavul_279569",
+        "primevul_valid_000309",
+        "primevul_valid_000005",
+        "primevul_train_002611",
+        "primevul_train_000371",
+        "cleanvul_s4_003056",
+        "megavul_145494",
+        "megavul_109029",
+        "megavul_017573",
+        "primevul_valid_000346",
+        "cleanvul_s4_002159",
+        "cleanvul_s4_002594",
+        "megavul_290700",
+        "megavul_221641",
+        "megavul_259246",
+        "megavul_063340"
+      ],
+      "minimum_evidence": "追踪容量来源、长度字段、复制/解析操作和非一致性",
+      "counterevidence_to_seek": "验证声明长度、分配容量与实际数据长度的一致性",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "logic_validation__error_propagation",
+      "vulnerability_type": "logic_validation",
+      "vulnerability_name_zh": "逻辑或输入验证缺陷",
+      "repair_pattern": "error_propagation",
+      "repair_pattern_zh": "错误状态传播与失败关闭",
+      "count": 36,
+      "cwe_counts": {
+        "CWE-59": 1,
+        "CWE-476": 5,
+        "CWE-787": 2,
+        "CWE-436": 1,
+        "CWE-125": 3,
+        "CWE-189": 1,
+        "CWE-20": 3,
+        "CWE-252": 2,
+        "CWE-703": 1,
+        "CWE-755": 1,
+        "CWE-416": 1,
+        "CWE-362": 1,
+        "CWE-400": 1
+      },
+      "datasets": {
+        "PrimeVul": 13,
+        "CleanVul": 14,
+        "MegaVul": 9
+      },
+      "representative_sample_ids": [
+        "primevul_train_002680",
+        "cleanvul_s4_002905",
+        "primevul_valid_000358"
+      ],
+      "sample_ids": [
+        "primevul_train_002680",
+        "cleanvul_s4_002905",
+        "primevul_valid_000358",
+        "cleanvul_s4_004334",
+        "cleanvul_s4_002138",
+        "cleanvul_s4_005932",
+        "cleanvul_s4_004718",
+        "cleanvul_s4_002853",
+        "cleanvul_s4_001658",
+        "cleanvul_s4_001712",
+        "megavul_277377",
+        "megavul_116864",
+        "megavul_289507",
+        "primevul_valid_000186",
+        "primevul_train_002567",
+        "primevul_train_002889",
+        "primevul_train_003214",
+        "primevul_train_000367",
+        "primevul_train_002507",
+        "primevul_train_002222",
+        "primevul_test_000090",
+        "primevul_valid_000214",
+        "cleanvul_s4_001591",
+        "cleanvul_s4_004489",
+        "cleanvul_s4_001176",
+        "megavul_325622",
+        "megavul_192132",
+        "megavul_020435",
+        "cleanvul_s4_003184",
+        "primevul_train_000772",
+        "primevul_train_003298",
+        "cleanvul_s4_003911",
+        "cleanvul_s4_002739",
+        "megavul_169509",
+        "megavul_085995",
+        "megavul_006196"
+      ],
+      "minimum_evidence": "核查数据合法范围、非法状态的分支行为和修复前遗漏的条件",
+      "counterevidence_to_seek": "检查所有与安全性质相关的输入约束及分支一致性",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "resource_leak__resource_cleanup",
+      "vulnerability_type": "resource_leak",
+      "vulnerability_name_zh": "资源泄漏",
+      "repair_pattern": "resource_cleanup",
+      "repair_pattern_zh": "资源清理与异常路径处理",
+      "count": 24,
+      "cwe_counts": {
+        "CWE-400": 1,
+        "CWE-772": 3,
+        "CWE-401": 7,
+        "CWE-125": 1,
+        "CWE-399": 1
+      },
+      "datasets": {
+        "CleanVul": 12,
+        "MegaVul": 3,
+        "PrimeVul": 9
+      },
+      "representative_sample_ids": [
+        "cleanvul_s4_004335",
+        "cleanvul_s4_006365",
+        "cleanvul_s4_004164"
+      ],
+      "sample_ids": [
+        "cleanvul_s4_004335",
+        "cleanvul_s4_006365",
+        "cleanvul_s4_004164",
+        "cleanvul_s4_002582",
+        "cleanvul_s4_001770",
+        "cleanvul_s4_000323",
+        "cleanvul_s4_001713",
+        "cleanvul_s4_003847",
+        "megavul_000092",
+        "primevul_train_003276",
+        "primevul_train_003531",
+        "primevul_train_003387",
+        "primevul_train_003287",
+        "primevul_train_003551",
+        "primevul_train_003183",
+        "primevul_train_003456",
+        "primevul_train_003376",
+        "primevul_train_003418",
+        "cleanvul_s4_003339",
+        "cleanvul_s4_002417",
+        "megavul_318435",
+        "megavul_072582",
+        "cleanvul_s4_001418",
+        "cleanvul_s4_001343"
+      ],
+      "minimum_evidence": "列出资源获取点、返回点、错误路径及释放调用",
+      "counterevidence_to_seek": "确保成功、失败和异常分支资源所有权与清理一致",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "logic_validation__length_or_capacity_check",
+      "vulnerability_type": "logic_validation",
+      "vulnerability_name_zh": "逻辑或输入验证缺陷",
+      "repair_pattern": "length_or_capacity_check",
+      "repair_pattern_zh": "写入/读取前的长度与实际容量约束",
+      "count": 23,
+      "cwe_counts": {
+        "CWE-787": 2,
+        "CWE-681": 1,
+        "CWE-125": 10,
+        "CWE-190": 1,
+        "CWE-20": 3,
+        "CWE-119": 1
+      },
+      "datasets": {
+        "MegaVul": 7,
+        "CleanVul": 5,
+        "PrimeVul": 11
+      },
+      "representative_sample_ids": [
+        "megavul_266069",
+        "megavul_085175",
+        "cleanvul_s4_006250"
+      ],
+      "sample_ids": [
+        "megavul_266069",
+        "megavul_085175",
+        "cleanvul_s4_006250",
+        "cleanvul_s4_004885",
+        "megavul_313992",
+        "primevul_train_002111",
+        "primevul_train_003405",
+        "primevul_train_003221",
+        "cleanvul_s4_004998",
+        "cleanvul_s4_003411",
+        "cleanvul_s4_005418",
+        "primevul_train_002431",
+        "primevul_train_002284",
+        "primevul_valid_000105",
+        "megavul_336269",
+        "primevul_train_002681",
+        "primevul_train_002030",
+        "primevul_train_002198",
+        "primevul_valid_000053",
+        "primevul_train_003101",
+        "megavul_234681",
+        "megavul_042517",
+        "megavul_310932"
+      ],
+      "minimum_evidence": "核查数据合法范围、非法状态的分支行为和修复前遗漏的条件",
+      "counterevidence_to_seek": "检查所有与安全性质相关的输入约束及分支一致性",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "bounds_write__safe_api_or_argument",
+      "vulnerability_type": "bounds_write",
+      "vulnerability_name_zh": "越界写入",
+      "repair_pattern": "safe_api_or_argument",
+      "repair_pattern_zh": "接口替换以及安全参数/容量参数",
+      "count": 20,
+      "cwe_counts": {
+        "CWE-787": 5,
+        "CWE-119": 5,
+        "CWE-120": 1
+      },
+      "datasets": {
+        "MegaVul": 6,
+        "ReposVul": 1,
+        "PrimeVul": 4,
+        "CleanVul": 9
+      },
+      "representative_sample_ids": [
+        "megavul_295294",
+        "reposvul_003539_000_000",
+        "megavul_249485"
+      ],
+      "sample_ids": [
+        "megavul_295294",
+        "reposvul_003539_000_000",
+        "megavul_249485",
+        "primevul_train_000669",
+        "megavul_308849",
+        "cleanvul_s4_002624",
+        "cleanvul_s4_004498",
+        "cleanvul_s4_004441",
+        "cleanvul_s4_003240",
+        "megavul_348080",
+        "primevul_train_002330",
+        "primevul_train_000950",
+        "cleanvul_s4_000683",
+        "cleanvul_s4_005723",
+        "cleanvul_s4_000670",
+        "primevul_valid_000063",
+        "cleanvul_s4_004679",
+        "megavul_175722",
+        "megavul_152206",
+        "cleanvul_s4_005265"
+      ],
+      "minimum_evidence": "确认写入长度与目标对象容量、整数运算溢出情况、写入前约束是否覆盖路径",
+      "counterevidence_to_seek": "写入前证明目标实际可写容量足够（含结束符）；分支容量应匹配",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "logic_validation__bounds_check",
+      "vulnerability_type": "logic_validation",
+      "vulnerability_name_zh": "逻辑或输入验证缺陷",
+      "repair_pattern": "bounds_check",
+      "repair_pattern_zh": "索引与范围检查",
+      "count": 20,
+      "cwe_counts": {
+        "CWE-125": 5,
+        "CWE-787": 2,
+        "CWE-20": 2,
+        "CWE-264": 1,
+        "CWE-129": 1,
+        "CWE-190": 2,
+        "CWE-200": 1
+      },
+      "datasets": {
+        "PrimeVul": 6,
+        "MegaVul": 8,
+        "CleanVul": 6
+      },
+      "representative_sample_ids": [
+        "primevul_train_002904",
+        "megavul_006941",
+        "primevul_train_002366"
+      ],
+      "sample_ids": [
+        "primevul_train_002904",
+        "megavul_006941",
+        "primevul_train_002366",
+        "cleanvul_s4_004610",
+        "primevul_train_002165",
+        "primevul_train_000263",
+        "megavul_147695",
+        "cleanvul_s4_000648",
+        "cleanvul_s4_002520",
+        "megavul_258464",
+        "primevul_train_003474",
+        "megavul_001699",
+        "primevul_train_001954",
+        "cleanvul_s4_003680",
+        "cleanvul_s4_001878",
+        "cleanvul_s4_002439",
+        "megavul_111595",
+        "megavul_085889",
+        "megavul_189652",
+        "megavul_136795"
+      ],
+      "minimum_evidence": "核查数据合法范围、非法状态的分支行为和修复前遗漏的条件",
+      "counterevidence_to_seek": "检查所有与安全性质相关的输入约束及分支一致性",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "integer_underflow__checked_arithmetic",
+      "vulnerability_type": "integer_underflow",
+      "vulnerability_name_zh": "整数下溢",
+      "repair_pattern": "checked_arithmetic",
+      "repair_pattern_zh": "加减乘除前后溢出检查",
+      "count": 19,
+      "cwe_counts": {
+        "CWE-191": 2,
+        "CWE-190": 3,
+        "CWE-200": 1,
+        "CWE-189": 1,
+        "CWE-116": 1,
+        "CWE-120": 1,
+        "CWE-20": 1,
+        "CWE-703": 1,
+        "CWE-119": 1
+      },
+      "datasets": {
+        "CleanVul": 7,
+        "MegaVul": 6,
+        "PrimeVul": 6
+      },
+      "representative_sample_ids": [
+        "cleanvul_s4_005530",
+        "cleanvul_s4_004829",
+        "megavul_250898"
+      ],
+      "sample_ids": [
+        "cleanvul_s4_005530",
+        "cleanvul_s4_004829",
+        "megavul_250898",
+        "primevul_train_001928",
+        "cleanvul_s4_003676",
+        "cleanvul_s4_001528",
+        "megavul_175834",
+        "primevul_train_002225",
+        "primevul_train_002940",
+        "primevul_test_000118",
+        "cleanvul_s4_005007",
+        "megavul_279559",
+        "megavul_248376",
+        "megavul_012279",
+        "primevul_valid_000217",
+        "cleanvul_s4_002822",
+        "primevul_train_003433",
+        "cleanvul_s4_004155",
+        "megavul_072291"
+      ],
+      "minimum_evidence": "确认运算数类型和输入范围，以及溢出值如何影响安全判断",
+      "counterevidence_to_seek": "确认减法上下界和无符号回绕问题",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "resource_exhaustion__length_or_capacity_check",
+      "vulnerability_type": "resource_exhaustion",
+      "vulnerability_name_zh": "资源耗尽",
+      "repair_pattern": "length_or_capacity_check",
+      "repair_pattern_zh": "写入/读取前的长度与实际容量约束",
+      "count": 19,
+      "cwe_counts": {
+        "CWE-770": 1,
+        "CWE-399": 2,
+        "CWE-189": 1,
+        "CWE-434": 1,
+        "CWE-674": 1,
+        "CWE-295": 1,
+        "CWE-190": 1,
+        "CWE-401": 1,
+        "CWE-787": 1,
+        "CWE-20": 2
+      },
+      "datasets": {
+        "CleanVul": 7,
+        "PrimeVul": 5,
+        "MegaVul": 7
+      },
+      "representative_sample_ids": [
+        "cleanvul_s4_005768",
+        "cleanvul_s4_002296",
+        "cleanvul_s4_002202"
+      ],
+      "sample_ids": [
+        "cleanvul_s4_005768",
+        "cleanvul_s4_002296",
+        "cleanvul_s4_002202",
+        "cleanvul_s4_003185",
+        "primevul_train_002637",
+        "primevul_train_003225",
+        "primevul_train_003478",
+        "primevul_test_000220",
+        "cleanvul_s4_003057",
+        "cleanvul_s4_005809",
+        "megavul_082645",
+        "megavul_316669",
+        "megavul_238130",
+        "megavul_181308",
+        "megavul_324241",
+        "primevul_train_002523",
+        "cleanvul_s4_002558",
+        "megavul_178408",
+        "megavul_327033"
+      ],
+      "minimum_evidence": "检查由输入控制的资源增长路径及资源限制",
+      "counterevidence_to_seek": "实施资源上界、进度/次数或速率限制并及时失败",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "use_after_free__lifetime_or_ownership_change",
+      "vulnerability_type": "use_after_free",
+      "vulnerability_name_zh": "释放后使用",
+      "repair_pattern": "lifetime_or_ownership_change",
+      "repair_pattern_zh": "对象生命周期及所有权修复",
+      "count": 19,
+      "cwe_counts": {
+        "CWE-416": 10,
+        "CWE-703": 1,
+        "CWE-762": 1,
+        "CWE-399": 1
+      },
+      "datasets": {
+        "PrimeVul": 6,
+        "CleanVul": 6,
+        "MegaVul": 7
+      },
+      "representative_sample_ids": [
+        "primevul_train_001010",
+        "cleanvul_s4_002192",
+        "cleanvul_s4_000739"
+      ],
+      "sample_ids": [
+        "primevul_train_001010",
+        "cleanvul_s4_002192",
+        "cleanvul_s4_000739",
+        "cleanvul_s4_002907",
+        "cleanvul_s4_006357",
+        "cleanvul_s4_004173",
+        "primevul_train_002389",
+        "primevul_train_003388",
+        "primevul_train_003209",
+        "primevul_train_002502",
+        "primevul_train_000753",
+        "cleanvul_s4_003325",
+        "megavul_239750",
+        "megavul_125213",
+        "megavul_234747",
+        "megavul_138453",
+        "megavul_070712",
+        "megavul_025851",
+        "megavul_048662"
+      ],
+      "minimum_evidence": "检查分配、引用、释放、别名、错误/异步路径顺序",
+      "counterevidence_to_seek": "证明对象在最后一次使用前存活且所有权明确",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "integer_overflow__wider_or_unsigned_type",
+      "vulnerability_type": "integer_overflow",
+      "vulnerability_name_zh": "整数溢出",
+      "repair_pattern": "wider_or_unsigned_type",
+      "repair_pattern_zh": "数值类型宽度或符号调整",
+      "count": 15,
+      "cwe_counts": {
+        "CWE-189": 2,
+        "CWE-190": 6,
+        "CWE-787": 1,
+        "CWE-369": 1,
+        "CWE-119": 1,
+        "CWE-125": 1,
+        "CWE-680": 1
+      },
+      "datasets": {
+        "CleanVul": 4,
+        "MegaVul": 5,
+        "PrimeVul": 6
+      },
+      "representative_sample_ids": [
+        "cleanvul_s4_004212",
+        "cleanvul_s4_004029",
+        "megavul_279708"
+      ],
+      "sample_ids": [
+        "cleanvul_s4_004212",
+        "cleanvul_s4_004029",
+        "megavul_279708",
+        "cleanvul_s4_002001",
+        "megavul_311447",
+        "primevul_valid_000383",
+        "primevul_valid_000142",
+        "primevul_train_002727",
+        "primevul_train_001124",
+        "cleanvul_s4_005961",
+        "primevul_train_003286",
+        "primevul_train_002687",
+        "megavul_115536",
+        "megavul_212395",
+        "megavul_111303"
+      ],
+      "minimum_evidence": "确认参与运算变量的取值范围、提升转换、后续内存操作所用结果",
+      "counterevidence_to_seek": "运算前做范围检查或扩大运算类型；检查后续缩窄转换",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "other__other",
+      "vulnerability_type": "other",
+      "vulnerability_name_zh": "其他安全机制",
+      "repair_pattern": "other",
+      "repair_pattern_zh": "其他修复行为",
+      "count": 15,
+      "cwe_counts": {
+        "CWE-787": 2,
+        "CWE-190": 1,
+        "CWE-119": 3,
+        "CWE-416": 1,
+        "CWE-20": 2,
+        "CWE-399": 1,
+        "CWE-200": 1
+      },
+      "datasets": {
+        "MegaVul": 5,
+        "PrimeVul": 4,
+        "CleanVul": 6
+      },
+      "representative_sample_ids": [
+        "megavul_322184",
+        "megavul_008130",
+        "primevul_train_002418"
+      ],
+      "sample_ids": [
+        "megavul_322184",
+        "megavul_008130",
+        "primevul_train_002418",
+        "cleanvul_s4_004439",
+        "cleanvul_s4_002094",
+        "cleanvul_s4_004772",
+        "primevul_test_000366",
+        "primevul_test_000297",
+        "cleanvul_s4_006258",
+        "cleanvul_s4_005477",
+        "megavul_034112",
+        "megavul_084270",
+        "megavul_082675",
+        "cleanvul_s4_003643",
+        "primevul_train_002638"
+      ],
+      "minimum_evidence": "查找修复前后的守卫差异、可达路径和对应对象状态",
+      "counterevidence_to_seek": "依照修复逻辑证明相关不变量而非仅凭固定模式判断",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "path_traversal__input_validation",
+      "vulnerability_type": "path_traversal",
+      "vulnerability_name_zh": "路径遍历",
+      "repair_pattern": "input_validation",
+      "repair_pattern_zh": "输入字段、格式或状态的合法性校验",
+      "count": 14,
+      "cwe_counts": {
+        "CWE-22": 5,
+        "CWE-20": 2,
+        "CWE-264": 1,
+        "CWE-61": 1
+      },
+      "datasets": {
+        "ReposVul": 1,
+        "CleanVul": 5,
+        "PrimeVul": 7,
+        "MegaVul": 1
+      },
+      "representative_sample_ids": [
+        "reposvul_002318_001_003",
+        "cleanvul_s4_001126",
+        "primevul_train_002650"
+      ],
+      "sample_ids": [
+        "reposvul_002318_001_003",
+        "cleanvul_s4_001126",
+        "primevul_train_002650",
+        "primevul_train_002698",
+        "primevul_train_002778",
+        "primevul_train_002359",
+        "primevul_train_002223",
+        "primevul_train_002447",
+        "primevul_train_001653",
+        "cleanvul_s4_005952",
+        "cleanvul_s4_003353",
+        "cleanvul_s4_000554",
+        "cleanvul_s4_003142",
+        "megavul_158647"
+      ],
+      "minimum_evidence": "检查路径拼接、规范化、符号链接、基目录约束和实际访问",
+      "counterevidence_to_seek": "规范化并在最终解析对象上验证限制目录或访问策略",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "other__lifetime_or_ownership_change",
+      "vulnerability_type": "other",
+      "vulnerability_name_zh": "其他安全机制",
+      "repair_pattern": "lifetime_or_ownership_change",
+      "repair_pattern_zh": "对象生命周期及所有权修复",
+      "count": 13,
+      "cwe_counts": {
+        "CWE-415": 7,
+        "CWE-672": 1,
+        "CWE-416": 1
+      },
+      "datasets": {
+        "MegaVul": 4,
+        "CleanVul": 4,
+        "PrimeVul": 5
+      },
+      "representative_sample_ids": [
+        "megavul_301209",
+        "cleanvul_s4_000266",
+        "primevul_train_003509"
+      ],
+      "sample_ids": [
+        "megavul_301209",
+        "cleanvul_s4_000266",
+        "primevul_train_003509",
+        "primevul_train_003082",
+        "primevul_train_002728",
+        "primevul_train_002022",
+        "primevul_train_003189",
+        "cleanvul_s4_003352",
+        "cleanvul_s4_002878",
+        "megavul_078443",
+        "megavul_322542",
+        "megavul_203634",
+        "cleanvul_s4_004317"
+      ],
+      "minimum_evidence": "查找修复前后的守卫差异、可达路径和对应对象状态",
+      "counterevidence_to_seek": "依照修复逻辑证明相关不变量而非仅凭固定模式判断",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "cryptographic_validation__cryptographic_validation",
+      "vulnerability_type": "cryptographic_validation",
+      "vulnerability_name_zh": "密码学验证错误",
+      "repair_pattern": "cryptographic_validation",
+      "repair_pattern_zh": "密码学条件验证",
+      "count": 12,
+      "cwe_counts": {
+        "CWE-284": 1,
+        "CWE-189": 1,
+        "CWE-20": 1,
+        "CWE-347": 1,
+        "CWE-295": 1,
+        "CWE-310": 1
+      },
+      "datasets": {
+        "CleanVul": 6,
+        "PrimeVul": 4,
+        "MegaVul": 2
+      },
+      "representative_sample_ids": [
+        "cleanvul_s4_003483",
+        "primevul_test_000101",
+        "cleanvul_s4_003559"
+      ],
+      "sample_ids": [
+        "cleanvul_s4_003483",
+        "primevul_test_000101",
+        "cleanvul_s4_003559",
+        "cleanvul_s4_002018",
+        "cleanvul_s4_003541",
+        "megavul_145483",
+        "primevul_train_002736",
+        "primevul_train_000983",
+        "primevul_test_000027",
+        "cleanvul_s4_003089",
+        "megavul_075648",
+        "cleanvul_s4_001164"
+      ],
+      "minimum_evidence": "检查验证参数、失败分支、接受状态和被遗漏的前提",
+      "counterevidence_to_seek": "验证所有必要密码学属性且失败即拒绝",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "resource_exhaustion__loop_termination",
+      "vulnerability_type": "resource_exhaustion",
+      "vulnerability_name_zh": "资源耗尽",
+      "repair_pattern": "loop_termination",
+      "repair_pattern_zh": "迭代终止性保障",
+      "count": 12,
+      "cwe_counts": {
+        "CWE-674": 1,
+        "CWE-834": 2,
+        "CWE-399": 1,
+        "CWE-835": 1
+      },
+      "datasets": {
+        "CleanVul": 7,
+        "PrimeVul": 4,
+        "MegaVul": 1
+      },
+      "representative_sample_ids": [
+        "cleanvul_s4_003217",
+        "primevul_train_002373",
+        "cleanvul_s4_000915"
+      ],
+      "sample_ids": [
+        "cleanvul_s4_003217",
+        "primevul_train_002373",
+        "cleanvul_s4_000915",
+        "cleanvul_s4_000561",
+        "cleanvul_s4_004325",
+        "primevul_train_001948",
+        "primevul_train_000665",
+        "primevul_train_003492",
+        "megavul_040560",
+        "cleanvul_s4_006301",
+        "cleanvul_s4_006014",
+        "cleanvul_s4_005851"
+      ],
+      "minimum_evidence": "检查由输入控制的资源增长路径及资源限制",
+      "counterevidence_to_seek": "实施资源上界、进度/次数或速率限制并及时失败",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "uninitialized_use__initialization",
+      "vulnerability_type": "uninitialized_use",
+      "vulnerability_name_zh": "未初始化值使用",
+      "repair_pattern": "initialization",
+      "repair_pattern_zh": "未初始化状态修复",
+      "count": 12,
+      "cwe_counts": {
+        "CWE-908": 1,
+        "CWE-665": 1,
+        "CWE-189": 1,
+        "CWE-200": 2,
+        "CWE-824": 1
+      },
+      "datasets": {
+        "ReposVul": 1,
+        "CleanVul": 6,
+        "PrimeVul": 4,
+        "MegaVul": 1
+      },
+      "representative_sample_ids": [
+        "reposvul_002549_000_000",
+        "cleanvul_s4_005547",
+        "cleanvul_s4_001620"
+      ],
+      "sample_ids": [
+        "reposvul_002549_000_000",
+        "cleanvul_s4_005547",
+        "cleanvul_s4_001620",
+        "cleanvul_s4_004520",
+        "primevul_valid_000355",
+        "primevul_train_001909",
+        "primevul_train_003601",
+        "primevul_train_002826",
+        "cleanvul_s4_001324",
+        "cleanvul_s4_004627",
+        "cleanvul_s4_004377",
+        "megavul_050427"
+      ],
+      "minimum_evidence": "确认声明、初始化、条件分支与使用的控制流",
+      "counterevidence_to_seek": "所有可达使用路径必须先赋合法初值",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "type_confusion__input_validation",
+      "vulnerability_type": "type_confusion",
+      "vulnerability_name_zh": "类型混淆",
+      "repair_pattern": "input_validation",
+      "repair_pattern_zh": "输入字段、格式或状态的合法性校验",
+      "count": 11,
+      "cwe_counts": {
+        "CWE-345": 1,
+        "CWE-352": 1,
+        "CWE-704": 2,
+        "CWE-20": 2,
+        "CWE-200": 1
+      },
+      "datasets": {
+        "CleanVul": 4,
+        "PrimeVul": 7
+      },
+      "representative_sample_ids": [
+        "cleanvul_s4_006089",
+        "cleanvul_s4_002773",
+        "primevul_train_002092"
+      ],
+      "sample_ids": [
+        "cleanvul_s4_006089",
+        "cleanvul_s4_002773",
+        "primevul_train_002092",
+        "primevul_train_002107",
+        "primevul_train_001915",
+        "primevul_train_001901",
+        "primevul_train_003539",
+        "primevul_valid_000336",
+        "primevul_train_003316",
+        "cleanvul_s4_002261",
+        "cleanvul_s4_001668"
+      ],
+      "minimum_evidence": "确认类型转换、对象构造/析构、检查与使用位置",
+      "counterevidence_to_seek": "证明实际动态类型和布局兼容性",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "buffer_size_mismatch__bounds_check",
+      "vulnerability_type": "buffer_size_mismatch",
+      "vulnerability_name_zh": "缓冲区大小不匹配",
+      "repair_pattern": "bounds_check",
+      "repair_pattern_zh": "索引与范围检查",
+      "count": 10,
+      "cwe_counts": {
+        "CWE-787": 4,
+        "CWE-703": 2,
+        "CWE-264": 1,
+        "CWE-119": 1,
+        "CWE-20": 1
+      },
+      "datasets": {
+        "MegaVul": 2,
+        "PrimeVul": 7,
+        "CleanVul": 1
+      },
+      "representative_sample_ids": [
+        "megavul_069483",
+        "primevul_train_002582",
+        "primevul_train_003361"
+      ],
+      "sample_ids": [
+        "megavul_069483",
+        "primevul_train_002582",
+        "primevul_train_003361",
+        "primevul_valid_000424",
+        "megavul_279606",
+        "primevul_train_002646",
+        "primevul_train_001185",
+        "primevul_train_002700",
+        "primevul_valid_000351",
+        "cleanvul_s4_001857"
+      ],
+      "minimum_evidence": "追踪容量来源、长度字段、复制/解析操作和非一致性",
+      "counterevidence_to_seek": "验证声明长度、分配容量与实际数据长度的一致性",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "infinite_loop__loop_termination",
+      "vulnerability_type": "infinite_loop",
+      "vulnerability_name_zh": "无限循环",
+      "repair_pattern": "loop_termination",
+      "repair_pattern_zh": "迭代终止性保障",
+      "count": 9,
+      "cwe_counts": {
+        "CWE-119": 1,
+        "CWE-834": 1,
+        "CWE-835": 4,
+        "CWE-399": 1
+      },
+      "datasets": {
+        "ReposVul": 1,
+        "MegaVul": 3,
+        "PrimeVul": 3,
+        "CleanVul": 2
+      },
+      "representative_sample_ids": [
+        "reposvul_000344_000_000",
+        "megavul_327197",
+        "megavul_278303"
+      ],
+      "sample_ids": [
+        "reposvul_000344_000_000",
+        "megavul_327197",
+        "megavul_278303",
+        "primevul_valid_000413",
+        "primevul_train_003354",
+        "primevul_train_002106",
+        "cleanvul_s4_002470",
+        "megavul_278441",
+        "cleanvul_s4_001992"
+      ],
+      "minimum_evidence": "检查输入约束、循环变量进展、异常路径和退出条件",
+      "counterevidence_to_seek": "确保循环状态单调推进或具备独立退出机制",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "assertion_dos__input_validation",
+      "vulnerability_type": "assertion_dos",
+      "vulnerability_name_zh": "断言导致拒绝服务",
+      "repair_pattern": "input_validation",
+      "repair_pattern_zh": "输入字段、格式或状态的合法性校验",
+      "count": 8,
+      "cwe_counts": {
+        "CWE-617": 1,
+        "CWE-20": 3,
+        "CWE-703": 1,
+        "CWE-755": 1,
+        "CWE-119": 1
+      },
+      "datasets": {
+        "PrimeVul": 4,
+        "CleanVul": 1,
+        "MegaVul": 3
+      },
+      "representative_sample_ids": [
+        "primevul_train_003055",
+        "cleanvul_s4_003275",
+        "megavul_035193"
+      ],
+      "sample_ids": [
+        "primevul_train_003055",
+        "cleanvul_s4_003275",
+        "megavul_035193",
+        "primevul_train_001135",
+        "primevul_test_000068",
+        "primevul_valid_000247",
+        "megavul_181722",
+        "megavul_094442"
+      ],
+      "minimum_evidence": "确认触发输入、断言可达性、部署时断言配置和错误退出",
+      "counterevidence_to_seek": "用显式输入检查和错误处理替代不可信状态断言",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "buffer_size_mismatch__safe_api_or_argument",
+      "vulnerability_type": "buffer_size_mismatch",
+      "vulnerability_name_zh": "缓冲区大小不匹配",
+      "repair_pattern": "safe_api_or_argument",
+      "repair_pattern_zh": "接口替换以及安全参数/容量参数",
+      "count": 8,
+      "cwe_counts": {
+        "CWE-119": 3,
+        "CWE-125": 1,
+        "CWE-399": 1,
+        "CWE-787": 1,
+        "CWE-189": 1
+      },
+      "datasets": {
+        "PrimeVul": 6,
+        "MegaVul": 1,
+        "CleanVul": 1
+      },
+      "representative_sample_ids": [
+        "primevul_train_000746",
+        "megavul_317403",
+        "primevul_train_002603"
+      ],
+      "sample_ids": [
+        "primevul_train_000746",
+        "megavul_317403",
+        "primevul_train_002603",
+        "primevul_train_002326",
+        "primevul_train_003092",
+        "primevul_train_002381",
+        "primevul_train_000883",
+        "cleanvul_s4_003987"
+      ],
+      "minimum_evidence": "追踪容量来源、长度字段、复制/解析操作和非一致性",
+      "counterevidence_to_seek": "验证声明长度、分配容量与实际数据长度的一致性",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "division_by_zero__input_validation",
+      "vulnerability_type": "division_by_zero",
+      "vulnerability_name_zh": "除零",
+      "repair_pattern": "input_validation",
+      "repair_pattern_zh": "输入字段、格式或状态的合法性校验",
+      "count": 8,
+      "cwe_counts": {
+        "CWE-125": 2,
+        "CWE-617": 1,
+        "CWE-835": 1,
+        "CWE-264": 1
+      },
+      "datasets": {
+        "PrimeVul": 3,
+        "CleanVul": 3,
+        "MegaVul": 2
+      },
+      "representative_sample_ids": [
+        "primevul_train_001129",
+        "cleanvul_s4_002782",
+        "primevul_valid_000230"
+      ],
+      "sample_ids": [
+        "primevul_train_001129",
+        "cleanvul_s4_002782",
+        "primevul_valid_000230",
+        "primevul_train_001975",
+        "cleanvul_s4_003418",
+        "cleanvul_s4_003475",
+        "megavul_147692",
+        "megavul_042094"
+      ],
+      "minimum_evidence": "追踪除数来源、路径约束和除法可达性",
+      "counterevidence_to_seek": "执行前确认除数在全部路径非零",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "injection__safe_api_or_argument",
+      "vulnerability_type": "injection",
+      "vulnerability_name_zh": "注入",
+      "repair_pattern": "safe_api_or_argument",
+      "repair_pattern_zh": "接口替换以及安全参数/容量参数",
+      "count": 7,
+      "cwe_counts": {
+        "CWE-116": 1,
+        "CWE-79": 2,
+        "CWE-77": 1
+      },
+      "datasets": {
+        "ReposVul": 1,
+        "CleanVul": 3,
+        "PrimeVul": 3
+      },
+      "representative_sample_ids": [
+        "reposvul_003705_002_000",
+        "cleanvul_s4_003818",
+        "cleanvul_s4_005618"
+      ],
+      "sample_ids": [
+        "reposvul_003705_002_000",
+        "cleanvul_s4_003818",
+        "cleanvul_s4_005618",
+        "primevul_train_002652",
+        "primevul_train_000996",
+        "primevul_train_002080",
+        "cleanvul_s4_002559"
+      ],
+      "minimum_evidence": "追踪外部输入到解释执行点及上下文编码规则",
+      "counterevidence_to_seek": "使用安全参数化/转义及相应上下文边界",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "logic_validation__safe_api_or_argument",
+      "vulnerability_type": "logic_validation",
+      "vulnerability_name_zh": "逻辑或输入验证缺陷",
+      "repair_pattern": "safe_api_or_argument",
+      "repair_pattern_zh": "接口替换以及安全参数/容量参数",
+      "count": 7,
+      "cwe_counts": {
+        "CWE-787": 1,
+        "CWE-119": 1,
+        "CWE-125": 1
+      },
+      "datasets": {
+        "CleanVul": 4,
+        "PrimeVul": 2,
+        "ReposVul": 1
+      },
+      "representative_sample_ids": [
+        "cleanvul_s4_000513",
+        "primevul_train_002121",
+        "cleanvul_s4_004837"
+      ],
+      "sample_ids": [
+        "cleanvul_s4_000513",
+        "primevul_train_002121",
+        "cleanvul_s4_004837",
+        "cleanvul_s4_001021",
+        "cleanvul_s4_000003",
+        "reposvul_001591_006_000",
+        "primevul_test_000303"
+      ],
+      "minimum_evidence": "核查数据合法范围、非法状态的分支行为和修复前遗漏的条件",
+      "counterevidence_to_seek": "检查所有与安全性质相关的输入约束及分支一致性",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "path_traversal__safe_api_or_argument",
+      "vulnerability_type": "path_traversal",
+      "vulnerability_name_zh": "路径遍历",
+      "repair_pattern": "safe_api_or_argument",
+      "repair_pattern_zh": "接口替换以及安全参数/容量参数",
+      "count": 7,
+      "cwe_counts": {},
+      "datasets": {
+        "CleanVul": 7
+      },
+      "representative_sample_ids": [
+        "cleanvul_s4_001219",
+        "cleanvul_s4_004193",
+        "cleanvul_s4_003186"
+      ],
+      "sample_ids": [
+        "cleanvul_s4_001219",
+        "cleanvul_s4_004193",
+        "cleanvul_s4_003186",
+        "cleanvul_s4_004050",
+        "cleanvul_s4_006256",
+        "cleanvul_s4_004680",
+        "cleanvul_s4_003771"
+      ],
+      "minimum_evidence": "检查路径拼接、规范化、符号链接、基目录约束和实际访问",
+      "counterevidence_to_seek": "规范化并在最终解析对象上验证限制目录或访问策略",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "resource_exhaustion__safe_api_or_argument",
+      "vulnerability_type": "resource_exhaustion",
+      "vulnerability_name_zh": "资源耗尽",
+      "repair_pattern": "safe_api_or_argument",
+      "repair_pattern_zh": "接口替换以及安全参数/容量参数",
+      "count": 7,
+      "cwe_counts": {
+        "CWE-20": 1,
+        "CWE-327": 1,
+        "CWE-400": 1,
+        "CWE-407": 1,
+        "CWE-190": 1,
+        "CWE-787": 1,
+        "CWE-119": 2,
+        "CWE-310": 1
+      },
+      "datasets": {
+        "ReposVul": 1,
+        "MegaVul": 3,
+        "CleanVul": 2,
+        "PrimeVul": 1
+      },
+      "representative_sample_ids": [
+        "reposvul_002965_004_001",
+        "megavul_176346",
+        "cleanvul_s4_004564"
+      ],
+      "sample_ids": [
+        "reposvul_002965_004_001",
+        "megavul_176346",
+        "cleanvul_s4_004564",
+        "cleanvul_s4_002847",
+        "primevul_test_000206",
+        "megavul_079761",
+        "megavul_061626"
+      ],
+      "minimum_evidence": "检查由输入控制的资源增长路径及资源限制",
+      "counterevidence_to_seek": "实施资源上界、进度/次数或速率限制并及时失败",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "uninitialized_use__null_or_result_check",
+      "vulnerability_type": "uninitialized_use",
+      "vulnerability_name_zh": "未初始化值使用",
+      "repair_pattern": "null_or_result_check",
+      "repair_pattern_zh": "空值或返回结果检查",
+      "count": 7,
+      "cwe_counts": {
+        "CWE-835": 1,
+        "CWE-908": 1,
+        "CWE-252": 1,
+        "CWE-200": 2
+      },
+      "datasets": {
+        "PrimeVul": 4,
+        "CleanVul": 2,
+        "MegaVul": 1
+      },
+      "representative_sample_ids": [
+        "primevul_train_002890",
+        "primevul_train_003035",
+        "cleanvul_s4_005732"
+      ],
+      "sample_ids": [
+        "primevul_train_002890",
+        "primevul_train_003035",
+        "cleanvul_s4_005732",
+        "primevul_train_002317",
+        "primevul_train_003074",
+        "cleanvul_s4_000697",
+        "megavul_179466"
+      ],
+      "minimum_evidence": "确认声明、初始化、条件分支与使用的控制流",
+      "counterevidence_to_seek": "所有可达使用路径必须先赋合法初值",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "buffer_size_mismatch__input_validation",
+      "vulnerability_type": "buffer_size_mismatch",
+      "vulnerability_name_zh": "缓冲区大小不匹配",
+      "repair_pattern": "input_validation",
+      "repair_pattern_zh": "输入字段、格式或状态的合法性校验",
+      "count": 6,
+      "cwe_counts": {
+        "CWE-119": 4,
+        "CWE-189": 1
+      },
+      "datasets": {
+        "ReposVul": 1,
+        "PrimeVul": 4,
+        "CleanVul": 1
+      },
+      "representative_sample_ids": [
+        "reposvul_000242_005_000",
+        "primevul_test_000256",
+        "primevul_train_000910"
+      ],
+      "sample_ids": [
+        "reposvul_000242_005_000",
+        "primevul_test_000256",
+        "primevul_train_000910",
+        "primevul_train_003270",
+        "primevul_train_001176",
+        "cleanvul_s4_004083"
+      ],
+      "minimum_evidence": "追踪容量来源、长度字段、复制/解析操作和非一致性",
+      "counterevidence_to_seek": "验证声明长度、分配容量与实际数据长度的一致性",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "double_free__lifetime_or_ownership_change",
+      "vulnerability_type": "double_free",
+      "vulnerability_name_zh": "重复释放",
+      "repair_pattern": "lifetime_or_ownership_change",
+      "repair_pattern_zh": "对象生命周期及所有权修复",
+      "count": 6,
+      "cwe_counts": {
+        "CWE-369": 1,
+        "CWE-415": 4,
+        "CWE-264": 1
+      },
+      "datasets": {
+        "PrimeVul": 5,
+        "MegaVul": 1
+      },
+      "representative_sample_ids": [
+        "primevul_train_003367",
+        "primevul_valid_000041",
+        "primevul_train_003415"
+      ],
+      "sample_ids": [
+        "primevul_train_003367",
+        "primevul_valid_000041",
+        "primevul_train_003415",
+        "primevul_train_000629",
+        "primevul_train_002581",
+        "megavul_038040"
+      ],
+      "minimum_evidence": "追踪别名和释放路径，确认缺少重复释放的可达路径",
+      "counterevidence_to_seek": "确保所有权唯一且释放状态在所有路径一致",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "integer_truncation__input_validation",
+      "vulnerability_type": "integer_truncation",
+      "vulnerability_name_zh": "整数截断",
+      "repair_pattern": "input_validation",
+      "repair_pattern_zh": "输入字段、格式或状态的合法性校验",
+      "count": 6,
+      "cwe_counts": {
+        "CWE-119": 1,
+        "CWE-362": 1,
+        "CWE-835": 1,
+        "CWE-190": 2
+      },
+      "datasets": {
+        "CleanVul": 2,
+        "MegaVul": 4
+      },
+      "representative_sample_ids": [
+        "cleanvul_s4_004467",
+        "megavul_137914",
+        "megavul_132492"
+      ],
+      "sample_ids": [
+        "cleanvul_s4_004467",
+        "megavul_137914",
+        "megavul_132492",
+        "cleanvul_s4_006219",
+        "megavul_102504",
+        "megavul_259022"
+      ],
+      "minimum_evidence": "检查所有强制/隐式转换与跨类型比较",
+      "counterevidence_to_seek": "检查目标类型范围并确保源值可表示",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "integer_truncation__wider_or_unsigned_type",
+      "vulnerability_type": "integer_truncation",
+      "vulnerability_name_zh": "整数截断",
+      "repair_pattern": "wider_or_unsigned_type",
+      "repair_pattern_zh": "数值类型宽度或符号调整",
+      "count": 6,
+      "cwe_counts": {
+        "CWE-835": 1,
+        "CWE-190": 3
+      },
+      "datasets": {
+        "CleanVul": 2,
+        "MegaVul": 3,
+        "PrimeVul": 1
+      },
+      "representative_sample_ids": [
+        "cleanvul_s4_001921",
+        "cleanvul_s4_004423",
+        "megavul_040573"
+      ],
+      "sample_ids": [
+        "cleanvul_s4_001921",
+        "cleanvul_s4_004423",
+        "megavul_040573",
+        "primevul_train_002202",
+        "megavul_214811",
+        "megavul_243679"
+      ],
+      "minimum_evidence": "检查所有强制/隐式转换与跨类型比较",
+      "counterevidence_to_seek": "检查目标类型范围并确保源值可表示",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "race_condition__locking_or_atomicity",
+      "vulnerability_type": "race_condition",
+      "vulnerability_name_zh": "竞态条件",
+      "repair_pattern": "locking_or_atomicity",
+      "repair_pattern_zh": "锁、原子性与并发控制",
+      "count": 6,
+      "cwe_counts": {
+        "CWE-362": 3,
+        "CWE-367": 1
+      },
+      "datasets": {
+        "CleanVul": 2,
+        "MegaVul": 4
+      },
+      "representative_sample_ids": [
+        "cleanvul_s4_004360",
+        "megavul_336356",
+        "megavul_260177"
+      ],
+      "sample_ids": [
+        "cleanvul_s4_004360",
+        "megavul_336356",
+        "megavul_260177",
+        "cleanvul_s4_003390",
+        "megavul_275478",
+        "megavul_192031"
+      ],
+      "minimum_evidence": "核查线程执行交错、锁域、共享状态以及对象生命周期",
+      "counterevidence_to_seek": "证明检查与使用的原子性或一致的锁/同步保护",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "bounds_read__input_validation",
+      "vulnerability_type": "bounds_read",
+      "vulnerability_name_zh": "越界读取",
+      "repair_pattern": "input_validation",
+      "repair_pattern_zh": "输入字段、格式或状态的合法性校验",
+      "count": 5,
+      "cwe_counts": {
+        "CWE-125": 2,
+        "CWE-703": 1
+      },
+      "datasets": {
+        "CleanVul": 2,
+        "PrimeVul": 2,
+        "MegaVul": 1
+      },
+      "representative_sample_ids": [
+        "cleanvul_s4_004309",
+        "primevul_train_002560",
+        "cleanvul_s4_006007"
+      ],
+      "sample_ids": [
+        "cleanvul_s4_004309",
+        "primevul_train_002560",
+        "cleanvul_s4_006007",
+        "megavul_209755",
+        "primevul_train_000485"
+      ],
+      "minimum_evidence": "确认输入到长度/偏移的传递、实际源缓冲区界限、读操作前全部路径的检查",
+      "counterevidence_to_seek": "读取前验证偏移、长度、真实对象容量；检查加法溢出",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "bounds_read__safe_api_or_argument",
+      "vulnerability_type": "bounds_read",
+      "vulnerability_name_zh": "越界读取",
+      "repair_pattern": "safe_api_or_argument",
+      "repair_pattern_zh": "接口替换以及安全参数/容量参数",
+      "count": 5,
+      "cwe_counts": {
+        "CWE-787": 2,
+        "CWE-200": 1,
+        "CWE-119": 1,
+        "CWE-476": 1
+      },
+      "datasets": {
+        "MegaVul": 3,
+        "PrimeVul": 2
+      },
+      "representative_sample_ids": [
+        "megavul_198780",
+        "megavul_339181",
+        "primevul_train_002081"
+      ],
+      "sample_ids": [
+        "megavul_198780",
+        "megavul_339181",
+        "primevul_train_002081",
+        "primevul_train_000548",
+        "megavul_048117"
+      ],
+      "minimum_evidence": "确认输入到长度/偏移的传递、实际源缓冲区界限、读操作前全部路径的检查",
+      "counterevidence_to_seek": "读取前验证偏移、长度、真实对象容量；检查加法溢出",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "other__safe_api_or_argument",
+      "vulnerability_type": "other",
+      "vulnerability_name_zh": "其他安全机制",
+      "repair_pattern": "safe_api_or_argument",
+      "repair_pattern_zh": "接口替换以及安全参数/容量参数",
+      "count": 5,
+      "cwe_counts": {
+        "CWE-200": 3,
+        "CWE-327": 1
+      },
+      "datasets": {
+        "PrimeVul": 1,
+        "CleanVul": 1,
+        "MegaVul": 3
+      },
+      "representative_sample_ids": [
+        "primevul_train_002442",
+        "cleanvul_s4_002732",
+        "megavul_210543"
+      ],
+      "sample_ids": [
+        "primevul_train_002442",
+        "cleanvul_s4_002732",
+        "megavul_210543",
+        "megavul_092975",
+        "megavul_072549"
+      ],
+      "minimum_evidence": "查找修复前后的守卫差异、可达路径和对应对象状态",
+      "counterevidence_to_seek": "依照修复逻辑证明相关不变量而非仅凭固定模式判断",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "bounds_read__initialization",
+      "vulnerability_type": "bounds_read",
+      "vulnerability_name_zh": "越界读取",
+      "repair_pattern": "initialization",
+      "repair_pattern_zh": "未初始化状态修复",
+      "count": 4,
+      "cwe_counts": {
+        "CWE-787": 1,
+        "CWE-200": 1,
+        "CWE-125": 1
+      },
+      "datasets": {
+        "CleanVul": 1,
+        "MegaVul": 2,
+        "PrimeVul": 1
+      },
+      "representative_sample_ids": [
+        "cleanvul_s4_004390",
+        "megavul_248454",
+        "primevul_train_001607"
+      ],
+      "sample_ids": [
+        "cleanvul_s4_004390",
+        "megavul_248454",
+        "primevul_train_001607",
+        "megavul_066630"
+      ],
+      "minimum_evidence": "确认输入到长度/偏移的传递、实际源缓冲区界限、读操作前全部路径的检查",
+      "counterevidence_to_seek": "读取前验证偏移、长度、真实对象容量；检查加法溢出",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "logic_validation__lifetime_or_ownership_change",
+      "vulnerability_type": "logic_validation",
+      "vulnerability_name_zh": "逻辑或输入验证缺陷",
+      "repair_pattern": "lifetime_or_ownership_change",
+      "repair_pattern_zh": "对象生命周期及所有权修复",
+      "count": 4,
+      "cwe_counts": {
+        "CWE-362": 1,
+        "CWE-416": 1,
+        "CWE-863": 1
+      },
+      "datasets": {
+        "MegaVul": 2,
+        "PrimeVul": 1,
+        "CleanVul": 1
+      },
+      "representative_sample_ids": [
+        "megavul_097570",
+        "primevul_train_000618",
+        "cleanvul_s4_005078"
+      ],
+      "sample_ids": [
+        "megavul_097570",
+        "primevul_train_000618",
+        "cleanvul_s4_005078",
+        "megavul_164552"
+      ],
+      "minimum_evidence": "核查数据合法范围、非法状态的分支行为和修复前遗漏的条件",
+      "counterevidence_to_seek": "检查所有与安全性质相关的输入约束及分支一致性",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "bounds_read__error_propagation",
+      "vulnerability_type": "bounds_read",
+      "vulnerability_name_zh": "越界读取",
+      "repair_pattern": "error_propagation",
+      "repair_pattern_zh": "错误状态传播与失败关闭",
+      "count": 3,
+      "cwe_counts": {
+        "CWE-835": 1
+      },
+      "datasets": {
+        "PrimeVul": 1,
+        "CleanVul": 2
+      },
+      "representative_sample_ids": [
+        "primevul_valid_000146",
+        "cleanvul_s4_002910",
+        "cleanvul_s4_003210"
+      ],
+      "sample_ids": [
+        "primevul_valid_000146",
+        "cleanvul_s4_002910",
+        "cleanvul_s4_003210"
+      ],
+      "minimum_evidence": "确认输入到长度/偏移的传递、实际源缓冲区界限、读操作前全部路径的检查",
+      "counterevidence_to_seek": "读取前验证偏移、长度、真实对象容量；检查加法溢出",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "injection__input_validation",
+      "vulnerability_type": "injection",
+      "vulnerability_name_zh": "注入",
+      "repair_pattern": "input_validation",
+      "repair_pattern_zh": "输入字段、格式或状态的合法性校验",
+      "count": 3,
+      "cwe_counts": {
+        "CWE-79": 1,
+        "CWE-78": 1,
+        "CWE-665": 1
+      },
+      "datasets": {
+        "PrimeVul": 3
+      },
+      "representative_sample_ids": [
+        "primevul_valid_000384",
+        "primevul_train_002793",
+        "primevul_train_002072"
+      ],
+      "sample_ids": [
+        "primevul_valid_000384",
+        "primevul_train_002793",
+        "primevul_train_002072"
+      ],
+      "minimum_evidence": "追踪外部输入到解释执行点及上下文编码规则",
+      "counterevidence_to_seek": "使用安全参数化/转义及相应上下文边界",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "integer_overflow__safe_api_or_argument",
+      "vulnerability_type": "integer_overflow",
+      "vulnerability_name_zh": "整数溢出",
+      "repair_pattern": "safe_api_or_argument",
+      "repair_pattern_zh": "接口替换以及安全参数/容量参数",
+      "count": 3,
+      "cwe_counts": {
+        "CWE-189": 1,
+        "CWE-190": 1
+      },
+      "datasets": {
+        "PrimeVul": 1,
+        "CleanVul": 1,
+        "MegaVul": 1
+      },
+      "representative_sample_ids": [
+        "primevul_train_000856",
+        "cleanvul_s4_003659",
+        "megavul_284368"
+      ],
+      "sample_ids": [
+        "primevul_train_000856",
+        "cleanvul_s4_003659",
+        "megavul_284368"
+      ],
+      "minimum_evidence": "确认参与运算变量的取值范围、提升转换、后续内存操作所用结果",
+      "counterevidence_to_seek": "运算前做范围检查或扩大运算类型；检查后续缩窄转换",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "logic_validation__initialization",
+      "vulnerability_type": "logic_validation",
+      "vulnerability_name_zh": "逻辑或输入验证缺陷",
+      "repair_pattern": "initialization",
+      "repair_pattern_zh": "未初始化状态修复",
+      "count": 3,
+      "cwe_counts": {
+        "CWE-119": 1,
+        "CWE-200": 1
+      },
+      "datasets": {
+        "PrimeVul": 2,
+        "CleanVul": 1
+      },
+      "representative_sample_ids": [
+        "primevul_train_000743",
+        "primevul_train_003364",
+        "cleanvul_s4_006091"
+      ],
+      "sample_ids": [
+        "primevul_train_000743",
+        "primevul_train_003364",
+        "cleanvul_s4_006091"
+      ],
+      "minimum_evidence": "核查数据合法范围、非法状态的分支行为和修复前遗漏的条件",
+      "counterevidence_to_seek": "检查所有与安全性质相关的输入约束及分支一致性",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "logic_validation__null_or_result_check",
+      "vulnerability_type": "logic_validation",
+      "vulnerability_name_zh": "逻辑或输入验证缺陷",
+      "repair_pattern": "null_or_result_check",
+      "repair_pattern_zh": "空值或返回结果检查",
+      "count": 3,
+      "cwe_counts": {
+        "CWE-200": 1
+      },
+      "datasets": {
+        "PrimeVul": 1,
+        "CleanVul": 2
+      },
+      "representative_sample_ids": [
+        "primevul_valid_000423",
+        "cleanvul_s4_002306",
+        "cleanvul_s4_002050"
+      ],
+      "sample_ids": [
+        "primevul_valid_000423",
+        "cleanvul_s4_002306",
+        "cleanvul_s4_002050"
+      ],
+      "minimum_evidence": "核查数据合法范围、非法状态的分支行为和修复前遗漏的条件",
+      "counterevidence_to_seek": "检查所有与安全性质相关的输入约束及分支一致性",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "logic_validation__wider_or_unsigned_type",
+      "vulnerability_type": "logic_validation",
+      "vulnerability_name_zh": "逻辑或输入验证缺陷",
+      "repair_pattern": "wider_or_unsigned_type",
+      "repair_pattern_zh": "数值类型宽度或符号调整",
+      "count": 3,
+      "cwe_counts": {
+        "CWE-190": 1,
+        "CWE-189": 1,
+        "CWE-125": 1
+      },
+      "datasets": {
+        "PrimeVul": 2,
+        "MegaVul": 1
+      },
+      "representative_sample_ids": [
+        "primevul_valid_000324",
+        "primevul_train_000881",
+        "megavul_258626"
+      ],
+      "sample_ids": [
+        "primevul_valid_000324",
+        "primevul_train_000881",
+        "megavul_258626"
+      ],
+      "minimum_evidence": "核查数据合法范围、非法状态的分支行为和修复前遗漏的条件",
+      "counterevidence_to_seek": "检查所有与安全性质相关的输入约束及分支一致性",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "cryptographic_validation__error_propagation",
+      "vulnerability_type": "cryptographic_validation",
+      "vulnerability_name_zh": "密码学验证错误",
+      "repair_pattern": "error_propagation",
+      "repair_pattern_zh": "错误状态传播与失败关闭",
+      "count": 2,
+      "cwe_counts": {
+        "CWE-295": 2,
+        "CWE-287": 1
+      },
+      "datasets": {
+        "MegaVul": 2
+      },
+      "representative_sample_ids": [
+        "megavul_318120",
+        "megavul_203898"
+      ],
+      "sample_ids": [
+        "megavul_318120",
+        "megavul_203898"
+      ],
+      "minimum_evidence": "检查验证参数、失败分支、接受状态和被遗漏的前提",
+      "counterevidence_to_seek": "验证所有必要密码学属性且失败即拒绝",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "cryptographic_validation__input_validation",
+      "vulnerability_type": "cryptographic_validation",
+      "vulnerability_name_zh": "密码学验证错误",
+      "repair_pattern": "input_validation",
+      "repair_pattern_zh": "输入字段、格式或状态的合法性校验",
+      "count": 2,
+      "cwe_counts": {
+        "CWE-399": 1,
+        "CWE-354": 1
+      },
+      "datasets": {
+        "PrimeVul": 2
+      },
+      "representative_sample_ids": [
+        "primevul_test_000103",
+        "primevul_train_002995"
+      ],
+      "sample_ids": [
+        "primevul_test_000103",
+        "primevul_train_002995"
+      ],
+      "minimum_evidence": "检查验证参数、失败分支、接受状态和被遗漏的前提",
+      "counterevidence_to_seek": "验证所有必要密码学属性且失败即拒绝",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "format_string__safe_api_or_argument",
+      "vulnerability_type": "format_string",
+      "vulnerability_name_zh": "格式化字符串缺陷",
+      "repair_pattern": "safe_api_or_argument",
+      "repair_pattern_zh": "接口替换以及安全参数/容量参数",
+      "count": 2,
+      "cwe_counts": {
+        "CWE-134": 1
+      },
+      "datasets": {
+        "CleanVul": 1,
+        "PrimeVul": 1
+      },
+      "representative_sample_ids": [
+        "cleanvul_s4_005843",
+        "primevul_test_000052"
+      ],
+      "sample_ids": [
+        "cleanvul_s4_005843",
+        "primevul_test_000052"
+      ],
+      "minimum_evidence": "检查格式字符串来源与可变参数传递",
+      "counterevidence_to_seek": "格式串必须为可信常量或经充分控制",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "integer_overflow__length_or_capacity_check",
+      "vulnerability_type": "integer_overflow",
+      "vulnerability_name_zh": "整数溢出",
+      "repair_pattern": "length_or_capacity_check",
+      "repair_pattern_zh": "写入/读取前的长度与实际容量约束",
+      "count": 2,
+      "cwe_counts": {
+        "CWE-190": 1
+      },
+      "datasets": {
+        "CleanVul": 1,
+        "PrimeVul": 1
+      },
+      "representative_sample_ids": [
+        "cleanvul_s4_004141",
+        "primevul_test_000301"
+      ],
+      "sample_ids": [
+        "cleanvul_s4_004141",
+        "primevul_test_000301"
+      ],
+      "minimum_evidence": "确认参与运算变量的取值范围、提升转换、后续内存操作所用结果",
+      "counterevidence_to_seek": "运算前做范围检查或扩大运算类型；检查后续缩窄转换",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "integer_underflow__length_or_capacity_check",
+      "vulnerability_type": "integer_underflow",
+      "vulnerability_name_zh": "整数下溢",
+      "repair_pattern": "length_or_capacity_check",
+      "repair_pattern_zh": "写入/读取前的长度与实际容量约束",
+      "count": 2,
+      "cwe_counts": {
+        "CWE-119": 1,
+        "CWE-399": 1
+      },
+      "datasets": {
+        "MegaVul": 1,
+        "PrimeVul": 1
+      },
+      "representative_sample_ids": [
+        "megavul_255195",
+        "primevul_train_003174"
+      ],
+      "sample_ids": [
+        "megavul_255195",
+        "primevul_train_003174"
+      ],
+      "minimum_evidence": "确认运算数类型和输入范围，以及溢出值如何影响安全判断",
+      "counterevidence_to_seek": "确认减法上下界和无符号回绕问题",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "null_dereference__safe_api_or_argument",
+      "vulnerability_type": "null_dereference",
+      "vulnerability_name_zh": "空指针解引用",
+      "repair_pattern": "safe_api_or_argument",
+      "repair_pattern_zh": "接口替换以及安全参数/容量参数",
+      "count": 2,
+      "cwe_counts": {
+        "CWE-125": 1
+      },
+      "datasets": {
+        "CleanVul": 1,
+        "PrimeVul": 1
+      },
+      "representative_sample_ids": [
+        "cleanvul_s4_001730",
+        "primevul_train_003333"
+      ],
+      "sample_ids": [
+        "cleanvul_s4_001730",
+        "primevul_train_003333"
+      ],
+      "minimum_evidence": "找出指针产生点、失败返回路径、解引用位置与支配关系",
+      "counterevidence_to_seek": "证明每条可达路径均已判空或取得非空保证",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "race_condition__safe_api_or_argument",
+      "vulnerability_type": "race_condition",
+      "vulnerability_name_zh": "竞态条件",
+      "repair_pattern": "safe_api_or_argument",
+      "repair_pattern_zh": "接口替换以及安全参数/容量参数",
+      "count": 2,
+      "cwe_counts": {
+        "CWE-668": 1
+      },
+      "datasets": {
+        "CleanVul": 1,
+        "MegaVul": 1
+      },
+      "representative_sample_ids": [
+        "cleanvul_s4_004139",
+        "megavul_231158"
+      ],
+      "sample_ids": [
+        "cleanvul_s4_004139",
+        "megavul_231158"
+      ],
+      "minimum_evidence": "核查线程执行交错、锁域、共享状态以及对象生命周期",
+      "counterevidence_to_seek": "证明检查与使用的原子性或一致的锁/同步保护",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "uninitialized_use__input_validation",
+      "vulnerability_type": "uninitialized_use",
+      "vulnerability_name_zh": "未初始化值使用",
+      "repair_pattern": "input_validation",
+      "repair_pattern_zh": "输入字段、格式或状态的合法性校验",
+      "count": 2,
+      "cwe_counts": {
+        "CWE-476": 1,
+        "CWE-17": 1
+      },
+      "datasets": {
+        "PrimeVul": 1,
+        "MegaVul": 1
+      },
+      "representative_sample_ids": [
+        "primevul_train_003271",
+        "megavul_096746"
+      ],
+      "sample_ids": [
+        "primevul_train_003271",
+        "megavul_096746"
+      ],
+      "minimum_evidence": "确认声明、初始化、条件分支与使用的控制流",
+      "counterevidence_to_seek": "所有可达使用路径必须先赋合法初值",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "assertion_dos__initialization",
+      "vulnerability_type": "assertion_dos",
+      "vulnerability_name_zh": "断言导致拒绝服务",
+      "repair_pattern": "initialization",
+      "repair_pattern_zh": "未初始化状态修复",
+      "count": 1,
+      "cwe_counts": {},
+      "datasets": {
+        "CleanVul": 1
+      },
+      "representative_sample_ids": [
+        "cleanvul_s4_002366"
+      ],
+      "sample_ids": [
+        "cleanvul_s4_002366"
+      ],
+      "minimum_evidence": "确认触发输入、断言可达性、部署时断言配置和错误退出",
+      "counterevidence_to_seek": "用显式输入检查和错误处理替代不可信状态断言",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "authorization_bypass__input_validation",
+      "vulnerability_type": "authorization_bypass",
+      "vulnerability_name_zh": "授权绕过",
+      "repair_pattern": "input_validation",
+      "repair_pattern_zh": "输入字段、格式或状态的合法性校验",
+      "count": 1,
+      "cwe_counts": {},
+      "datasets": {
+        "CleanVul": 1
+      },
+      "representative_sample_ids": [
+        "cleanvul_s4_006187"
+      ],
+      "sample_ids": [
+        "cleanvul_s4_006187"
+      ],
+      "minimum_evidence": "梳理请求身份、资源归属、认证授权顺序与绕过路径",
+      "counterevidence_to_seek": "在敏感操作前校验主体、资源与对应权限及其绑定",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "authorization_bypass__safe_api_or_argument",
+      "vulnerability_type": "authorization_bypass",
+      "vulnerability_name_zh": "授权绕过",
+      "repair_pattern": "safe_api_or_argument",
+      "repair_pattern_zh": "接口替换以及安全参数/容量参数",
+      "count": 1,
+      "cwe_counts": {
+        "CWE-200": 1
+      },
+      "datasets": {
+        "PrimeVul": 1
+      },
+      "representative_sample_ids": [
+        "primevul_test_000147"
+      ],
+      "sample_ids": [
+        "primevul_test_000147"
+      ],
+      "minimum_evidence": "梳理请求身份、资源归属、认证授权顺序与绕过路径",
+      "counterevidence_to_seek": "在敏感操作前校验主体、资源与对应权限及其绑定",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "bounds_read__wider_or_unsigned_type",
+      "vulnerability_type": "bounds_read",
+      "vulnerability_name_zh": "越界读取",
+      "repair_pattern": "wider_or_unsigned_type",
+      "repair_pattern_zh": "数值类型宽度或符号调整",
+      "count": 1,
+      "cwe_counts": {
+        "CWE-125": 1
+      },
+      "datasets": {
+        "PrimeVul": 1
+      },
+      "representative_sample_ids": [
+        "primevul_train_002533"
+      ],
+      "sample_ids": [
+        "primevul_train_002533"
+      ],
+      "minimum_evidence": "确认输入到长度/偏移的传递、实际源缓冲区界限、读操作前全部路径的检查",
+      "counterevidence_to_seek": "读取前验证偏移、长度、真实对象容量；检查加法溢出",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "buffer_size_mismatch__null_or_result_check",
+      "vulnerability_type": "buffer_size_mismatch",
+      "vulnerability_name_zh": "缓冲区大小不匹配",
+      "repair_pattern": "null_or_result_check",
+      "repair_pattern_zh": "空值或返回结果检查",
+      "count": 1,
+      "cwe_counts": {
+        "CWE-787": 1
+      },
+      "datasets": {
+        "PrimeVul": 1
+      },
+      "representative_sample_ids": [
+        "primevul_train_002158"
+      ],
+      "sample_ids": [
+        "primevul_train_002158"
+      ],
+      "minimum_evidence": "追踪容量来源、长度字段、复制/解析操作和非一致性",
+      "counterevidence_to_seek": "验证声明长度、分配容量与实际数据长度的一致性",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "cryptographic_validation__initialization",
+      "vulnerability_type": "cryptographic_validation",
+      "vulnerability_name_zh": "密码学验证错误",
+      "repair_pattern": "initialization",
+      "repair_pattern_zh": "未初始化状态修复",
+      "count": 1,
+      "cwe_counts": {
+        "CWE-703": 1
+      },
+      "datasets": {
+        "PrimeVul": 1
+      },
+      "representative_sample_ids": [
+        "primevul_train_000425"
+      ],
+      "sample_ids": [
+        "primevul_train_000425"
+      ],
+      "minimum_evidence": "检查验证参数、失败分支、接受状态和被遗漏的前提",
+      "counterevidence_to_seek": "验证所有必要密码学属性且失败即拒绝",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "cryptographic_validation__safe_api_or_argument",
+      "vulnerability_type": "cryptographic_validation",
+      "vulnerability_name_zh": "密码学验证错误",
+      "repair_pattern": "safe_api_or_argument",
+      "repair_pattern_zh": "接口替换以及安全参数/容量参数",
+      "count": 1,
+      "cwe_counts": {},
+      "datasets": {
+        "CleanVul": 1
+      },
+      "representative_sample_ids": [
+        "cleanvul_s4_003091"
+      ],
+      "sample_ids": [
+        "cleanvul_s4_003091"
+      ],
+      "minimum_evidence": "检查验证参数、失败分支、接受状态和被遗漏的前提",
+      "counterevidence_to_seek": "验证所有必要密码学属性且失败即拒绝",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "format_string__input_validation",
+      "vulnerability_type": "format_string",
+      "vulnerability_name_zh": "格式化字符串缺陷",
+      "repair_pattern": "input_validation",
+      "repair_pattern_zh": "输入字段、格式或状态的合法性校验",
+      "count": 1,
+      "cwe_counts": {
+        "CWE-134": 1
+      },
+      "datasets": {
+        "PrimeVul": 1
+      },
+      "representative_sample_ids": [
+        "primevul_valid_000085"
+      ],
+      "sample_ids": [
+        "primevul_valid_000085"
+      ],
+      "minimum_evidence": "检查格式字符串来源与可变参数传递",
+      "counterevidence_to_seek": "格式串必须为可信常量或经充分控制",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "injection__initialization",
+      "vulnerability_type": "injection",
+      "vulnerability_name_zh": "注入",
+      "repair_pattern": "initialization",
+      "repair_pattern_zh": "未初始化状态修复",
+      "count": 1,
+      "cwe_counts": {},
+      "datasets": {
+        "CleanVul": 1
+      },
+      "representative_sample_ids": [
+        "cleanvul_s4_004797"
+      ],
+      "sample_ids": [
+        "cleanvul_s4_004797"
+      ],
+      "minimum_evidence": "追踪外部输入到解释执行点及上下文编码规则",
+      "counterevidence_to_seek": "使用安全参数化/转义及相应上下文边界",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "integer_overflow__input_validation",
+      "vulnerability_type": "integer_overflow",
+      "vulnerability_name_zh": "整数溢出",
+      "repair_pattern": "input_validation",
+      "repair_pattern_zh": "输入字段、格式或状态的合法性校验",
+      "count": 1,
+      "cwe_counts": {
+        "CWE-190": 1
+      },
+      "datasets": {
+        "MegaVul": 1
+      },
+      "representative_sample_ids": [
+        "megavul_306231"
+      ],
+      "sample_ids": [
+        "megavul_306231"
+      ],
+      "minimum_evidence": "确认参与运算变量的取值范围、提升转换、后续内存操作所用结果",
+      "counterevidence_to_seek": "运算前做范围检查或扩大运算类型；检查后续缩窄转换",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "integer_overflow__loop_termination",
+      "vulnerability_type": "integer_overflow",
+      "vulnerability_name_zh": "整数溢出",
+      "repair_pattern": "loop_termination",
+      "repair_pattern_zh": "迭代终止性保障",
+      "count": 1,
+      "cwe_counts": {
+        "CWE-193": 1,
+        "CWE-835": 1
+      },
+      "datasets": {
+        "MegaVul": 1
+      },
+      "representative_sample_ids": [
+        "megavul_136207"
+      ],
+      "sample_ids": [
+        "megavul_136207"
+      ],
+      "minimum_evidence": "确认参与运算变量的取值范围、提升转换、后续内存操作所用结果",
+      "counterevidence_to_seek": "运算前做范围检查或扩大运算类型；检查后续缩窄转换",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "integer_truncation__checked_arithmetic",
+      "vulnerability_type": "integer_truncation",
+      "vulnerability_name_zh": "整数截断",
+      "repair_pattern": "checked_arithmetic",
+      "repair_pattern_zh": "加减乘除前后溢出检查",
+      "count": 1,
+      "cwe_counts": {},
+      "datasets": {
+        "CleanVul": 1
+      },
+      "representative_sample_ids": [
+        "cleanvul_s4_004339"
+      ],
+      "sample_ids": [
+        "cleanvul_s4_004339"
+      ],
+      "minimum_evidence": "检查所有强制/隐式转换与跨类型比较",
+      "counterevidence_to_seek": "检查目标类型范围并确保源值可表示",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "integer_underflow__safe_api_or_argument",
+      "vulnerability_type": "integer_underflow",
+      "vulnerability_name_zh": "整数下溢",
+      "repair_pattern": "safe_api_or_argument",
+      "repair_pattern_zh": "接口替换以及安全参数/容量参数",
+      "count": 1,
+      "cwe_counts": {
+        "CWE-835": 1
+      },
+      "datasets": {
+        "MegaVul": 1
+      },
+      "representative_sample_ids": [
+        "megavul_040546"
+      ],
+      "sample_ids": [
+        "megavul_040546"
+      ],
+      "minimum_evidence": "确认运算数类型和输入范围，以及溢出值如何影响安全判断",
+      "counterevidence_to_seek": "确认减法上下界和无符号回绕问题",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "integer_underflow__wider_or_unsigned_type",
+      "vulnerability_type": "integer_underflow",
+      "vulnerability_name_zh": "整数下溢",
+      "repair_pattern": "wider_or_unsigned_type",
+      "repair_pattern_zh": "数值类型宽度或符号调整",
+      "count": 1,
+      "cwe_counts": {
+        "CWE-189": 1
+      },
+      "datasets": {
+        "PrimeVul": 1
+      },
+      "representative_sample_ids": [
+        "primevul_train_000264"
+      ],
+      "sample_ids": [
+        "primevul_train_000264"
+      ],
+      "minimum_evidence": "确认运算数类型和输入范围，以及溢出值如何影响安全判断",
+      "counterevidence_to_seek": "确认减法上下界和无符号回绕问题",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "logic_validation__checked_arithmetic",
+      "vulnerability_type": "logic_validation",
+      "vulnerability_name_zh": "逻辑或输入验证缺陷",
+      "repair_pattern": "checked_arithmetic",
+      "repair_pattern_zh": "加减乘除前后溢出检查",
+      "count": 1,
+      "cwe_counts": {},
+      "datasets": {
+        "CleanVul": 1
+      },
+      "representative_sample_ids": [
+        "cleanvul_s4_002710"
+      ],
+      "sample_ids": [
+        "cleanvul_s4_002710"
+      ],
+      "minimum_evidence": "核查数据合法范围、非法状态的分支行为和修复前遗漏的条件",
+      "counterevidence_to_seek": "检查所有与安全性质相关的输入约束及分支一致性",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "logic_validation__loop_termination",
+      "vulnerability_type": "logic_validation",
+      "vulnerability_name_zh": "逻辑或输入验证缺陷",
+      "repair_pattern": "loop_termination",
+      "repair_pattern_zh": "迭代终止性保障",
+      "count": 1,
+      "cwe_counts": {},
+      "datasets": {
+        "CleanVul": 1
+      },
+      "representative_sample_ids": [
+        "cleanvul_s4_001741"
+      ],
+      "sample_ids": [
+        "cleanvul_s4_001741"
+      ],
+      "minimum_evidence": "核查数据合法范围、非法状态的分支行为和修复前遗漏的条件",
+      "counterevidence_to_seek": "检查所有与安全性质相关的输入约束及分支一致性",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "logic_validation__resource_cleanup",
+      "vulnerability_type": "logic_validation",
+      "vulnerability_name_zh": "逻辑或输入验证缺陷",
+      "repair_pattern": "resource_cleanup",
+      "repair_pattern_zh": "资源清理与异常路径处理",
+      "count": 1,
+      "cwe_counts": {
+        "CWE-399": 1
+      },
+      "datasets": {
+        "MegaVul": 1
+      },
+      "representative_sample_ids": [
+        "megavul_145414"
+      ],
+      "sample_ids": [
+        "megavul_145414"
+      ],
+      "minimum_evidence": "核查数据合法范围、非法状态的分支行为和修复前遗漏的条件",
+      "counterevidence_to_seek": "检查所有与安全性质相关的输入约束及分支一致性",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "null_dereference__initialization",
+      "vulnerability_type": "null_dereference",
+      "vulnerability_name_zh": "空指针解引用",
+      "repair_pattern": "initialization",
+      "repair_pattern_zh": "未初始化状态修复",
+      "count": 1,
+      "cwe_counts": {
+        "CWE-754": 1
+      },
+      "datasets": {
+        "MegaVul": 1
+      },
+      "representative_sample_ids": [
+        "megavul_316540"
+      ],
+      "sample_ids": [
+        "megavul_316540"
+      ],
+      "minimum_evidence": "找出指针产生点、失败返回路径、解引用位置与支配关系",
+      "counterevidence_to_seek": "证明每条可达路径均已判空或取得非空保证",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "other__checked_arithmetic",
+      "vulnerability_type": "other",
+      "vulnerability_name_zh": "其他安全机制",
+      "repair_pattern": "checked_arithmetic",
+      "repair_pattern_zh": "加减乘除前后溢出检查",
+      "count": 1,
+      "cwe_counts": {
+        "CWE-125": 1
+      },
+      "datasets": {
+        "PrimeVul": 1
+      },
+      "representative_sample_ids": [
+        "primevul_test_000141"
+      ],
+      "sample_ids": [
+        "primevul_test_000141"
+      ],
+      "minimum_evidence": "查找修复前后的守卫差异、可达路径和对应对象状态",
+      "counterevidence_to_seek": "依照修复逻辑证明相关不变量而非仅凭固定模式判断",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "other__initialization",
+      "vulnerability_type": "other",
+      "vulnerability_name_zh": "其他安全机制",
+      "repair_pattern": "initialization",
+      "repair_pattern_zh": "未初始化状态修复",
+      "count": 1,
+      "cwe_counts": {},
+      "datasets": {
+        "CleanVul": 1
+      },
+      "representative_sample_ids": [
+        "cleanvul_s4_002021"
+      ],
+      "sample_ids": [
+        "cleanvul_s4_002021"
+      ],
+      "minimum_evidence": "查找修复前后的守卫差异、可达路径和对应对象状态",
+      "counterevidence_to_seek": "依照修复逻辑证明相关不变量而非仅凭固定模式判断",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "other__input_validation",
+      "vulnerability_type": "other",
+      "vulnerability_name_zh": "其他安全机制",
+      "repair_pattern": "input_validation",
+      "repair_pattern_zh": "输入字段、格式或状态的合法性校验",
+      "count": 1,
+      "cwe_counts": {
+        "CWE-20": 1
+      },
+      "datasets": {
+        "PrimeVul": 1
+      },
+      "representative_sample_ids": [
+        "primevul_train_002467"
+      ],
+      "sample_ids": [
+        "primevul_train_002467"
+      ],
+      "minimum_evidence": "查找修复前后的守卫差异、可达路径和对应对象状态",
+      "counterevidence_to_seek": "依照修复逻辑证明相关不变量而非仅凭固定模式判断",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "other__length_or_capacity_check",
+      "vulnerability_type": "other",
+      "vulnerability_name_zh": "其他安全机制",
+      "repair_pattern": "length_or_capacity_check",
+      "repair_pattern_zh": "写入/读取前的长度与实际容量约束",
+      "count": 1,
+      "cwe_counts": {},
+      "datasets": {
+        "CleanVul": 1
+      },
+      "representative_sample_ids": [
+        "cleanvul_s4_004660"
+      ],
+      "sample_ids": [
+        "cleanvul_s4_004660"
+      ],
+      "minimum_evidence": "查找修复前后的守卫差异、可达路径和对应对象状态",
+      "counterevidence_to_seek": "依照修复逻辑证明相关不变量而非仅凭固定模式判断",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "other__null_or_result_check",
+      "vulnerability_type": "other",
+      "vulnerability_name_zh": "其他安全机制",
+      "repair_pattern": "null_or_result_check",
+      "repair_pattern_zh": "空值或返回结果检查",
+      "count": 1,
+      "cwe_counts": {
+        "CWE-416": 1
+      },
+      "datasets": {
+        "MegaVul": 1
+      },
+      "representative_sample_ids": [
+        "megavul_213762"
+      ],
+      "sample_ids": [
+        "megavul_213762"
+      ],
+      "minimum_evidence": "查找修复前后的守卫差异、可达路径和对应对象状态",
+      "counterevidence_to_seek": "依照修复逻辑证明相关不变量而非仅凭固定模式判断",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "resource_exhaustion__bounds_check",
+      "vulnerability_type": "resource_exhaustion",
+      "vulnerability_name_zh": "资源耗尽",
+      "repair_pattern": "bounds_check",
+      "repair_pattern_zh": "索引与范围检查",
+      "count": 1,
+      "cwe_counts": {},
+      "datasets": {
+        "CleanVul": 1
+      },
+      "representative_sample_ids": [
+        "cleanvul_s4_001401"
+      ],
+      "sample_ids": [
+        "cleanvul_s4_001401"
+      ],
+      "minimum_evidence": "检查由输入控制的资源增长路径及资源限制",
+      "counterevidence_to_seek": "实施资源上界、进度/次数或速率限制并及时失败",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "resource_exhaustion__input_validation",
+      "vulnerability_type": "resource_exhaustion",
+      "vulnerability_name_zh": "资源耗尽",
+      "repair_pattern": "input_validation",
+      "repair_pattern_zh": "输入字段、格式或状态的合法性校验",
+      "count": 1,
+      "cwe_counts": {
+        "CWE-835": 1
+      },
+      "datasets": {
+        "PrimeVul": 1
+      },
+      "representative_sample_ids": [
+        "primevul_train_002773"
+      ],
+      "sample_ids": [
+        "primevul_train_002773"
+      ],
+      "minimum_evidence": "检查由输入控制的资源增长路径及资源限制",
+      "counterevidence_to_seek": "实施资源上界、进度/次数或速率限制并及时失败",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "resource_leak__error_propagation",
+      "vulnerability_type": "resource_leak",
+      "vulnerability_name_zh": "资源泄漏",
+      "repair_pattern": "error_propagation",
+      "repair_pattern_zh": "错误状态传播与失败关闭",
+      "count": 1,
+      "cwe_counts": {
+        "CWE-362": 1
+      },
+      "datasets": {
+        "MegaVul": 1
+      },
+      "representative_sample_ids": [
+        "megavul_106009"
+      ],
+      "sample_ids": [
+        "megavul_106009"
+      ],
+      "minimum_evidence": "列出资源获取点、返回点、错误路径及释放调用",
+      "counterevidence_to_seek": "确保成功、失败和异常分支资源所有权与清理一致",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "signedness__checked_arithmetic",
+      "vulnerability_type": "signedness",
+      "vulnerability_name_zh": "有符号性错误",
+      "repair_pattern": "checked_arithmetic",
+      "repair_pattern_zh": "加减乘除前后溢出检查",
+      "count": 1,
+      "cwe_counts": {
+        "CWE-119": 1
+      },
+      "datasets": {
+        "MegaVul": 1
+      },
+      "representative_sample_ids": [
+        "megavul_182353"
+      ],
+      "sample_ids": [
+        "megavul_182353"
+      ],
+      "minimum_evidence": "检查负数输入、整型提升、比较及指针运算",
+      "counterevidence_to_seek": "使用一致类型并验证负值和转换范围",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    },
+    {
+      "group_key": "uninitialized_use__length_or_capacity_check",
+      "vulnerability_type": "uninitialized_use",
+      "vulnerability_name_zh": "未初始化值使用",
+      "repair_pattern": "length_or_capacity_check",
+      "repair_pattern_zh": "写入/读取前的长度与实际容量约束",
+      "count": 1,
+      "cwe_counts": {
+        "CWE-703": 1
+      },
+      "datasets": {
+        "PrimeVul": 1
+      },
+      "representative_sample_ids": [
+        "primevul_train_002219"
+      ],
+      "sample_ids": [
+        "primevul_train_002219"
+      ],
+      "minimum_evidence": "确认声明、初始化、条件分支与使用的控制流",
+      "counterevidence_to_seek": "所有可达使用路径必须先赋合法初值",
+      "scope_warning": "同组只代表漏洞大类与修复模式相近，具体触发条件和上下文不能互相替代。"
+    }
+  ]
+}

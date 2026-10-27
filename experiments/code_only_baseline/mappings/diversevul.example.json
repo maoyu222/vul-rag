@@ -1,0 +1,14 @@
+{
+  "verified_by_user": false,
+  "format": "jsonl",
+  "dataset_language": "C/C++",
+  "fields": {
+    "source_record_id": "hash",
+    "code": "func",
+    "label": "target",
+    "project": "project",
+    "fix_commit": "commit_id",
+    "cwe_ids": "cwe"
+  },
+  "label_map": {"0": 0, "1": 1}
+}

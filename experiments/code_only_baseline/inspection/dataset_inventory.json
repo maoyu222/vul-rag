@@ -1,0 +1,4783 @@
+{
+  "root": "/home/PublicData/PHY-data/vul_detect/data",
+  "exists": true,
+  "scope": "bounded schema inspection, not full sample counts or label-semantic proof",
+  "files": [
+    {
+      "dataset": "PrimeVul_v0.1",
+      "path": "/home/PublicData/PHY-data/vul_detect/data/PrimeVul_v0.1/primevul_test.jsonl",
+      "exists": true,
+      "bytes": 66064689,
+      "format": "array_or_jsonl",
+      "inspected_records": 2,
+      "schemas": [
+        {
+          "idx": {
+            "type": "int",
+            "value": 90104
+          },
+          "project": {
+            "type": "str",
+            "length": 6,
+            "preview": "Chrome"
+          },
+          "commit_id": {
+            "type": "str",
+            "length": 40,
+            "preview": "a3e2afaedd8190398ae45ccef34fcdee00fb19aa"
+          },
+          "project_url": {
+            "type": "str",
+            "length": 36,
+            "preview": "https://github.com/chromium/chromium"
+          },
+          "commit_url": {
+            "type": "str",
+            "length": 84,
+            "preview": "https://github.com/chromium/chromium/commit/a3e2afaedd8190398ae45ccef34fcdee00fb19aa"
+          },
+          "commit_message": {
+            "type": "str",
+            "length": 4,
+            "preview": "None"
+          },
+          "target": {
+            "type": "int",
+            "value": 0
+          },
+          "func": {
+            "type": "str",
+            "length": 879,
+            "preview": "std::string CellularNetwork::ActivationStateToString(\n    ActivationState activation_state) {\n  switch (activation_state"
+          },
+          "func_hash": {
+            "type": "int",
+            "value": 157999551299079595602783012275458877113
+          },
+          "file_name": {
+            "type": "str",
+            "length": 4,
+            "preview": "None"
+          },
+          "file_hash": {
+            "type": "NoneType",
+            "value": null
+          },
+          "cwe": {
+            "type": "list",
+            "length": 0,
+            "first": null
+          },
+          "cve": {
+            "type": "str",
+            "length": 4,
+            "preview": "None"
+          },
+          "cve_desc": {
+            "type": "str",
+            "length": 4,
+            "preview": "None"
+          },
+          "nvd_url": {
+            "type": "str",
+            "length": 37,
+            "preview": "https://nvd.nist.gov/vuln/detail/None"
+          }
+        },
+        {
+          "idx": {
+            "type": "int",
+            "value": 90105
+          },
+          "project": {
+            "type": "str",
+            "length": 6,
+            "preview": "Chrome"
+          },
+          "commit_id": {
+            "type": "str",
+            "length": 40,
+            "preview": "a3e2afaedd8190398ae45ccef34fcdee00fb19aa"
+          },
+          "project_url": {
+            "type": "str",
+            "length": 36,
+            "preview": "https://github.com/chromium/chromium"
+          },
+          "commit_url": {
+            "type": "str",
+            "length": 84,
+            "preview": "https://github.com/chromium/chromium/commit/a3e2afaedd8190398ae45ccef34fcdee00fb19aa"
+          },
+          "commit_message": {
+            "type": "str",
+            "length": 4,
+            "preview": "None"
+          },
+          "target": {
+            "type": "int",
+            "value": 0
+          },
+          "func": {
+            "type": "str",
+            "length": 188,
+            "preview": "  virtual void AddCellularDataPlanObserver(CellularDataPlanObserver* observer) {\n    if (!data_plan_observers_.HasObserv"
+          },
+          "func_hash": {
+            "type": "int",
+            "value": 309963211831686180665706939295472305039
+          },
+          "file_name": {
+            "type": "str",
+            "length": 4,
+            "preview": "None"
+          },
+          "file_hash": {
+            "type": "NoneType",
+            "value": null
+          },
+          "cwe": {
+            "type": "list",
+            "length": 0,
+            "first": null
+          },
+          "cve": {
+            "type": "str",
+            "length": 4,
+            "preview": "None"
+          },
+          "cve_desc": {
+            "type": "str",
+            "length": 4,
+            "preview": "None"
+          },
+          "nvd_url": {
+            "type": "str",
+            "length": 37,
+            "preview": "https://nvd.nist.gov/vuln/detail/None"
+          }
+        }
+      ],
+      "size_mtime_unchanged": true
+    },
+    {
+      "dataset": "PrimeVul_v0.1",
+      "path": "/home/PublicData/PHY-data/vul_detect/data/PrimeVul_v0.1/primevul_test_paired.jsonl",
+      "exists": true,
+      "bytes": 6033298,
+      "format": "array_or_jsonl",
+      "inspected_records": 2,
+      "schemas": [
+        {
+          "idx": {
+            "type": "int",
+            "value": 194963
+          },
+          "project": {
+            "type": "str",
+            "length": 12,
+            "preview": "ImageMagick6"
+          },
+          "commit_id": {
+            "type": "str",
+            "length": 40,
+            "preview": "dc070da861a015d3c97488fdcca6063b44d47a7b"
+          },
+          "project_url": {
+            "type": "str",
+            "length": 43,
+            "preview": "https://github.com/ImageMagick/ImageMagick6"
+          },
+          "commit_url": {
+            "type": "str",
+            "length": 91,
+            "preview": "https://github.com/ImageMagick/ImageMagick6/commit/dc070da861a015d3c97488fdcca6063b44d47a7b"
+          },
+          "commit_message": {
+            "type": "str",
+            "length": 52,
+            "preview": "https://github.com/ImageMagick/ImageMagick/pull/5034"
+          },
+          "target": {
+            "type": "int",
+            "value": 1
+          },
+          "func": {
+            "type": "str",
+            "length": 28188,
+            "preview": "static MagickBooleanType GetEXIFProperty(const Image *image,\n  const char *property)\n{\n#define MaxDirectoryStack  16\n#de"
+          },
+          "func_hash": {
+            "type": "int",
+            "value": 292096308156704952246887123009503225331
+          },
+          "file_name": {
+            "type": "str",
+            "length": 10,
+            "preview": "property.c"
+          },
+          "file_hash": {
+            "type": "int",
+            "value": 122751008107964047346147343124174074065
+          },
+          "cwe": {
+            "type": "list",
+            "length": 1,
+            "first": {
+              "type": "str",
+              "length": 7,
+              "preview": "CWE-704"
+            }
+          },
+          "cve": {
+            "type": "str",
+            "length": 14,
+            "preview": "CVE-2022-32547"
+          },
+          "cve_desc": {
+            "type": "str",
+            "length": 354,
+            "preview": "In ImageMagick, there is load of misaligned address for type 'double', which requires 8 byte alignment and for type 'flo"
+          },
+          "nvd_url": {
+            "type": "str",
+            "length": 47,
+            "preview": "https://nvd.nist.gov/vuln/detail/CVE-2022-32547"
+          }
+        },
+        {
+          "idx": {
+            "type": "int",
+            "value": 217569
+          },
+          "project": {
+            "type": "str",
+            "length": 12,
+            "preview": "ImageMagick6"
+          },
+          "commit_id": {
+            "type": "str",
+            "length": 40,
+            "preview": "dc070da861a015d3c97488fdcca6063b44d47a7b"
+          },
+          "project_url": {
+            "type": "str",
+            "length": 43,
+            "preview": "https://github.com/ImageMagick/ImageMagick6"
+          },
+          "commit_url": {
+            "type": "str",
+            "length": 91,
+            "preview": "https://github.com/ImageMagick/ImageMagick6/commit/dc070da861a015d3c97488fdcca6063b44d47a7b"
+          },
+          "commit_message": {
+            "type": "str",
+            "length": 52,
+            "preview": "https://github.com/ImageMagick/ImageMagick/pull/5034"
+          },
+          "target": {
+            "type": "int",
+            "value": 0
+          },
+          "func": {
+            "type": "str",
+            "length": 28274,
+            "preview": "static MagickBooleanType GetEXIFProperty(const Image *image,\n  const char *property)\n{\n#define MaxDirectoryStack  16\n#de"
+          },
+          "func_hash": {
+            "type": "int",
+            "value": 75422468811560646183620950160304672170
+          },
+          "file_name": {
+            "type": "str",
+            "length": 10,
+            "preview": "property.c"
+          },
+          "file_hash": {
+            "type": "int",
+            "value": 320426917520707901134127411021604962567
+          },
+          "cwe": {
+            "type": "list",
+            "length": 1,
+            "first": {
+              "type": "str",
+              "length": 7,
+              "preview": "CWE-704"
+            }
+          },
+          "cve": {
+            "type": "str",
+            "length": 14,
+            "preview": "CVE-2022-32547"
+          },
+          "cve_desc": {
+            "type": "str",
+            "length": 354,
+            "preview": "In ImageMagick, there is load of misaligned address for type 'double', which requires 8 byte alignment and for type 'flo"
+          },
+          "nvd_url": {
+            "type": "str",
+            "length": 47,
+            "preview": "https://nvd.nist.gov/vuln/detail/CVE-2022-32547"
+          }
+        }
+      ],
+      "size_mtime_unchanged": true
+    },
+    {
+      "dataset": "PrimeVul_v0.1",
+      "path": "/home/PublicData/PHY-data/vul_detect/data/PrimeVul_v0.1/primevul_train.jsonl",
+      "exists": true,
+      "bytes": 470918175,
+      "format": "array_or_jsonl",
+      "inspected_records": 2,
+      "schemas": [
+        {
+          "idx": {
+            "type": "int",
+            "value": 0
+          },
+          "project": {
+            "type": "str",
+            "length": 7,
+            "preview": "openssl"
+          },
+          "commit_id": {
+            "type": "str",
+            "length": 40,
+            "preview": "ca989269a2876bae79393bd54c3e72d49975fc75"
+          },
+          "project_url": {
+            "type": "str",
+            "length": 34,
+            "preview": "https://github.com/openssl/openssl"
+          },
+          "commit_url": {
+            "type": "str",
+            "length": 97,
+            "preview": "https://git.openssl.org/gitweb/?p=openssl.git;a=commit;h=ca989269a2876bae79393bd54c3e72d49975fc75"
+          },
+          "commit_message": {
+            "type": "str",
+            "length": 334,
+            "preview": "Use version in SSL_METHOD not SSL structure.\n\nWhen deciding whether to use TLS 1.2 PRF and record hash algorithms\nuse th"
+          },
+          "target": {
+            "type": "int",
+            "value": 1
+          },
+          "func": {
+            "type": "str",
+            "length": 299,
+            "preview": " long ssl_get_algorithm2(SSL *s)\n        {\n        long alg2 = s->s3->tmp.new_cipher->algorithm2;\n       if (TLS1_get_ve"
+          },
+          "func_hash": {
+            "type": "int",
+            "value": 255087747659226932756944884868284698117
+          },
+          "file_name": {
+            "type": "str",
+            "length": 4,
+            "preview": "None"
+          },
+          "file_hash": {
+            "type": "NoneType",
+            "value": null
+          },
+          "cwe": {
+            "type": "list",
+            "length": 1,
+            "first": {
+              "type": "str",
+              "length": 7,
+              "preview": "CWE-310"
+            }
+          },
+          "cve": {
+            "type": "str",
+            "length": 13,
+            "preview": "CVE-2013-6449"
+          },
+          "cve_desc": {
+            "type": "str",
+            "length": 255,
+            "preview": "The ssl_get_algorithm2 function in ssl/s3_lib.c in OpenSSL before 1.0.2 obtains a certain version number from an incorre"
+          },
+          "nvd_url": {
+            "type": "str",
+            "length": 46,
+            "preview": "https://nvd.nist.gov/vuln/detail/CVE-2013-6449"
+          }
+        },
+        {
+          "idx": {
+            "type": "int",
+            "value": 1
+          },
+          "project": {
+            "type": "str",
+            "length": 8,
+            "preview": "savannah"
+          },
+          "commit_id": {
+            "type": "str",
+            "length": 40,
+            "preview": "190cef6eed37d0e73a73c1e205eb31d45ab60a3c"
+          },
+          "project_url": {
+            "type": "str",
+            "length": 45,
+            "preview": "https://git.savannah.gnu.org/gitweb/?p=gnutls"
+          },
+          "commit_url": {
+            "type": "str",
+            "length": 105,
+            "preview": "https://git.savannah.gnu.org/gitweb/?p=gnutls.git;a=commitdiff;h=190cef6eed37d0e73a73c1e205eb31d45ab60a3c"
+          },
+          "commit_message": {
+            "type": "str",
+            "length": 4,
+            "preview": "None"
+          },
+          "target": {
+            "type": "int",
+            "value": 1
+          },
+          "func": {
+            "type": "str",
+            "length": 730,
+            "preview": "gnutls_session_get_data (gnutls_session_t session,\n                         void *session_data, size_t * session_data_si"
+          },
+          "func_hash": {
+            "type": "int",
+            "value": 266005388725654386397960628110885023158
+          },
+          "file_name": {
+            "type": "str",
+            "length": 4,
+            "preview": "None"
+          },
+          "file_hash": {
+            "type": "NoneType",
+            "value": null
+          },
+          "cwe": {
+            "type": "list",
+            "length": 1,
+            "first": {
+              "type": "str",
+              "length": 7,
+              "preview": "CWE-119"
+            }
+          },
+          "cve": {
+            "type": "str",
+            "length": 13,
+            "preview": "CVE-2011-4128"
+          },
+          "cve_desc": {
+            "type": "str",
+            "length": 303,
+            "preview": "Buffer overflow in the gnutls_session_get_data function in lib/gnutls_session.c in GnuTLS 2.12.x before 2.12.14 and 3.x "
+          },
+          "nvd_url": {
+            "type": "str",
+            "length": 46,
+            "preview": "https://nvd.nist.gov/vuln/detail/CVE-2011-4128"
+          }
+        }
+      ],
+      "size_mtime_unchanged": true
+    },
+    {
+      "dataset": "PrimeVul_v0.1",
+      "path": "/home/PublicData/PHY-data/vul_detect/data/PrimeVul_v0.1/primevul_valid.jsonl",
+      "exists": true,
+      "bytes": 63564497,
+      "format": "array_or_jsonl",
+      "inspected_records": 2,
+      "schemas": [
+        {
+          "idx": {
+            "type": "int",
+            "value": 89023
+          },
+          "project": {
+            "type": "str",
+            "length": 6,
+            "preview": "Chrome"
+          },
+          "commit_id": {
+            "type": "str",
+            "length": 40,
+            "preview": "327585cb0eab0859518643a2d00917081f7e7645"
+          },
+          "project_url": {
+            "type": "str",
+            "length": 36,
+            "preview": "https://github.com/chromium/chromium"
+          },
+          "commit_url": {
+            "type": "str",
+            "length": 84,
+            "preview": "https://github.com/chromium/chromium/commit/327585cb0eab0859518643a2d00917081f7e7645"
+          },
+          "commit_message": {
+            "type": "str",
+            "length": 4,
+            "preview": "None"
+          },
+          "target": {
+            "type": "int",
+            "value": 0
+          },
+          "func": {
+            "type": "str",
+            "length": 225,
+            "preview": "WebGraphicsContext3DDefaultImpl::VertexAttribPointerState::VertexAttribPointerState()\n    : enabled(false)\n    , buffer("
+          },
+          "func_hash": {
+            "type": "int",
+            "value": 60313001127613146047391394354558934317
+          },
+          "file_name": {
+            "type": "str",
+            "length": 4,
+            "preview": "None"
+          },
+          "file_hash": {
+            "type": "NoneType",
+            "value": null
+          },
+          "cwe": {
+            "type": "list",
+            "length": 0,
+            "first": null
+          },
+          "cve": {
+            "type": "str",
+            "length": 4,
+            "preview": "None"
+          },
+          "cve_desc": {
+            "type": "str",
+            "length": 4,
+            "preview": "None"
+          },
+          "nvd_url": {
+            "type": "str",
+            "length": 37,
+            "preview": "https://nvd.nist.gov/vuln/detail/None"
+          }
+        },
+        {
+          "idx": {
+            "type": "int",
+            "value": 89024
+          },
+          "project": {
+            "type": "str",
+            "length": 6,
+            "preview": "Chrome"
+          },
+          "commit_id": {
+            "type": "str",
+            "length": 40,
+            "preview": "327585cb0eab0859518643a2d00917081f7e7645"
+          },
+          "project_url": {
+            "type": "str",
+            "length": 36,
+            "preview": "https://github.com/chromium/chromium"
+          },
+          "commit_url": {
+            "type": "str",
+            "length": 84,
+            "preview": "https://github.com/chromium/chromium/commit/327585cb0eab0859518643a2d00917081f7e7645"
+          },
+          "commit_message": {
+            "type": "str",
+            "length": 4,
+            "preview": "None"
+          },
+          "target": {
+            "type": "int",
+            "value": 0
+          },
+          "func": {
+            "type": "str",
+            "length": 211,
+            "preview": "void WebGraphicsContext3DDefaultImpl::activeTexture(unsigned long texture)\n{\n    if (texture < GL_TEXTURE0 || texture > "
+          },
+          "func_hash": {
+            "type": "int",
+            "value": 34448442419403439998385208344307439777
+          },
+          "file_name": {
+            "type": "str",
+            "length": 4,
+            "preview": "None"
+          },
+          "file_hash": {
+            "type": "NoneType",
+            "value": null
+          },
+          "cwe": {
+            "type": "list",
+            "length": 0,
+            "first": null
+          },
+          "cve": {
+            "type": "str",
+            "length": 4,
+            "preview": "None"
+          },
+          "cve_desc": {
+            "type": "str",
+            "length": 4,
+            "preview": "None"
+          },
+          "nvd_url": {
+            "type": "str",
+            "length": 37,
+            "preview": "https://nvd.nist.gov/vuln/detail/None"
+          }
+        }
+      ],
+      "size_mtime_unchanged": true
+    },
+    {
+      "dataset": "PrimeVul_original",
+      "path": "/home/PublicData/PHY-data/vul_detect/data/PrimeVul_original/primevul_test.jsonl",
+      "exists": true,
+      "bytes": 54720055,
+      "format": "array_or_jsonl",
+      "inspected_records": 2,
+      "schemas": [
+        {
+          "project": {
+            "type": "str",
+            "length": 6,
+            "preview": "Chrome"
+          },
+          "commit_id": {
+            "type": "str",
+            "length": 40,
+            "preview": "a3e2afaedd8190398ae45ccef34fcdee00fb19aa"
+          },
+          "target": {
+            "type": "int",
+            "value": 1
+          },
+          "func": {
+            "type": "str",
+            "length": 1758,
+            "preview": "  void UpdateNetworkManagerStatus() {\n    if (!BrowserThread::CurrentlyOn(BrowserThread::UI)) {\n      BrowserThread::Pos"
+          },
+          "cwe": {
+            "type": "str",
+            "length": 0,
+            "preview": ""
+          },
+          "big_vul_idx": {
+            "type": "int",
+            "value": 183616
+          },
+          "idx": {
+            "type": "int",
+            "value": 4681
+          },
+          "hash": {
+            "type": "int",
+            "value": 176851565339666412051409584687167623341
+          }
+        },
+        {
+          "project": {
+            "type": "str",
+            "length": 6,
+            "preview": "Chrome"
+          },
+          "commit_id": {
+            "type": "str",
+            "length": 40,
+            "preview": "610f904d8215075c4681be4eb413f4348860bf9f"
+          },
+          "target": {
+            "type": "int",
+            "value": 1
+          },
+          "func": {
+            "type": "str",
+            "length": 386,
+            "preview": "int64 ClientUsageTracker::GetCachedHostUsage(const std::string& host) {\n   HostUsageMap::const_iterator found = cached_u"
+          },
+          "cwe": {
+            "type": "str",
+            "length": 0,
+            "preview": ""
+          },
+          "big_vul_idx": {
+            "type": "int",
+            "value": 183644
+          },
+          "idx": {
+            "type": "int",
+            "value": 4706
+          },
+          "hash": {
+            "type": "int",
+            "value": 81607632977134860466801081500022041763
+          }
+        }
+      ],
+      "size_mtime_unchanged": true
+    },
+    {
+      "dataset": "PrimeVul_original",
+      "path": "/home/PublicData/PHY-data/vul_detect/data/PrimeVul_original/primevul_test_paired.jsonl",
+      "exists": true,
+      "bytes": 7172787,
+      "format": "array_or_jsonl",
+      "inspected_records": 2,
+      "schemas": [
+        {
+          "project": {
+            "type": "str",
+            "length": 6,
+            "preview": "Chrome"
+          },
+          "commit_id": {
+            "type": "str",
+            "length": 40,
+            "preview": "a3e2afaedd8190398ae45ccef34fcdee00fb19aa"
+          },
+          "target": {
+            "type": "int",
+            "value": 1
+          },
+          "func": {
+            "type": "str",
+            "length": 1758,
+            "preview": "  void UpdateNetworkManagerStatus() {\n    if (!BrowserThread::CurrentlyOn(BrowserThread::UI)) {\n      BrowserThread::Pos"
+          },
+          "cwe": {
+            "type": "str",
+            "length": 0,
+            "preview": ""
+          },
+          "big_vul_idx": {
+            "type": "int",
+            "value": 183616
+          },
+          "idx": {
+            "type": "int",
+            "value": 4681
+          },
+          "hash": {
+            "type": "int",
+            "value": 176851565339666412051409584687167623341
+          }
+        },
+        {
+          "project": {
+            "type": "str",
+            "length": 6,
+            "preview": "Chrome"
+          },
+          "commit_id": {
+            "type": "str",
+            "length": 40,
+            "preview": "a3e2afaedd8190398ae45ccef34fcdee00fb19aa"
+          },
+          "target": {
+            "type": "int",
+            "value": 0
+          },
+          "func": {
+            "type": "str",
+            "length": 1678,
+            "preview": "  void UpdateNetworkManagerStatus() {\n    if (!BrowserThread::CurrentlyOn(BrowserThread::UI)) {\n      BrowserThread::Pos"
+          },
+          "cwe": {
+            "type": "str",
+            "length": 0,
+            "preview": ""
+          },
+          "big_vul_idx": {
+            "type": "int",
+            "value": 183616
+          },
+          "idx": {
+            "type": "int",
+            "value": 161819
+          },
+          "hash": {
+            "type": "int",
+            "value": 92997797723041762508904764591667886709
+          }
+        }
+      ],
+      "size_mtime_unchanged": true
+    },
+    {
+      "dataset": "megavul",
+      "path": "/home/PublicData/PHY-data/vul_detect/data/megavul/megavul.json",
+      "exists": true,
+      "bytes": 2668796982,
+      "format": "array_or_jsonl",
+      "inspected_records": 2,
+      "schemas": [
+        {
+          "cve_id": {
+            "type": "str",
+            "length": 13,
+            "preview": "CVE-2016-2538"
+          },
+          "cwe_ids": {
+            "type": "list",
+            "length": 1,
+            "first": {
+              "type": "str",
+              "length": 7,
+              "preview": "CWE-189"
+            }
+          },
+          "cvss_vector": {
+            "type": "str",
+            "length": 26,
+            "preview": "AV:L/AC:L/Au:N/C:P/I:N/A:P"
+          },
+          "cvss_base_score": {
+            "type": "float",
+            "value": 3.6
+          },
+          "cvss_base_severity": {
+            "type": "str",
+            "length": 3,
+            "preview": "LOW"
+          },
+          "cvss_is_v3": {
+            "type": "bool",
+            "value": false
+          },
+          "publish_date": {
+            "type": "str",
+            "length": 23,
+            "preview": "2016-06-16T18:59:06.093"
+          },
+          "repo_name": {
+            "type": "str",
+            "length": 4,
+            "preview": "qemu"
+          },
+          "commit_msg": {
+            "type": "str",
+            "length": 537,
+            "preview": "usb: check RNDIS buffer offsets & length\n\nWhen processing remote NDIS control message packets,\nthe USB Net device emulat"
+          },
+          "commit_hash": {
+            "type": "str",
+            "length": 40,
+            "preview": "fe3c546c5ff2a6210f9a4d8561cc64051ca8603e"
+          },
+          "parent_commit_hash": {
+            "type": "str",
+            "length": 40,
+            "preview": "64c9bc181fc78275596649f591302d72df2d3071"
+          },
+          "commit_date": {
+            "type": "int",
+            "value": 1455620021
+          },
+          "git_url": {
+            "type": "str",
+            "length": 76,
+            "preview": "https://github.com/qemu/qemu/commit/fe3c546c5ff2a6210f9a4d8561cc64051ca8603e"
+          },
+          "file_path": {
+            "type": "str",
+            "length": 20,
+            "preview": "hw/usb/dev-network.c"
+          },
+          "func_name": {
+            "type": "str",
+            "length": 20,
+            "preview": "rndis_query_response"
+          },
+          "parameter_list_signature_before": {
+            "type": "str",
+            "length": 64,
+            "preview": "(USBNetState *s, rndis_query_msg_type *buf, unsigned int length)"
+          },
+          "parameter_list_before": {
+            "type": "list",
+            "length": 3,
+            "first": {
+              "type": "list",
+              "length": 3,
+              "first": {
+                "type": "str",
+                "length": 13,
+                "preview": "USBNetState *"
+              }
+            }
+          },
+          "return_type_before": {
+            "type": "str",
+            "length": 3,
+            "preview": "int"
+          },
+          "func_before": {
+            "type": "str",
+            "length": 1590,
+            "preview": "static int rndis_query_response(USBNetState *s,\n                rndis_query_msg_type *buf, unsigned int length)\n{\n    rn"
+          },
+          "abstract_func_before": {
+            "type": "str",
+            "length": 1429,
+            "preview": "static int rndis_query_response(USBNetState *VAR_0,\n                rndis_query_msg_type *VAR_1, unsigned int VAR_2)\n{\n "
+          },
+          "abstract_symbol_table_before": {
+            "position_map": {
+              "0": {
+                "type": "list",
+                "length": 3,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 7
+                  }
+                }
+              },
+              "1": {
+                "type": "list",
+                "length": 4,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 16
+                  }
+                }
+              },
+              "3": {
+                "type": "list",
+                "length": 2,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 4
+                  }
+                }
+              },
+              "4": {
+                "type": "list",
+                "length": 1,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 4
+                  }
+                }
+              },
+              "5": {
+                "type": "list",
+                "length": 3,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 4
+                  }
+                }
+              },
+              "6": {
+                "type": "list",
+                "length": 3,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 4
+                  }
+                }
+              },
+              "7": {
+                "type": "list",
+                "length": 2,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 4
+                  }
+                }
+              },
+              "8": {
+                "type": "list",
+                "length": 2,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 4
+                  }
+                }
+              },
+              "10": {
+                "type": "list",
+                "length": 5,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 4
+                  }
+                }
+              },
+              "11": {
+                "type": "list",
+                "length": 4,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 4
+                  }
+                }
+              },
+              "12": {
+                "type": "list",
+                "length": 3,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 8
+                  }
+                }
+              },
+              "13": {
+                "type": "list",
+                "length": 1,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 15
+                  }
+                }
+              },
+              "15": {
+                "type": "list",
+                "length": 6,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 4
+                  }
+                }
+              },
+              "16": {
+                "type": "list",
+                "length": 5,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 28
+                  }
+                }
+              },
+              "17": {
+                "type": "list",
+                "length": 1,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 35
+                  }
+                }
+              },
+              "18": {
+                "type": "list",
+                "length": 2,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 4
+                  }
+                }
+              },
+              "19": {
+                "type": "list",
+                "length": 4,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 14
+                  }
+                }
+              },
+              "20": {
+                "type": "list",
+                "length": 4,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 4
+                  }
+                }
+              },
+              "21": {
+                "type": "list",
+                "length": 1,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 9
+                  }
+                }
+              },
+              "22": {
+                "type": "list",
+                "length": 1,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 15
+                  }
+                }
+              },
+              "24": {
+                "type": "list",
+                "length": 4,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 4
+                  }
+                }
+              },
+              "25": {
+                "type": "list",
+                "length": 5,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 4
+                  }
+                }
+              },
+              "26": {
+                "type": "list",
+                "length": 4,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 4
+                  }
+                }
+              },
+              "28": {
+                "type": "list",
+                "length": 2,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 8
+                  }
+                }
+              },
+              "29": {
+                "type": "list",
+                "length": 1,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 8
+                  }
+                }
+              },
+              "30": {
+                "type": "list",
+                "length": 4,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 8
+                  }
+                }
+              },
+              "31": {
+                "type": "list",
+                "length": 4,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 8
+                  }
+                }
+              },
+              "32": {
+                "type": "list",
+                "length": 4,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 8
+                  }
+                }
+              },
+              "33": {
+                "type": "list",
+                "length": 1,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 15
+                  }
+                }
+              },
+              "36": {
+                "type": "list",
+                "length": 4,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 4
+                  }
+                }
+              },
+              "37": {
+                "type": "list",
+                "length": 2,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 4
+                  }
+                }
+              },
+              "38": {
+                "type": "list",
+                "length": 5,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 12
+                  }
+                }
+              },
+              "39": {
+                "type": "list",
+                "length": 4,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 4
+                  }
+                }
+              },
+              "40": {
+                "type": "list",
+                "length": 5,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 4
+                  }
+                }
+              },
+              "42": {
+                "type": "list",
+                "length": 1,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 11
+                  }
+                }
+              }
+            },
+            "abstract_table": {
+              "VAR": {
+                "s": {
+                  "type": "str",
+                  "length": 5,
+                  "preview": "VAR_0"
+                },
+                "buf": {
+                  "type": "str",
+                  "length": 5,
+                  "preview": "VAR_1"
+                },
+                "length": {
+                  "type": "str",
+                  "length": 5,
+                  "preview": "VAR_2"
+                },
+                "resp": {
+                  "type": "str",
+                  "length": 5,
+                  "preview": "VAR_3"
+                },
+                "infobuf": {
+                  "type": "str",
+                  "length": 5,
+                  "preview": "VAR_4"
+                },
+                "oid_supported_list": {
+                  "type": "str",
+                  "length": 5,
+                  "preview": "VAR_5"
+                },
+                "bufoffs": {
+                  "type": "str",
+                  "length": 5,
+                  "preview": "VAR_6"
+                },
+                "buflen": {
+                  "type": "str",
+                  "length": 5,
+                  "preview": "VAR_7"
+                },
+                "infobuflen": {
+                  "type": "str",
+                  "length": 5,
+                  "preview": "VAR_8"
+                },
+                "resplen": {
+                  "type": "str",
+                  "length": 5,
+                  "preview": "VAR_9"
+                },
+                "USB_RET_STALL": {
+                  "type": "str",
+                  "length": 6,
+                  "preview": "VAR_10"
+                },
+                "RNDIS_QUERY_CMPLT": {
+                  "type": "str",
+                  "length": 6,
+                  "preview": "VAR_11"
+                },
+                "RNDIS_STATUS_NOT_SUPPORTED": {
+                  "type": "str",
+                  "length": 6,
+                  "preview": "VAR_12"
+                },
+                "RNDIS_STATUS_SUCCESS": {
+                  "type": "str",
+                  "length": 6,
+                  "preview": "VAR_13"
+                }
+              },
+              "FUNC": {
+                "le32_to_cpu": {
+                  "type": "str",
+                  "length": 6,
+                  "preview": "FUNC_0"
+                },
+                "ndis_query": {
+                  "type": "str",
+                  "length": 6,
+                  "preview": "FUNC_1"
+                },
+                "rndis_queue_response": {
+                  "type": "str",
+                  "length": 6,
+                  "preview": "FUNC_2"
+                },
+                "cpu_to_le32": {
+                  "type": "str",
+                  "length": 6,
+                  "preview": "FUNC_3"
+                },
+                "memcpy": {
+                  "type": "str",
+                  "length": 6,
+                  "preview": "FUNC_4"
+                }
+              },
+              "TYPE": {
+                "int": {
+                  "type": "str",
+                  "length": 6,
+                  "preview": "TYPE_0"
+                },
+                "USBNetState": {
+                  "type": "str",
+                  "length": 6,
+                  "preview": "TYPE_1"
+                },
+                "rndis_query_msg_type": {
+                  "type": "str",
+                  "length": 6,
+                  "preview": "TYPE_2"
+                },
+                "unsigned int": {
+                  "type": "str",
+                  "length": 6,
+                  "preview": "TYPE_3"
+                },
+                "rndis_query_cmplt_type": {
+                  "type": "str",
+                  "length": 6,
+                  "preview": "TYPE_4"
+                },
+                "uint8_t": {
+                  "type": "str",
+                  "length": 6,
+                  "preview": "TYPE_5"
+                },
+                "uint32_t": {
+                  "type": "str",
+                  "length": 6,
+                  "preview": "TYPE_6"
+                }
+              },
+              "NUMBER": {
+                "8": {
+                  "type": "str",
+                  "length": 8,
+                  "preview": "NUMBER_0"
+                },
+                "0": {
+                  "type": "str",
+                  "length": 8,
+                  "preview": "NUMBER_1"
+                },
+                "1": {
+                  "type": "str",
+                  "length": 8,
+                  "preview": "NUMBER_2"
+                }
+              },
+              "FIELD": {
+                "InformationBufferOffset": {
+                  "type": "str",
+                  "length": 7,
+                  "preview": "FIELD_0"
+                },
+                "InformationBufferLength": {
+                  "type": "str",
+                  "length": 7,
+                  "preview": "FIELD_1"
+                },
+                "OID": {
+                  "type": "str",
+                  "length": 7,
+                  "preview": "FIELD_2"
+                },
+                "MessageType": {
+                  "type": "str",
+                  "length": 7,
+                  "preview": "FIELD_3"
+                },
+                "RequestID": {
+                  "type": "str",
+                  "length": 7,
+                  "preview": "FIELD_4"
+                },
+                "MessageLength": {
+                  "type": "str",
+                  "length": 7,
+                  "preview": "FIELD_5"
+                },
+                "Status": {
+                  "type": "str",
+                  "length": 7,
+                  "preview": "FIELD_6"
+                }
+              },
+              "STR": {},
+              "CHAR": {},
+              "COMMENT": {
+                "/* oid_supported_list is the largest data reply */": {
+                  "type": "str",
+                  "length": 15,
+                  "preview": "/* COMMENT_0 */"
+                },
+                "/* Still LE in msg buffer */": {
+                  "type": "str",
+                  "length": 15,
+                  "preview": "/* COMMENT_1 */"
+                },
+                "/* OID not supported */": {
+                  "type": "str",
+                  "length": 15,
+                  "preview": "/* COMMENT_2 */"
+                }
+              },
+              "LABEL": {},
+              "ANNOTATION": {}
+            }
+          },
+          "func_graph_path_before": {
+            "type": "str",
+            "length": 77,
+            "preview": "qemu/fe3c546c5ff2a6210f9a4d8561cc64051ca8603e/dev-network.c/vul/before/0.json"
+          },
+          "parameter_list_signature": {
+            "type": "str",
+            "length": 64,
+            "preview": "(USBNetState *s, rndis_query_msg_type *buf, unsigned int length)"
+          },
+          "parameter_list": {
+            "type": "list",
+            "length": 3,
+            "first": {
+              "type": "list",
+              "length": 3,
+              "first": {
+                "type": "str",
+                "length": 13,
+                "preview": "USBNetState *"
+              }
+            }
+          },
+          "return_type": {
+            "type": "str",
+            "length": 3,
+            "preview": "int"
+          },
+          "func": {
+            "type": "str",
+            "length": 1638,
+            "preview": "static int rndis_query_response(USBNetState *s,\n                rndis_query_msg_type *buf, unsigned int length)\n{\n    rn"
+          },
+          "abstract_func": {
+            "type": "str",
+            "length": 1472,
+            "preview": "static int rndis_query_response(USBNetState *VAR_0,\n                rndis_query_msg_type *VAR_1, unsigned int VAR_2)\n{\n "
+          },
+          "abstract_symbol_table": {
+            "position_map": {
+              "0": {
+                "type": "list",
+                "length": 3,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 7
+                  }
+                }
+              },
+              "1": {
+                "type": "list",
+                "length": 4,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 16
+                  }
+                }
+              },
+              "3": {
+                "type": "list",
+                "length": 2,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 4
+                  }
+                }
+              },
+              "4": {
+                "type": "list",
+                "length": 1,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 4
+                  }
+                }
+              },
+              "5": {
+                "type": "list",
+                "length": 3,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 4
+                  }
+                }
+              },
+              "6": {
+                "type": "list",
+                "length": 3,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 4
+                  }
+                }
+              },
+              "7": {
+                "type": "list",
+                "length": 2,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 4
+                  }
+                }
+              },
+              "8": {
+                "type": "list",
+                "length": 2,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 4
+                  }
+                }
+              },
+              "10": {
+                "type": "list",
+                "length": 5,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 4
+                  }
+                }
+              },
+              "11": {
+                "type": "list",
+                "length": 4,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 4
+                  }
+                }
+              },
+              "12": {
+                "type": "list",
+                "length": 7,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 8
+                  }
+                }
+              },
+              "13": {
+                "type": "list",
+                "length": 1,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 15
+                  }
+                }
+              },
+              "16": {
+                "type": "list",
+                "length": 6,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 4
+                  }
+                }
+              },
+              "17": {
+                "type": "list",
+                "length": 5,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 28
+                  }
+                }
+              },
+              "18": {
+                "type": "list",
+                "length": 1,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 35
+                  }
+                }
+              },
+              "19": {
+                "type": "list",
+                "length": 2,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 4
+                  }
+                }
+              },
+              "20": {
+                "type": "list",
+                "length": 4,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 14
+                  }
+                }
+              },
+              "21": {
+                "type": "list",
+                "length": 4,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 4
+                  }
+                }
+              },
+              "22": {
+                "type": "list",
+                "length": 1,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 9
+                  }
+                }
+              },
+              "23": {
+                "type": "list",
+                "length": 1,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 15
+                  }
+                }
+              },
+              "25": {
+                "type": "list",
+                "length": 4,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 4
+                  }
+                }
+              },
+              "26": {
+                "type": "list",
+                "length": 5,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 4
+                  }
+                }
+              },
+              "27": {
+                "type": "list",
+                "length": 4,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 4
+                  }
+                }
+              },
+              "29": {
+                "type": "list",
+                "length": 2,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 8
+                  }
+                }
+              },
+              "30": {
+                "type": "list",
+                "length": 1,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 8
+                  }
+                }
+              },
+              "31": {
+                "type": "list",
+                "length": 4,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 8
+                  }
+                }
+              },
+              "32": {
+                "type": "list",
+                "length": 4,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 8
+                  }
+                }
+              },
+              "33": {
+                "type": "list",
+                "length": 4,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 8
+                  }
+                }
+              },
+              "34": {
+                "type": "list",
+                "length": 1,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 15
+                  }
+                }
+              },
+              "37": {
+                "type": "list",
+                "length": 4,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 4
+                  }
+                }
+              },
+              "38": {
+                "type": "list",
+                "length": 2,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 4
+                  }
+                }
+              },
+              "39": {
+                "type": "list",
+                "length": 5,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 12
+                  }
+                }
+              },
+              "40": {
+                "type": "list",
+                "length": 4,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 4
+                  }
+                }
+              },
+              "41": {
+                "type": "list",
+                "length": 5,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 4
+                  }
+                }
+              },
+              "43": {
+                "type": "list",
+                "length": 1,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 11
+                  }
+                }
+              }
+            },
+            "abstract_table": {
+              "VAR": {
+                "s": {
+                  "type": "str",
+                  "length": 5,
+                  "preview": "VAR_0"
+                },
+                "buf": {
+                  "type": "str",
+                  "length": 5,
+                  "preview": "VAR_1"
+                },
+                "length": {
+                  "type": "str",
+                  "length": 5,
+                  "preview": "VAR_2"
+                },
+                "resp": {
+                  "type": "str",
+                  "length": 5,
+                  "preview": "VAR_3"
+                },
+                "infobuf": {
+                  "type": "str",
+                  "length": 5,
+                  "preview": "VAR_4"
+                },
+                "oid_supported_list": {
+                  "type": "str",
+                  "length": 5,
+                  "preview": "VAR_5"
+                },
+                "bufoffs": {
+                  "type": "str",
+                  "length": 5,
+                  "preview": "VAR_6"
+                },
+                "buflen": {
+                  "type": "str",
+                  "length": 5,
+                  "preview": "VAR_7"
+                },
+                "infobuflen": {
+                  "type": "str",
+                  "length": 5,
+                  "preview": "VAR_8"
+                },
+                "resplen": {
+                  "type": "str",
+                  "length": 5,
+                  "preview": "VAR_9"
+                },
+                "USB_RET_STALL": {
+                  "type": "str",
+                  "length": 6,
+                  "preview": "VAR_10"
+                },
+                "RNDIS_QUERY_CMPLT": {
+                  "type": "str",
+                  "length": 6,
+                  "preview": "VAR_11"
+                },
+                "RNDIS_STATUS_NOT_SUPPORTED": {
+                  "type": "str",
+                  "length": 6,
+                  "preview": "VAR_12"
+                },
+                "RNDIS_STATUS_SUCCESS": {
+                  "type": "str",
+                  "length": 6,
+                  "preview": "VAR_13"
+                }
+              },
+              "FUNC": {
+                "le32_to_cpu": {
+                  "type": "str",
+                  "length": 6,
+                  "preview": "FUNC_0"
+                },
+                "ndis_query": {
+                  "type": "str",
+                  "length": 6,
+                  "preview": "FUNC_1"
+                },
+                "rndis_queue_response": {
+                  "type": "str",
+                  "length": 6,
+                  "preview": "FUNC_2"
+                },
+                "cpu_to_le32": {
+                  "type": "str",
+                  "length": 6,
+                  "preview": "FUNC_3"
+                },
+                "memcpy": {
+                  "type": "str",
+                  "length": 6,
+                  "preview": "FUNC_4"
+                }
+              },
+              "TYPE": {
+                "int": {
+                  "type": "str",
+                  "length": 6,
+                  "preview": "TYPE_0"
+                },
+                "USBNetState": {
+                  "type": "str",
+                  "length": 6,
+                  "preview": "TYPE_1"
+                },
+                "rndis_query_msg_type": {
+                  "type": "str",
+                  "length": 6,
+                  "preview": "TYPE_2"
+                },
+                "unsigned int": {
+                  "type": "str",
+                  "length": 6,
+                  "preview": "TYPE_3"
+                },
+                "rndis_query_cmplt_type": {
+                  "type": "str",
+                  "length": 6,
+                  "preview": "TYPE_4"
+                },
+                "uint8_t": {
+                  "type": "str",
+                  "length": 6,
+                  "preview": "TYPE_5"
+                },
+                "uint32_t": {
+                  "type": "str",
+                  "length": 6,
+                  "preview": "TYPE_6"
+                }
+              },
+              "NUMBER": {
+                "8": {
+                  "type": "str",
+                  "length": 8,
+                  "preview": "NUMBER_0"
+                },
+                "0": {
+                  "type": "str",
+                  "length": 8,
+                  "preview": "NUMBER_1"
+                },
+                "1": {
+                  "type": "str",
+                  "length": 8,
+                  "preview": "NUMBER_2"
+                }
+              },
+              "FIELD": {
+                "InformationBufferOffset": {
+                  "type": "str",
+                  "length": 7,
+                  "preview": "FIELD_0"
+                },
+                "InformationBufferLength": {
+                  "type": "str",
+                  "length": 7,
+                  "preview": "FIELD_1"
+                },
+                "OID": {
+                  "type": "str",
+                  "length": 7,
+                  "preview": "FIELD_2"
+                },
+                "MessageType": {
+                  "type": "str",
+                  "length": 7,
+                  "preview": "FIELD_3"
+                },
+                "RequestID": {
+                  "type": "str",
+                  "length": 7,
+                  "preview": "FIELD_4"
+                },
+                "MessageLength": {
+                  "type": "str",
+                  "length": 7,
+                  "preview": "FIELD_5"
+                },
+                "Status": {
+                  "type": "str",
+                  "length": 7,
+                  "preview": "FIELD_6"
+                }
+              },
+              "STR": {},
+              "CHAR": {},
+              "COMMENT": {
+                "/* oid_supported_list is the largest data reply */": {
+                  "type": "str",
+                  "length": 15,
+                  "preview": "/* COMMENT_0 */"
+                },
+                "/* Still LE in msg buffer */": {
+                  "type": "str",
+                  "length": 15,
+                  "preview": "/* COMMENT_1 */"
+                },
+                "/* OID not supported */": {
+                  "type": "str",
+                  "length": 15,
+                  "preview": "/* COMMENT_2 */"
+                }
+              },
+              "LABEL": {},
+              "ANNOTATION": {}
+            }
+          },
+          "func_graph_path": {
+            "type": "str",
+            "length": 76,
+            "preview": "qemu/fe3c546c5ff2a6210f9a4d8561cc64051ca8603e/dev-network.c/vul/after/0.json"
+          },
+          "diff_func": {
+            "type": "str",
+            "length": 451,
+            "preview": "--- func_before\n+++ func_after\n@@ -10,8 +10,9 @@\n \n     bufoffs = le32_to_cpu(buf->InformationBufferOffset) + 8;\n     bu"
+          },
+          "diff_line_info": {
+            "deleted_lines": {
+              "type": "list",
+              "length": 1,
+              "first": {
+                "type": "str",
+                "length": 34,
+                "preview": "    if (bufoffs + buflen > length)"
+              }
+            },
+            "added_lines": {
+              "type": "list",
+              "length": 2,
+              "first": {
+                "type": "str",
+                "length": 76,
+                "preview": "    if (buflen > length || bufoffs >= length || bufoffs + buflen > length) {"
+              }
+            }
+          },
+          "is_vul": {
+            "type": "bool",
+            "value": true
+          }
+        },
+        {
+          "cve_id": {
+            "type": "str",
+            "length": 13,
+            "preview": "CVE-2016-2538"
+          },
+          "cwe_ids": {
+            "type": "list",
+            "length": 1,
+            "first": {
+              "type": "str",
+              "length": 7,
+              "preview": "CWE-189"
+            }
+          },
+          "cvss_vector": {
+            "type": "str",
+            "length": 26,
+            "preview": "AV:L/AC:L/Au:N/C:P/I:N/A:P"
+          },
+          "cvss_base_score": {
+            "type": "float",
+            "value": 3.6
+          },
+          "cvss_base_severity": {
+            "type": "str",
+            "length": 3,
+            "preview": "LOW"
+          },
+          "cvss_is_v3": {
+            "type": "bool",
+            "value": false
+          },
+          "publish_date": {
+            "type": "str",
+            "length": 23,
+            "preview": "2016-06-16T18:59:06.093"
+          },
+          "repo_name": {
+            "type": "str",
+            "length": 4,
+            "preview": "qemu"
+          },
+          "commit_msg": {
+            "type": "str",
+            "length": 537,
+            "preview": "usb: check RNDIS buffer offsets & length\n\nWhen processing remote NDIS control message packets,\nthe USB Net device emulat"
+          },
+          "commit_hash": {
+            "type": "str",
+            "length": 40,
+            "preview": "fe3c546c5ff2a6210f9a4d8561cc64051ca8603e"
+          },
+          "parent_commit_hash": {
+            "type": "str",
+            "length": 40,
+            "preview": "64c9bc181fc78275596649f591302d72df2d3071"
+          },
+          "commit_date": {
+            "type": "int",
+            "value": 1455620021
+          },
+          "git_url": {
+            "type": "str",
+            "length": 76,
+            "preview": "https://github.com/qemu/qemu/commit/fe3c546c5ff2a6210f9a4d8561cc64051ca8603e"
+          },
+          "file_path": {
+            "type": "str",
+            "length": 20,
+            "preview": "hw/usb/dev-network.c"
+          },
+          "func_name": {
+            "type": "str",
+            "length": 18,
+            "preview": "rndis_set_response"
+          },
+          "parameter_list_signature_before": {
+            "type": "str",
+            "length": 62,
+            "preview": "(USBNetState *s, rndis_set_msg_type *buf, unsigned int length)"
+          },
+          "parameter_list_before": {
+            "type": "list",
+            "length": 3,
+            "first": {
+              "type": "list",
+              "length": 3,
+              "first": {
+                "type": "str",
+                "length": 13,
+                "preview": "USBNetState *"
+              }
+            }
+          },
+          "return_type_before": {
+            "type": "str",
+            "length": 3,
+            "preview": "int"
+          },
+          "func_before": {
+            "type": "str",
+            "length": 983,
+            "preview": "static int rndis_set_response(USBNetState *s,\n                rndis_set_msg_type *buf, unsigned int length)\n{\n    rndis_"
+          },
+          "abstract_func_before": {
+            "type": "str",
+            "length": 924,
+            "preview": "static int rndis_set_response(USBNetState *VAR_0,\n                rndis_set_msg_type *VAR_1, unsigned int VAR_2)\n{\n    r"
+          },
+          "abstract_symbol_table_before": {
+            "position_map": {
+              "0": {
+                "type": "list",
+                "length": 3,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 7
+                  }
+                }
+              },
+              "1": {
+                "type": "list",
+                "length": 4,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 16
+                  }
+                }
+              },
+              "3": {
+                "type": "list",
+                "length": 2,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 4
+                  }
+                }
+              },
+              "4": {
+                "type": "list",
+                "length": 3,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 12
+                  }
+                }
+              },
+              "5": {
+                "type": "list",
+                "length": 3,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 4
+                  }
+                }
+              },
+              "6": {
+                "type": "list",
+                "length": 2,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 4
+                  }
+                }
+              },
+              "8": {
+                "type": "list",
+                "length": 1,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 9
+                  }
+                }
+              },
+              "9": {
+                "type": "list",
+                "length": 1,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 15
+                  }
+                }
+              },
+              "11": {
+                "type": "list",
+                "length": 5,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 4
+                  }
+                }
+              },
+              "12": {
+                "type": "list",
+                "length": 4,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 4
+                  }
+                }
+              },
+              "13": {
+                "type": "list",
+                "length": 3,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 8
+                  }
+                }
+              },
+              "14": {
+                "type": "list",
+                "length": 1,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 15
+                  }
+                }
+              },
+              "16": {
+                "type": "list",
+                "length": 6,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 4
+                  }
+                }
+              },
+              "17": {
+                "type": "list",
+                "length": 4,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 20
+                  }
+                }
+              },
+              "18": {
+                "type": "list",
+                "length": 4,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 4
+                  }
+                }
+              },
+              "19": {
+                "type": "list",
+                "length": 5,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 4
+                  }
+                }
+              },
+              "20": {
+                "type": "list",
+                "length": 4,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 4
+                  }
+                }
+              },
+              "21": {
+                "type": "list",
+                "length": 2,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 8
+                  }
+                }
+              },
+              "22": {
+                "type": "list",
+                "length": 1,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 8
+                  }
+                }
+              },
+              "23": {
+                "type": "list",
+                "length": 4,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 8
+                  }
+                }
+              },
+              "24": {
+                "type": "list",
+                "length": 1,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 15
+                  }
+                }
+              },
+              "26": {
+                "type": "list",
+                "length": 4,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 4
+                  }
+                }
+              },
+              "28": {
+                "type": "list",
+                "length": 1,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 11
+                  }
+                }
+              }
+            },
+            "abstract_table": {
+              "VAR": {
+                "s": {
+                  "type": "str",
+                  "length": 5,
+                  "preview": "VAR_0"
+                },
+                "buf": {
+                  "type": "str",
+                  "length": 5,
+                  "preview": "VAR_1"
+                },
+                "length": {
+                  "type": "str",
+                  "length": 5,
+                  "preview": "VAR_2"
+                },
+                "resp": {
+                  "type": "str",
+                  "length": 5,
+                  "preview": "VAR_3"
+                },
+                "bufoffs": {
+                  "type": "str",
+                  "length": 5,
+                  "preview": "VAR_4"
+                },
+                "buflen": {
+                  "type": "str",
+                  "length": 5,
+                  "preview": "VAR_5"
+                },
+                "ret": {
+                  "type": "str",
+                  "length": 5,
+                  "preview": "VAR_6"
+                },
+                "USB_RET_STALL": {
+                  "type": "str",
+                  "length": 5,
+                  "preview": "VAR_7"
+                },
+                "RNDIS_SET_CMPLT": {
+                  "type": "str",
+                  "length": 5,
+                  "preview": "VAR_8"
+                },
+                "RNDIS_STATUS_NOT_SUPPORTED": {
+                  "type": "str",
+                  "length": 5,
+                  "preview": "VAR_9"
+                },
+                "RNDIS_STATUS_SUCCESS": {
+                  "type": "str",
+                  "length": 6,
+                  "preview": "VAR_10"
+                }
+              },
+              "FUNC": {
+                "rndis_queue_response": {
+                  "type": "str",
+                  "length": 6,
+                  "preview": "FUNC_0"
+                },
+                "le32_to_cpu": {
+                  "type": "str",
+                  "length": 6,
+                  "preview": "FUNC_1"
+                },
+                "ndis_set": {
+                  "type": "str",
+                  "length": 6,
+                  "preview": "FUNC_2"
+                },
+                "cpu_to_le32": {
+                  "type": "str",
+                  "length": 6,
+                  "preview": "FUNC_3"
+                }
+              },
+              "TYPE": {
+                "int": {
+                  "type": "str",
+                  "length": 6,
+                  "preview": "TYPE_0"
+                },
+                "USBNetState": {
+                  "type": "str",
+                  "length": 6,
+                  "preview": "TYPE_1"
+                },
+                "rndis_set_msg_type": {
+                  "type": "str",
+                  "length": 6,
+                  "preview": "TYPE_2"
+                },
+                "unsigned int": {
+                  "type": "str",
+                  "length": 6,
+                  "preview": "TYPE_3"
+                },
+                "rndis_set_cmplt_type": {
+                  "type": "str",
+                  "length": 6,
+                  "preview": "TYPE_4"
+                },
+                "uint32_t": {
+                  "type": "str",
+                  "length": 6,
+                  "preview": "TYPE_5"
+                },
+                "uint8_t": {
+                  "type": "str",
+                  "length": 6,
+                  "preview": "TYPE_6"
+                }
+              },
+              "NUMBER": {
+                "8": {
+                  "type": "str",
+                  "length": 8,
+                  "preview": "NUMBER_0"
+                },
+                "0": {
+                  "type": "str",
+                  "length": 8,
+                  "preview": "NUMBER_1"
+                }
+              },
+              "FIELD": {
+                "InformationBufferOffset": {
+                  "type": "str",
+                  "length": 7,
+                  "preview": "FIELD_0"
+                },
+                "InformationBufferLength": {
+                  "type": "str",
+                  "length": 7,
+                  "preview": "FIELD_1"
+                },
+                "OID": {
+                  "type": "str",
+                  "length": 7,
+                  "preview": "FIELD_2"
+                },
+                "MessageType": {
+                  "type": "str",
+                  "length": 7,
+                  "preview": "FIELD_3"
+                },
+                "RequestID": {
+                  "type": "str",
+                  "length": 7,
+                  "preview": "FIELD_4"
+                },
+                "MessageLength": {
+                  "type": "str",
+                  "length": 7,
+                  "preview": "FIELD_5"
+                },
+                "Status": {
+                  "type": "str",
+                  "length": 7,
+                  "preview": "FIELD_6"
+                }
+              },
+              "STR": {},
+              "CHAR": {},
+              "COMMENT": {
+                "/* Still LE in msg buffer */": {
+                  "type": "str",
+                  "length": 15,
+                  "preview": "/* COMMENT_0 */"
+                },
+                "/* OID not supported */": {
+                  "type": "str",
+                  "length": 15,
+                  "preview": "/* COMMENT_1 */"
+                }
+              },
+              "LABEL": {},
+              "ANNOTATION": {}
+            }
+          },
+          "func_graph_path_before": {
+            "type": "str",
+            "length": 77,
+            "preview": "qemu/fe3c546c5ff2a6210f9a4d8561cc64051ca8603e/dev-network.c/vul/before/1.json"
+          },
+          "parameter_list_signature": {
+            "type": "str",
+            "length": 62,
+            "preview": "(USBNetState *s, rndis_set_msg_type *buf, unsigned int length)"
+          },
+          "parameter_list": {
+            "type": "list",
+            "length": 3,
+            "first": {
+              "type": "list",
+              "length": 3,
+              "first": {
+                "type": "str",
+                "length": 13,
+                "preview": "USBNetState *"
+              }
+            }
+          },
+          "return_type": {
+            "type": "str",
+            "length": 3,
+            "preview": "int"
+          },
+          "func": {
+            "type": "str",
+            "length": 1031,
+            "preview": "static int rndis_set_response(USBNetState *s,\n                rndis_set_msg_type *buf, unsigned int length)\n{\n    rndis_"
+          },
+          "abstract_func": {
+            "type": "str",
+            "length": 967,
+            "preview": "static int rndis_set_response(USBNetState *VAR_0,\n                rndis_set_msg_type *VAR_1, unsigned int VAR_2)\n{\n    r"
+          },
+          "abstract_symbol_table": {
+            "position_map": {
+              "0": {
+                "type": "list",
+                "length": 3,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 7
+                  }
+                }
+              },
+              "1": {
+                "type": "list",
+                "length": 4,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 16
+                  }
+                }
+              },
+              "3": {
+                "type": "list",
+                "length": 2,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 4
+                  }
+                }
+              },
+              "4": {
+                "type": "list",
+                "length": 3,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 12
+                  }
+                }
+              },
+              "5": {
+                "type": "list",
+                "length": 3,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 4
+                  }
+                }
+              },
+              "6": {
+                "type": "list",
+                "length": 2,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 4
+                  }
+                }
+              },
+              "8": {
+                "type": "list",
+                "length": 1,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 9
+                  }
+                }
+              },
+              "9": {
+                "type": "list",
+                "length": 1,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 15
+                  }
+                }
+              },
+              "11": {
+                "type": "list",
+                "length": 5,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 4
+                  }
+                }
+              },
+              "12": {
+                "type": "list",
+                "length": 4,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 4
+                  }
+                }
+              },
+              "13": {
+                "type": "list",
+                "length": 7,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 8
+                  }
+                }
+              },
+              "14": {
+                "type": "list",
+                "length": 1,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 15
+                  }
+                }
+              },
+              "17": {
+                "type": "list",
+                "length": 6,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 4
+                  }
+                }
+              },
+              "18": {
+                "type": "list",
+                "length": 4,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 20
+                  }
+                }
+              },
+              "19": {
+                "type": "list",
+                "length": 4,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 4
+                  }
+                }
+              },
+              "20": {
+                "type": "list",
+                "length": 5,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 4
+                  }
+                }
+              },
+              "21": {
+                "type": "list",
+                "length": 4,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 4
+                  }
+                }
+              },
+              "22": {
+                "type": "list",
+                "length": 2,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 8
+                  }
+                }
+              },
+              "23": {
+                "type": "list",
+                "length": 1,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 8
+                  }
+                }
+              },
+              "24": {
+                "type": "list",
+                "length": 4,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 8
+                  }
+                }
+              },
+              "25": {
+                "type": "list",
+                "length": 1,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 15
+                  }
+                }
+              },
+              "27": {
+                "type": "list",
+                "length": 4,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 4
+                  }
+                }
+              },
+              "29": {
+                "type": "list",
+                "length": 1,
+                "first": {
+                  "type": "list",
+                  "length": 5,
+                  "first": {
+                    "type": "int",
+                    "value": 11
+                  }
+                }
+              }
+            },
+            "abstract_table": {
+              "VAR": {
+                "s": {
+                  "type": "str",
+                  "length": 5,
+                  "preview": "VAR_0"
+                },
+                "buf": {
+                  "type": "str",
+                  "length": 5,
+                  "preview": "VAR_1"
+                },
+                "length": {
+                  "type": "str",
+                  "length": 5,
+                  "preview": "VAR_2"
+                },
+                "resp": {
+                  "type": "str",
+                  "length": 5,
+                  "preview": "VAR_3"
+                },
+                "bufoffs": {
+                  "type": "str",
+                  "length": 5,
+                  "preview": "VAR_4"
+                },
+                "buflen": {
+                  "type": "str",
+                  "length": 5,
+                  "preview": "VAR_5"
+                },
+                "ret": {
+                  "type": "str",
+                  "length": 5,
+                  "preview": "VAR_6"
+                },
+                "USB_RET_STALL": {
+                  "type": "str",
+                  "length": 5,
+                  "preview": "VAR_7"
+                },
+                "RNDIS_SET_CMPLT": {
+                  "type": "str",
+                  "length": 5,
+                  "preview": "VAR_8"
+                },
+                "RNDIS_STATUS_NOT_SUPPORTED": {
+                  "type": "str",
+                  "length": 5,
+                  "preview": "VAR_9"
+                },
+                "RNDIS_STATUS_SUCCESS": {
+                  "type": "str",
+                  "length": 6,
+                  "preview": "VAR_10"
+                }
+              },
+              "FUNC": {
+                "rndis_queue_response": {
+                  "type": "str",
+                  "length": 6,
+                  "preview": "FUNC_0"
+                },
+                "le32_to_cpu": {
+                  "type": "str",
+                  "length": 6,
+                  "preview": "FUNC_1"
+                },
+                "ndis_set": {
+                  "type": "str",
+                  "length": 6,
+                  "preview": "FUNC_2"
+                },
+                "cpu_to_le32": {
+                  "type": "str",
+                  "length": 6,
+                  "preview": "FUNC_3"
+                }
+              },
+              "TYPE": {
+                "int": {
+                  "type": "str",
+                  "length": 6,
+                  "preview": "TYPE_0"
+                },
+                "USBNetState": {
+                  "type": "str",
+                  "length": 6,
+                  "preview": "TYPE_1"
+                },
+                "rndis_set_msg_type": {
+                  "type": "str",
+                  "length": 6,
+                  "preview": "TYPE_2"
+                },
+                "unsigned int": {
+                  "type": "str",
+                  "length": 6,
+                  "preview": "TYPE_3"
+                },
+                "rndis_set_cmplt_type": {
+                  "type": "str",
+                  "length": 6,
+                  "preview": "TYPE_4"
+                },
+                "uint32_t": {
+                  "type": "str",
+                  "length": 6,
+                  "preview": "TYPE_5"
+                },
+                "uint8_t": {
+                  "type": "str",
+                  "length": 6,
+                  "preview": "TYPE_6"
+                }
+              },
+              "NUMBER": {
+                "8": {
+                  "type": "str",
+                  "length": 8,
+                  "preview": "NUMBER_0"
+                },
+                "0": {
+                  "type": "str",
+                  "length": 8,
+                  "preview": "NUMBER_1"
+                }
+              },
+              "FIELD": {
+                "InformationBufferOffset": {
+                  "type": "str",
+                  "length": 7,
+                  "preview": "FIELD_0"
+                },
+                "InformationBufferLength": {
+                  "type": "str",
+                  "length": 7,
+                  "preview": "FIELD_1"
+                },
+                "OID": {
+                  "type": "str",
+                  "length": 7,
+                  "preview": "FIELD_2"
+                },
+                "MessageType": {
+                  "type": "str",
+                  "length": 7,
+                  "preview": "FIELD_3"
+                },
+                "RequestID": {
+                  "type": "str",
+                  "length": 7,
+                  "preview": "FIELD_4"
+                },
+                "MessageLength": {
+                  "type": "str",
+                  "length": 7,
+                  "preview": "FIELD_5"
+                },
+                "Status": {
+                  "type": "str",
+                  "length": 7,
+                  "preview": "FIELD_6"
+                }
+              },
+              "STR": {},
+              "CHAR": {},
+              "COMMENT": {
+                "/* Still LE in msg buffer */": {
+                  "type": "str",
+                  "length": 15,
+                  "preview": "/* COMMENT_0 */"
+                },
+                "/* OID not supported */": {
+                  "type": "str",
+                  "length": 15,
+                  "preview": "/* COMMENT_1 */"
+                }
+              },
+              "LABEL": {},
+              "ANNOTATION": {}
+            }
+          },
+          "func_graph_path": {
+            "type": "str",
+            "length": 76,
+            "preview": "qemu/fe3c546c5ff2a6210f9a4d8561cc64051ca8603e/dev-network.c/vul/after/1.json"
+          },
+          "diff_func": {
+            "type": "str",
+            "length": 426,
+            "preview": "--- func_before\n+++ func_after\n@@ -11,8 +11,9 @@\n \n     bufoffs = le32_to_cpu(buf->InformationBufferOffset) + 8;\n     bu"
+          },
+          "diff_line_info": {
+            "deleted_lines": {
+              "type": "list",
+              "length": 1,
+              "first": {
+                "type": "str",
+                "length": 34,
+                "preview": "    if (bufoffs + buflen > length)"
+              }
+            },
+            "added_lines": {
+              "type": "list",
+              "length": 2,
+              "first": {
+                "type": "str",
+                "length": 76,
+                "preview": "    if (buflen > length || bufoffs >= length || bufoffs + buflen > length) {"
+              }
+            }
+          },
+          "is_vul": {
+            "type": "bool",
+            "value": true
+          }
+        }
+      ],
+      "size_mtime_unchanged": true
+    },
+    {
+      "dataset": "bigvul",
+      "path": "/home/PublicData/PHY-data/vul_detect/data/bigvul/MSR_data_cleaned.csv",
+      "exists": true,
+      "bytes": 10785616314,
+      "format": "csv",
+      "inspected_records": 2,
+      "schemas": [
+        {
+          "": {
+            "type": "str",
+            "length": 1,
+            "preview": "0"
+          },
+          "Access Gained": {
+            "type": "str",
+            "length": 4,
+            "preview": "None"
+          },
+          "Attack Origin": {
+            "type": "str",
+            "length": 6,
+            "preview": "Remote"
+          },
+          "Authentication Required": {
+            "type": "str",
+            "length": 13,
+            "preview": "Single system"
+          },
+          "Availability": {
+            "type": "str",
+            "length": 7,
+            "preview": "Partial"
+          },
+          "CVE ID": {
+            "type": "str",
+            "length": 13,
+            "preview": "CVE-2015-8467"
+          },
+          "CVE Page": {
+            "type": "str",
+            "length": 45,
+            "preview": "https://www.cvedetails.com/cve/CVE-2015-8467/"
+          },
+          "CWE ID": {
+            "type": "str",
+            "length": 7,
+            "preview": "CWE-264"
+          },
+          "Complexity": {
+            "type": "str",
+            "length": 6,
+            "preview": "Medium"
+          },
+          "Confidentiality": {
+            "type": "str",
+            "length": 7,
+            "preview": "Partial"
+          },
+          "Integrity": {
+            "type": "str",
+            "length": 7,
+            "preview": "Partial"
+          },
+          "Known Exploits": {
+            "type": "str",
+            "length": 0,
+            "preview": ""
+          },
+          "Publish Date": {
+            "type": "str",
+            "length": 10,
+            "preview": "2015-12-29"
+          },
+          "Score": {
+            "type": "str",
+            "length": 3,
+            "preview": "6.0"
+          },
+          "Summary": {
+            "type": "str",
+            "length": 439,
+            "preview": "The samldb_check_user_account_control_acl function in dsdb/samdb/ldb_modules/samldb.c in Samba 4.x before 4.1.22, 4.2.x "
+          },
+          "Update Date": {
+            "type": "str",
+            "length": 10,
+            "preview": "2016-12-30"
+          },
+          "Vulnerability Classification": {
+            "type": "str",
+            "length": 6,
+            "preview": "Bypass"
+          },
+          "add_lines": {
+            "type": "str",
+            "length": 1,
+            "preview": "0"
+          },
+          "codeLink": {
+            "type": "str",
+            "length": 86,
+            "preview": "https://git.samba.org/?p=samba.git;a=commit;h=b000da128b5fb519d2d3f2e7fd20e4a25b7dae7d"
+          },
+          "commit_id": {
+            "type": "str",
+            "length": 40,
+            "preview": "b000da128b5fb519d2d3f2e7fd20e4a25b7dae7d"
+          },
+          "commit_message": {
+            "type": "str",
+            "length": 0,
+            "preview": ""
+          },
+          "del_lines": {
+            "type": "str",
+            "length": 1,
+            "preview": "0"
+          },
+          "file_name": {
+            "type": "str",
+            "length": 0,
+            "preview": ""
+          },
+          "files_changed": {
+            "type": "str",
+            "length": 0,
+            "preview": ""
+          },
+          "func_after": {
+            "type": "str",
+            "length": 520,
+            "preview": "static bool check_rodc_critical_attribute(struct ldb_message *msg)\n{\n\tuint32_t schemaFlagsEx, searchFlags, rodc_filtered"
+          },
+          "func_before": {
+            "type": "str",
+            "length": 520,
+            "preview": "static bool check_rodc_critical_attribute(struct ldb_message *msg)\n{\n\tuint32_t schemaFlagsEx, searchFlags, rodc_filtered"
+          },
+          "lang": {
+            "type": "str",
+            "length": 1,
+            "preview": "C"
+          },
+          "lines_after": {
+            "type": "str",
+            "length": 0,
+            "preview": ""
+          },
+          "lines_before": {
+            "type": "str",
+            "length": 0,
+            "preview": ""
+          },
+          "parentID": {
+            "type": "str",
+            "length": 40,
+            "preview": "a819d2b440aafa3138d95ff6e8b824da885a70e9"
+          },
+          "patch": {
+            "type": "str",
+            "length": 3589,
+            "preview": "@@ -1558,12 +1558,15 @@ static int samldb_check_user_account_control_acl(struct samldb_ctx *ac,\n        struct security_"
+          },
+          "project": {
+            "type": "str",
+            "length": 5,
+            "preview": "samba"
+          },
+          "project_after": {
+            "type": "str",
+            "length": 170,
+            "preview": "https://git.samba.org/?p=samba.git;a=blob;f=source4/dsdb/samdb/ldb_modules/samldb.c;h=df285d91485ba8393d368ddf6328957d26"
+          },
+          "project_before": {
+            "type": "str",
+            "length": 170,
+            "preview": "https://git.samba.org/?p=samba.git;a=blob;f=source4/dsdb/samdb/ldb_modules/samldb.c;h=e3a7db27aa9c4b2ea5fba2f4f91b87d90c"
+          },
+          "vul": {
+            "type": "str",
+            "length": 1,
+            "preview": "0"
+          },
+          "vul_func_with_fix": {
+            "type": "str",
+            "length": 520,
+            "preview": "static bool check_rodc_critical_attribute(struct ldb_message *msg)\n{\n\tuint32_t schemaFlagsEx, searchFlags, rodc_filtered"
+          }
+        },
+        {
+          "": {
+            "type": "str",
+            "length": 1,
+            "preview": "1"
+          },
+          "Access Gained": {
+            "type": "str",
+            "length": 4,
+            "preview": "None"
+          },
+          "Attack Origin": {
+            "type": "str",
+            "length": 6,
+            "preview": "Remote"
+          },
+          "Authentication Required": {
+            "type": "str",
+            "length": 13,
+            "preview": "Single system"
+          },
+          "Availability": {
+            "type": "str",
+            "length": 7,
+            "preview": "Partial"
+          },
+          "CVE ID": {
+            "type": "str",
+            "length": 13,
+            "preview": "CVE-2015-8467"
+          },
+          "CVE Page": {
+            "type": "str",
+            "length": 45,
+            "preview": "https://www.cvedetails.com/cve/CVE-2015-8467/"
+          },
+          "CWE ID": {
+            "type": "str",
+            "length": 7,
+            "preview": "CWE-264"
+          },
+          "Complexity": {
+            "type": "str",
+            "length": 6,
+            "preview": "Medium"
+          },
+          "Confidentiality": {
+            "type": "str",
+            "length": 7,
+            "preview": "Partial"
+          },
+          "Integrity": {
+            "type": "str",
+            "length": 7,
+            "preview": "Partial"
+          },
+          "Known Exploits": {
+            "type": "str",
+            "length": 0,
+            "preview": ""
+          },
+          "Publish Date": {
+            "type": "str",
+            "length": 10,
+            "preview": "2015-12-29"
+          },
+          "Score": {
+            "type": "str",
+            "length": 3,
+            "preview": "6.0"
+          },
+          "Summary": {
+            "type": "str",
+            "length": 439,
+            "preview": "The samldb_check_user_account_control_acl function in dsdb/samdb/ldb_modules/samldb.c in Samba 4.x before 4.1.22, 4.2.x "
+          },
+          "Update Date": {
+            "type": "str",
+            "length": 10,
+            "preview": "2016-12-30"
+          },
+          "Vulnerability Classification": {
+            "type": "str",
+            "length": 6,
+            "preview": "Bypass"
+          },
+          "add_lines": {
+            "type": "str",
+            "length": 1,
+            "preview": "0"
+          },
+          "codeLink": {
+            "type": "str",
+            "length": 86,
+            "preview": "https://git.samba.org/?p=samba.git;a=commit;h=b000da128b5fb519d2d3f2e7fd20e4a25b7dae7d"
+          },
+          "commit_id": {
+            "type": "str",
+            "length": 40,
+            "preview": "b000da128b5fb519d2d3f2e7fd20e4a25b7dae7d"
+          },
+          "commit_message": {
+            "type": "str",
+            "length": 0,
+            "preview": ""
+          },
+          "del_lines": {
+            "type": "str",
+            "length": 1,
+            "preview": "0"
+          },
+          "file_name": {
+            "type": "str",
+            "length": 0,
+            "preview": ""
+          },
+          "files_changed": {
+            "type": "str",
+            "length": 0,
+            "preview": ""
+          },
+          "func_after": {
+            "type": "str",
+            "length": 399,
+            "preview": "static int samldb_add_entry(struct samldb_ctx *ac)\n{\n\tstruct ldb_context *ldb;\n\tstruct ldb_request *req;\n\tint ret;\n\n\tldb"
+          },
+          "func_before": {
+            "type": "str",
+            "length": 399,
+            "preview": "static int samldb_add_entry(struct samldb_ctx *ac)\n{\n\tstruct ldb_context *ldb;\n\tstruct ldb_request *req;\n\tint ret;\n\n\tldb"
+          },
+          "lang": {
+            "type": "str",
+            "length": 1,
+            "preview": "C"
+          },
+          "lines_after": {
+            "type": "str",
+            "length": 0,
+            "preview": ""
+          },
+          "lines_before": {
+            "type": "str",
+            "length": 0,
+            "preview": ""
+          },
+          "parentID": {
+            "type": "str",
+            "length": 40,
+            "preview": "a819d2b440aafa3138d95ff6e8b824da885a70e9"
+          },
+          "patch": {
+            "type": "str",
+            "length": 3589,
+            "preview": "@@ -1558,12 +1558,15 @@ static int samldb_check_user_account_control_acl(struct samldb_ctx *ac,\n        struct security_"
+          },
+          "project": {
+            "type": "str",
+            "length": 5,
+            "preview": "samba"
+          },
+          "project_after": {
+            "type": "str",
+            "length": 170,
+            "preview": "https://git.samba.org/?p=samba.git;a=blob;f=source4/dsdb/samdb/ldb_modules/samldb.c;h=df285d91485ba8393d368ddf6328957d26"
+          },
+          "project_before": {
+            "type": "str",
+            "length": 170,
+            "preview": "https://git.samba.org/?p=samba.git;a=blob;f=source4/dsdb/samdb/ldb_modules/samldb.c;h=e3a7db27aa9c4b2ea5fba2f4f91b87d90c"
+          },
+          "vul": {
+            "type": "str",
+            "length": 1,
+            "preview": "0"
+          },
+          "vul_func_with_fix": {
+            "type": "str",
+            "length": 399,
+            "preview": "static int samldb_add_entry(struct samldb_ctx *ac)\n{\n\tstruct ldb_context *ldb;\n\tstruct ldb_request *req;\n\tint ret;\n\n\tldb"
+          }
+        }
+      ],
+      "size_mtime_unchanged": true
+    },
+    {
+      "dataset": "diversevul",
+      "path": "/home/PublicData/PHY-data/vul_detect/data/diversevul/diversevul_20230702.json",
+      "exists": true,
+      "bytes": 736915162,
+      "format": "array_or_jsonl",
+      "inspected_records": 2,
+      "schemas": [
+        {
+          "func": {
+            "type": "str",
+            "length": 3888,
+            "preview": "int _gnutls_ciphertext2compressed(gnutls_session_t session,\n\t\t\t\t  opaque * compress_data,\n\t\t\t\t  int compress_size,\n\t\t\t\t "
+          },
+          "target": {
+            "type": "int",
+            "value": 1
+          },
+          "cwe": {
+            "type": "list",
+            "length": 0,
+            "first": null
+          },
+          "project": {
+            "type": "str",
+            "length": 6,
+            "preview": "gnutls"
+          },
+          "commit_id": {
+            "type": "str",
+            "length": 40,
+            "preview": "7ad6162573ba79a4392c63b453ad0220ca6c5ace"
+          },
+          "hash": {
+            "type": "int",
+            "value": 73008646937836648589283922871188272089
+          },
+          "size": {
+            "type": "int",
+            "value": 157
+          },
+          "message": {
+            "type": "str",
+            "length": 48,
+            "preview": "added an extra check while checking the padding."
+          }
+        },
+        {
+          "func": {
+            "type": "str",
+            "length": 512,
+            "preview": "static char *make_filename_safe(const char *filename TSRMLS_DC)\n{\n\tif (*filename && strncmp(filename, \":memory:\", sizeof"
+          },
+          "target": {
+            "type": "int",
+            "value": 1
+          },
+          "cwe": {
+            "type": "list",
+            "length": 1,
+            "first": {
+              "type": "str",
+              "length": 7,
+              "preview": "CWE-264"
+            }
+          },
+          "project": {
+            "type": "str",
+            "length": 7,
+            "preview": "php-src"
+          },
+          "commit_id": {
+            "type": "str",
+            "length": 40,
+            "preview": "055ecbc62878e86287d742c7246c21606cee8183"
+          },
+          "hash": {
+            "type": "int",
+            "value": 211824207069112513181516095447837228041
+          },
+          "size": {
+            "type": "int",
+            "value": 22
+          },
+          "message": {
+            "type": "str",
+            "length": 52,
+            "preview": "Improve check for :memory: pseudo-filename in SQlite"
+          }
+        }
+      ],
+      "size_mtime_unchanged": true
+    },
+    {
+      "dataset": "devign",
+      "path": "/home/PublicData/PHY-data/vul_detect/data/devign/dataset.json",
+      "exists": true,
+      "bytes": 61532917,
+      "format": "array_or_jsonl",
+      "inspected_records": 2,
+      "schemas": [
+        {
+          "project": {
+            "type": "str",
+            "length": 6,
+            "preview": "FFmpeg"
+          },
+          "commit_id": {
+            "type": "str",
+            "length": 40,
+            "preview": "973b1a6b9070e2bf17d17568cbaf4043ce931f51"
+          },
+          "target": {
+            "type": "int",
+            "value": 0
+          },
+          "func": {
+            "type": "str",
+            "length": 2221,
+            "preview": "static av_cold int vdadec_init(AVCodecContext *avctx)\n\n{\n\n    VDADecoderContext *ctx = avctx->priv_data;\n\n    struct vda"
+          }
+        },
+        {
+          "project": {
+            "type": "str",
+            "length": 6,
+            "preview": "FFmpeg"
+          },
+          "commit_id": {
+            "type": "str",
+            "length": 40,
+            "preview": "321b2a9ded0468670b7678b7c098886930ae16b2"
+          },
+          "target": {
+            "type": "int",
+            "value": 0
+          },
+          "func": {
+            "type": "str",
+            "length": 36873,
+            "preview": "static int transcode(AVFormatContext **output_files,\n\n                     int nb_output_files,\n\n                     In"
+          }
+        }
+      ],
+      "size_mtime_unchanged": true
+    },
+    {
+      "dataset": "reveal",
+      "path": "/home/PublicData/PHY-data/vul_detect/data/reveal/vulnerables.json",
+      "exists": true,
+      "bytes": 6941219,
+      "format": "array_or_jsonl",
+      "inspected_records": 2,
+      "schemas": [
+        {
+          "code": {
+            "type": "str",
+            "length": 655,
+            "preview": "static int alloc_addbyter ( int output , FILE * data ) {\n struct asprintf * infop = ( struct asprintf * ) data ;\n unsign"
+          },
+          "hash": {
+            "type": "int",
+            "value": -8228664527580018723
+          },
+          "project": {
+            "type": "str",
+            "length": 6,
+            "preview": "debian"
+          },
+          "size": {
+            "type": "int",
+            "value": 26
+          }
+        },
+        {
+          "code": {
+            "type": "str",
+            "length": 585,
+            "preview": "static int jbig2_word_stream_buf_get_next_word ( Jbig2WordStream * self , int offset , uint32_t * word ) {\n Jbig2WordStr"
+          },
+          "hash": {
+            "type": "int",
+            "value": -1768728156572022708
+          },
+          "project": {
+            "type": "str",
+            "length": 6,
+            "preview": "debian"
+          },
+          "size": {
+            "type": "int",
+            "value": 16
+          }
+        }
+      ],
+      "size_mtime_unchanged": true
+    },
+    {
+      "dataset": "reveal",
+      "path": "/home/PublicData/PHY-data/vul_detect/data/reveal/non-vulnerables.json",
+      "exists": true,
+      "bytes": 26980665,
+      "format": "array_or_jsonl",
+      "inspected_records": 2,
+      "schemas": [
+        {
+          "code": {
+            "type": "str",
+            "length": 205,
+            "preview": "int curl_mvsprintf ( char * buffer , const char * format , va_list ap_save ) {\n int retcode ;\n retcode = dprintf_formatf"
+          },
+          "hash": {
+            "type": "int",
+            "value": -8228664527580018723
+          },
+          "project": {
+            "type": "str",
+            "length": 6,
+            "preview": "debian"
+          },
+          "size": {
+            "type": "int",
+            "value": 6
+          }
+        },
+        {
+          "code": {
+            "type": "str",
+            "length": 487,
+            "preview": "char * curl_mvaprintf ( const char * format , va_list ap_save ) {\n int retcode ;\n struct asprintf info ;\n info . buffer "
+          },
+          "hash": {
+            "type": "int",
+            "value": -8228664527580018723
+          },
+          "project": {
+            "type": "str",
+            "length": 6,
+            "preview": "debian"
+          },
+          "size": {
+            "type": "int",
+            "value": 18
+          }
+        }
+      ],
+      "size_mtime_unchanged": true
+    },
+    {
+      "dataset": "cleanvul",
+      "path": "/home/PublicData/PHY-data/vul_detect/data/cleanvul/vulnerability_score_4.csv",
+      "exists": true,
+      "bytes": 31114969,
+      "format": "csv",
+      "inspected_records": 2,
+      "schemas": [
+        {
+          "func_before": {
+            "type": "str",
+            "length": 1376,
+            "preview": "static int http_connect(http_subtransport *t)\n{\n\tint error;\n\n\tif (t->connected &&\n\t\thttp_should_keep_alive(&t->parser) &"
+          },
+          "func_after": {
+            "type": "str",
+            "length": 1356,
+            "preview": "static int http_connect(http_subtransport *t)\n{\n\tint error;\n\n\tif (t->connected &&\n\t\thttp_should_keep_alive(&t->parser) &"
+          },
+          "commit_msg": {
+            "type": "str",
+            "length": 69,
+            "preview": "http: check certificate validity before clobbering the error variable"
+          },
+          "commit_url": {
+            "type": "str",
+            "length": 82,
+            "preview": "https://github.com/libgit2/libgit2/commit/9a64e62f0f20c9cf9b2e1609f037060eb2d8eb22"
+          },
+          "cve_id": {
+            "type": "str",
+            "length": 0,
+            "preview": ""
+          },
+          "cwe_id": {
+            "type": "str",
+            "length": 0,
+            "preview": ""
+          },
+          "file_name": {
+            "type": "str",
+            "length": 21,
+            "preview": "src/transports/http.c"
+          },
+          "vulnerability_score": {
+            "type": "str",
+            "length": 1,
+            "preview": "4"
+          },
+          "extension": {
+            "type": "str",
+            "length": 1,
+            "preview": "c"
+          },
+          "is_test": {
+            "type": "str",
+            "length": 5,
+            "preview": "False"
+          },
+          "date": {
+            "type": "str",
+            "length": 20,
+            "preview": "2016-12-21T20:24:33Z"
+          }
+        },
+        {
+          "func_before": {
+            "type": "str",
+            "length": 300,
+            "preview": "TIFF*\nTIFFFdOpen(int fd, const char* name, const char* mode)\n{\n\tTIFF* tif;\n\n\ttif = TIFFClientOpen(name, mode,\n\t    (than"
+          },
+          "func_after": {
+            "type": "str",
+            "length": 124,
+            "preview": "void*\n_TIFFmalloc(tmsize_t s)\n{\n        if (s == 0)\n                return ((void *) NULL);\n\n\treturn (malloc((size_t) s)"
+          },
+          "commit_msg": {
+            "type": "str",
+            "length": 172,
+            "preview": "* libtiff/tif_{unix,vms,win32}.c (_TIFFmalloc): ANSI C does not\nrequire malloc() to return NULL pointer if requested all"
+          },
+          "commit_url": {
+            "type": "str",
+            "length": 79,
+            "preview": "https://github.com/vadz/libtiff/commit/3c5eb8b1be544e41d2c336191bc4936300ad7543"
+          },
+          "cve_id": {
+            "type": "str",
+            "length": 0,
+            "preview": ""
+          },
+          "cwe_id": {
+            "type": "str",
+            "length": 0,
+            "preview": ""
+          },
+          "file_name": {
+            "type": "str",
+            "length": 18,
+            "preview": "libtiff/tif_unix.c"
+          },
+          "vulnerability_score": {
+            "type": "str",
+            "length": 1,
+            "preview": "4"
+          },
+          "extension": {
+            "type": "str",
+            "length": 1,
+            "preview": "c"
+          },
+          "is_test": {
+            "type": "str",
+            "length": 5,
+            "preview": "False"
+          },
+          "date": {
+            "type": "str",
+            "length": 20,
+            "preview": "2012-11-18T17:51:52Z"
+          }
+        }
+      ],
+      "size_mtime_unchanged": true
+    },
+    {
+      "dataset": "reposvul",
+      "path": "/home/PublicData/PHY-data/vul_detect/data/reposvul/ReposVul_c.jsonl",
+      "exists": true,
+      "bytes": 1498622806,
+      "format": "array_or_jsonl",
+      "inspected_records": 2,
+      "schemas": [
+        {
+          "index": {
+            "type": "int",
+            "value": 10
+          },
+          "cve_id": {
+            "type": "str",
+            "length": 13,
+            "preview": "CVE-2011-0990"
+          },
+          "cwe_id": {
+            "type": "list",
+            "length": 1,
+            "first": {
+              "type": "str",
+              "length": 7,
+              "preview": "CWE-362"
+            }
+          },
+          "cve_language": {
+            "type": "str",
+            "length": 1,
+            "preview": "C"
+          },
+          "cve_description": {
+            "type": "str",
+            "length": 452,
+            "preview": "Race condition in the FastCopy optimization in the Array.Copy method in metadata/icall.c in Mono, when Moonlight 2.x bef"
+          },
+          "cvss": {
+            "type": "str",
+            "length": 3,
+            "preview": "4.8"
+          },
+          "publish_date": {
+            "type": "str",
+            "length": 14,
+            "preview": "April 13, 2011"
+          },
+          "AV": {
+            "type": "str",
+            "length": 7,
+            "preview": "NETWORK"
+          },
+          "AC": {
+            "type": "str",
+            "length": 7,
+            "preview": "NETWORK"
+          },
+          "PR": {
+            "type": "str",
+            "length": 4,
+            "preview": "NONE"
+          },
+          "UI": {
+            "type": "str",
+            "length": 4,
+            "preview": "NONE"
+          },
+          "S": {
+            "type": "str",
+            "length": 9,
+            "preview": "UNCHANGED"
+          },
+          "C": {
+            "type": "str",
+            "length": 4,
+            "preview": "NONE"
+          },
+          "I": {
+            "type": "str",
+            "length": 3,
+            "preview": "LOW"
+          },
+          "A": {
+            "type": "str",
+            "length": 3,
+            "preview": "LOW"
+          },
+          "commit_id": {
+            "type": "str",
+            "length": 40,
+            "preview": "2f00e4bbb2137130845afb1b2a1e678552fc8e5c"
+          },
+          "commit_message": {
+            "type": "str",
+            "length": 60,
+            "preview": "Disable some of the FastCopy fast paths since they are racy."
+          },
+          "commit_date": {
+            "type": "str",
+            "length": 20,
+            "preview": "2011-01-18T16:17:56Z"
+          },
+          "project": {
+            "type": "str",
+            "length": 9,
+            "preview": "mono/mono"
+          },
+          "url": {
+            "type": "str",
+            "length": 87,
+            "preview": "https://api.github.com/repos/mono/mono/commits/2f00e4bbb2137130845afb1b2a1e678552fc8e5c"
+          },
+          "html_url": {
+            "type": "str",
+            "length": 76,
+            "preview": "https://github.com/mono/mono/commit/2f00e4bbb2137130845afb1b2a1e678552fc8e5c"
+          },
+          "windows_before": {
+            "type": "list",
+            "length": 18,
+            "first": {
+              "commit_id": {
+                "type": "str",
+                "length": 40,
+                "preview": "ee83bdd1f6bea90732c86a9621abcee63182ccbf"
+              },
+              "commit_date": {
+                "type": "str",
+                "length": 30,
+                "preview": "Tue Jan 18 17:16:40 2011 +0100"
+              },
+              "commit_message": {
+                "type": "str",
+                "length": 60,
+                "preview": "Disable some of the FastCopy fast paths since they are racy."
+              },
+              "files_name": {
+                "type": "list",
+                "length": 1,
+                "first": {
+                  "type": "str",
+                  "length": 21,
+                  "preview": "mono/metadata/icall.c"
+                }
+              }
+            }
+          },
+          "windows_after": {
+            "type": "list",
+            "length": 14,
+            "first": {
+              "commit_id": {
+                "type": "str",
+                "length": 40,
+                "preview": "bacdafc90bc5fadce95bb91b90ca570b53469691"
+              },
+              "commit_date": {
+                "type": "str",
+                "length": 30,
+                "preview": "Tue Jan 18 16:05:20 2011 +0000"
+              },
+              "commit_message": {
+                "type": "str",
+                "length": 18,
+                "preview": "Remove unused type"
+              },
+              "files_name": {
+                "type": "list",
+                "length": 1,
+                "first": {
+                  "type": "str",
+                  "length": 21,
+                  "preview": "mcs/mcs/reflection.cs"
+                }
+              }
+            }
+          },
+          "parents": {
+            "type": "list",
+            "length": 1,
+            "first": {
+              "commit_id_before": {
+                "type": "str",
+                "length": 40,
+                "preview": "035c8587c0d8d307e45f1b7171a0d337bb451f1e"
+              },
+              "url_before": {
+                "type": "str",
+                "length": 87,
+                "preview": "https://api.github.com/repos/mono/mono/commits/035c8587c0d8d307e45f1b7171a0d337bb451f1e"
+              },
+              "html_url_before": {
+                "type": "str",
+                "length": 76,
+                "preview": "https://github.com/mono/mono/commit/035c8587c0d8d307e45f1b7171a0d337bb451f1e"
+              }
+            }
+          },
+          "details": {
+            "type": "list",
+            "length": 1,
+            "first": {
+              "raw_url": {
+                "type": "str",
+                "length": 99,
+                "preview": "https://github.com/mono/mono/raw/2f00e4bbb2137130845afb1b2a1e678552fc8e5c/mono%2Fmetadata%2Ficall.c"
+              },
+              "code": {
+                "type": "str",
+                "length": 219774,
+                "preview": "/*\n * icall.c:\n *\n * Authors:\n *   Dietmar Maurer (dietmar@ximian.com)\n *   Paolo Molaro (lupus@ximian.com)\n *\t Patrik T"
+              },
+              "code_before": {
+                "type": "str",
+                "length": 219649,
+                "preview": "/*\n * icall.c:\n *\n * Authors:\n *   Dietmar Maurer (dietmar@ximian.com)\n *   Paolo Molaro (lupus@ximian.com)\n *\t Patrik T"
+              },
+              "patch": {
+                "type": "str",
+                "length": 1626,
+                "preview": "@@ -718,7 +718,6 @@ ves_icall_System_Array_FastCopy (MonoArray *source, int source_idx, MonoArray* d\n \tvoid * source_add"
+              },
+              "file_path": {
+                "type": "str",
+                "length": 14,
+                "preview": "files/2011_4/1"
+              },
+              "file_language": {
+                "type": "str",
+                "length": 1,
+                "preview": "c"
+              },
+              "file_name": {
+                "type": "str",
+                "length": 21,
+                "preview": "mono/metadata/icall.c"
+              },
+              "outdated_file_modify": {
+                "type": "int",
+                "value": 0
+              },
+              "outdated_file_before": {
+                "type": "int",
+                "value": 1
+              },
+              "outdated_file_after": {
+                "type": "int",
+                "value": 0
+              },
+              "llm_check": {
+                "type": "int",
+                "value": 1
+              },
+              "static_check": {
+                "type": "int",
+                "value": 1
+              },
+              "static": {
+                "flawfinder": {
+                  "type": "list",
+                  "length": 2,
+                  "first": {
+                    "type": "bool",
+                    "value": true
+                  }
+                },
+                "rats": {
+                  "type": "list",
+                  "length": 2,
+                  "first": {
+                    "type": "bool",
+                    "value": false
+                  }
+                },
+                "semgrep": {
+                  "type": "list",
+                  "length": 2,
+                  "first": {
+                    "type": "bool",
+                    "value": false
+                  }
+                },
+                "cppcheck": {
+                  "type": "list",
+                  "length": 2,
+                  "first": {
+                    "type": "bool",
+                    "value": false
+                  }
+                }
+              },
+              "target": {
+                "type": "int",
+                "value": 1
+              },
+              "function_before": {
+                "type": "list",
+                "length": 250,
+                "first": {
+                  "function": {
+                    "type": "str",
+                    "length": 154,
+                    "preview": "static inline MonoBoolean\nis_generic_parameter (MonoType *type)\n{\n\treturn !type->byref && (type->type == MONO_TYPE_VAR |"
+                  },
+                  "target": {
+                    "type": "int",
+                    "value": 0
+                  }
+                }
+              },
+              "function_after": {
+                "type": "list",
+                "length": 250,
+                "first": {
+                  "function": {
+                    "type": "str",
+                    "length": 154,
+                    "preview": "static inline MonoBoolean\nis_generic_parameter (MonoType *type)\n{\n\treturn !type->byref && (type->type == MONO_TYPE_VAR |"
+                  },
+                  "target": {
+                    "type": "int",
+                    "value": 0
+                  }
+                }
+              }
+            }
+          },
+          "outdated": {
+            "type": "int",
+            "value": 0
+          },
+          "cwe_descripiton": {
+            "type": "str",
+            "length": 0,
+            "preview": ""
+          },
+          "cwe_consequence": {
+            "type": "str",
+            "length": 0,
+            "preview": ""
+          },
+          "cwe_method": {
+            "type": "str",
+            "length": 0,
+            "preview": ""
+          },
+          "cwe_solution": {
+            "type": "str",
+            "length": 0,
+            "preview": ""
+          }
+        },
+        {
+          "index": {
+            "type": "int",
+            "value": 12
+          },
+          "cve_id": {
+            "type": "str",
+            "length": 13,
+            "preview": "CVE-2011-0991"
+          },
+          "cwe_id": {
+            "type": "list",
+            "length": 1,
+            "first": {
+              "type": "str",
+              "length": 7,
+              "preview": "CWE-399"
+            }
+          },
+          "cve_language": {
+            "type": "str",
+            "length": 1,
+            "preview": "C"
+          },
+          "cve_description": {
+            "type": "str",
+            "length": 276,
+            "preview": "Use-after-free vulnerability in Mono, when Moonlight 2.x before 2.4.1 or 3.x before 3.99.3 is used, allows remote attack"
+          },
+          "cvss": {
+            "type": "str",
+            "length": 3,
+            "preview": "5.6"
+          },
+          "publish_date": {
+            "type": "str",
+            "length": 14,
+            "preview": "April 13, 2011"
+          },
+          "AV": {
+            "type": "str",
+            "length": 7,
+            "preview": "NETWORK"
+          },
+          "AC": {
+            "type": "str",
+            "length": 7,
+            "preview": "NETWORK"
+          },
+          "PR": {
+            "type": "str",
+            "length": 4,
+            "preview": "NONE"
+          },
+          "UI": {
+            "type": "str",
+            "length": 4,
+            "preview": "NONE"
+          },
+          "S": {
+            "type": "str",
+            "length": 9,
+            "preview": "UNCHANGED"
+          },
+          "C": {
+            "type": "str",
+            "length": 3,
+            "preview": "LOW"
+          },
+          "I": {
+            "type": "str",
+            "length": 3,
+            "preview": "LOW"
+          },
+          "A": {
+            "type": "str",
+            "length": 3,
+            "preview": "LOW"
+          },
+          "commit_id": {
+            "type": "str",
+            "length": 40,
+            "preview": "89d1455a80ef13cddee5d79ec00c06055da3085c"
+          },
+          "commit_message": {
+            "type": "str",
+            "length": 338,
+            "preview": "Don't use finalization to cleanup dynamic methods.\n\n\t* reflection.c: Use a reference queue to cleanup\n\tdynamic methods i"
+          },
+          "commit_date": {
+            "type": "str",
+            "length": 20,
+            "preview": "2011-02-01T15:52:43Z"
+          },
+          "project": {
+            "type": "str",
+            "length": 9,
+            "preview": "mono/mono"
+          },
+          "url": {
+            "type": "str",
+            "length": 87,
+            "preview": "https://api.github.com/repos/mono/mono/commits/89d1455a80ef13cddee5d79ec00c06055da3085c"
+          },
+          "html_url": {
+            "type": "str",
+            "length": 76,
+            "preview": "https://github.com/mono/mono/commit/89d1455a80ef13cddee5d79ec00c06055da3085c"
+          },
+          "windows_before": {
+            "type": "list",
+            "length": 36,
+            "first": {
+              "commit_id": {
+                "type": "str",
+                "length": 40,
+                "preview": "8eb1189099e02372fd45ca1c67230eccf1edddc0"
+              },
+              "commit_date": {
+                "type": "str",
+                "length": 29,
+                "preview": "Tue Feb 1 16:15:59 2011 +0100"
+              },
+              "commit_message": {
+                "type": "str",
+                "length": 32,
+                "preview": "Implement a reference queue API."
+              },
+              "files_name": {
+                "type": "list",
+                "length": 2,
+                "first": {
+                  "type": "str",
+                  "length": 27,
+                  "preview": "mono/metadata/gc-internal.h"
+                }
+              }
+            }
+          },
+          "windows_after": {
+            "type": "list",
+            "length": 49,
+            "first": {
+              "commit_id": {
+                "type": "str",
+                "length": 40,
+                "preview": "8eb1189099e02372fd45ca1c67230eccf1edddc0"
+              },
+              "commit_date": {
+                "type": "str",
+                "length": 29,
+                "preview": "Tue Feb 1 16:15:59 2011 +0100"
+              },
+              "commit_message": {
+                "type": "str",
+                "length": 32,
+                "preview": "Implement a reference queue API."
+              },
+              "files_name": {
+                "type": "list",
+                "length": 2,
+                "first": {
+                  "type": "str",
+                  "length": 27,
+                  "preview": "mono/metadata/gc-internal.h"
+                }
+              }
+            }
+          },
+          "parents": {
+            "type": "list",
+            "length": 1,
+            "first": {
+              "commit_id_before": {
+                "type": "str",
+                "length": 40,
+                "preview": "8eb1189099e02372fd45ca1c67230eccf1edddc0"
+              },
+              "url_before": {
+                "type": "str",
+                "length": 87,
+                "preview": "https://api.github.com/repos/mono/mono/commits/8eb1189099e02372fd45ca1c67230eccf1edddc0"
+              },
+              "html_url_before": {
+                "type": "str",
+                "length": 76,
+                "preview": "https://github.com/mono/mono/commit/8eb1189099e02372fd45ca1c67230eccf1edddc0"
+              }
+            }
+          },
+          "details": {
+            "type": "list",
+            "length": 5,
+            "first": {
+              "raw_url": {
+                "type": "str",
+                "length": 138,
+                "preview": "https://github.com/mono/mono/raw/89d1455a80ef13cddee5d79ec00c06055da3085c/mcs%2Fclass%2Fcorlib%2FSystem.Reflection.Emit%"
+              },
+              "code": {
+                "type": "str",
+                "length": 12781,
+                "preview": "//\n// System.Reflection.Emit.DynamicMethod.cs\n//\n// Author:\n//   Paolo Molaro (lupus@ximian.com)\n//   Zoltan Varga (varg"
+              },
+              "code_before": {
+                "type": "str",
+                "length": 12965,
+                "preview": "//\n// System.Reflection.Emit.DynamicMethod.cs\n//\n// Author:\n//   Paolo Molaro (lupus@ximian.com)\n//   Zoltan Varga (varg"
+              },
+              "patch": {
+                "type": "str",
+                "length": 734,
+                "preview": "@@ -127,9 +127,6 @@ public DynamicMethod (string name, Type returnType, Type[] parameterTypes, bool\n \t\t[MethodImplAttrib"
+              },
+              "file_path": {
+                "type": "str",
+                "length": 14,
+                "preview": "files/2011_4/3"
+              },
+              "file_language": {
+                "type": "str",
+                "length": 2,
+                "preview": "cs"
+              },
+              "file_name": {
+                "type": "str",
+                "length": 56,
+                "preview": "mcs/class/corlib/System.Reflection.Emit/DynamicMethod.cs"
+              },
+              "outdated_file_modify": {
+                "type": "int",
+                "value": 1
+              },
+              "outdated_file_before": {
+                "type": "int",
+                "value": 0
+              },
+              "outdated_file_after": {
+                "type": "int",
+                "value": 0
+              }
+            }
+          },
+          "outdated": {
+            "type": "int",
+            "value": 0
+          },
+          "cwe_descripiton": {
+            "type": "str",
+            "length": 0,
+            "preview": ""
+          },
+          "cwe_consequence": {
+            "type": "str",
+            "length": 0,
+            "preview": ""
+          },
+          "cwe_method": {
+            "type": "str",
+            "length": 0,
+            "preview": ""
+          },
+          "cwe_solution": {
+            "type": "str",
+            "length": 0,
+            "preview": ""
+          }
+        }
+      ],
+      "size_mtime_unchanged": true
+    }
+  ],
+  "other_directories": {
+    "SecVulEval": {
+      "exists": true,
+      "adapter_status": "not_enabled: parquet needs separate reader"
+    },
+    "sven": {
+      "exists": true,
+      "adapter_status": "not_enabled: generation/context tasks require an explicit function-label mapping"
+    }
+  }
+}

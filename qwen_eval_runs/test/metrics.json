@@ -1,0 +1,28 @@
+{
+  "generated_at": "2026-10-26T08:07:29+00:00",
+  "unique_recorded_samples": 3,
+  "status_counts": {
+    "ok": 3
+  },
+  "parsed_responses": 3,
+  "uncertain_count": 0,
+  "evaluated_binary_samples": 3,
+  "binary_coverage_of_all_recorded": 1.0,
+  "tp": 2,
+  "fp": 0,
+  "fn": 0,
+  "tn": 1,
+  "precision": 1.0,
+  "recall": 1.0,
+  "f1": 1.0,
+  "accuracy": 1.0,
+  "false_positive_rate": 0.0,
+  "note": "指标仅基于 status=ok 且 prediction 为0/1的样本；uncertain、too_long、格式错误与调用失败不被当作安全样本。",
+  "this_execution": {
+    "submitted": 3,
+    "skipped": 0,
+    "completed": 3,
+    "failed": 0
+  },
+  "run_signature": "e7f3825c1dc40050883de1357d5c06772f0e03ee279381061b5efe11c61cbca7"
+}

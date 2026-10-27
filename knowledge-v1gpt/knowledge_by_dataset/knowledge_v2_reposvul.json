@@ -1,0 +1,1821 @@
+{
+  "schema_version": "2.0-candidate",
+  "source_commit": "fed7fde1c40425b1455f5db7ab28face4d2024d2",
+  "dataset": "ReposVul",
+  "count": 18,
+  "extraction": "deterministic evidence-grounded transformation; no per-pair LLM verification",
+  "knowledge": [
+    {
+      "knowledge_id": "KG2_reposvul_003539_000_000",
+      "source": {
+        "sample_id": "reposvul_003539_000_000",
+        "dataset": "ReposVul",
+        "project": "danbloomberg/leptonica",
+        "cve": "CVE-2018-7247",
+        "cwe": [
+          "CWE-119"
+        ],
+        "fix_commit": "c1079bb8e77cdd426759e466729917ca37a3ed9f",
+        "parent_commit": null,
+        "file_path": "prog/htmlviewer.c",
+        "function_name": "pixHtmlViewer",
+        "source_dataset": "data/high_quality_repair_pairs.json"
+      },
+      "classification": {
+        "vulnerability_type": "bounds_write",
+        "vulnerability_name_zh": "越界写入",
+        "repair_pattern": "safe_api_or_argument",
+        "repair_pattern_zh": "接口替换以及安全参数/容量参数",
+        "group_key": "bounds_write__safe_api_or_argument"
+      },
+      "危险操作": {
+        "mechanism_zh": "写入、复制或格式化内容到目标对象",
+        "source_code": "sprintf(charbuf, \"%s/%s.html\", dirout, rootname);\n    mainname = stringNew(charbuf);\n    sprintf(charbuf, \"%s/%s-links.html\", dirout, rootname);",
+        "location": [
+          {
+            "start_line": 59,
+            "end_line": 61
+          }
+        ],
+        "original_context_sentence": "charbuf is a 512-byte stack array; the old sprintf concatenates dirout/rootname into paths for the main page and link pages, and uses rootname/index to generate a thumbnail name."
+      },
+      "适用前提": {
+        "check_zh": "在目标代码中存在与样本类似的写入、复制或格式化内容到目标对象；受影响对象、长度/偏移、可达路径应逐项匹配；不能仅凭同名函数匹配。",
+        "observed_input_and_state": "charbuf is a 512-byte stack array; the old sprintf concatenates dirout/rootname into paths for the main page and link pages, and uses rootname/index to generate a thumbnail name. Non-NULL pointer checks do not limit string lengths, so when the formatted result plus the terminating NUL exceeds 512 bytes, an out-of-bounds write occurs."
+      },
+      "漏洞触发条件": {
+        "potential_failure_zh": "当相关输入或状态违反安全不变量时，越界写入可能发生；必须以本条原始机制和路径证据确证。",
+        "precise_case_mechanism": "charbuf is a 512-byte stack array; the old sprintf concatenates dirout/rootname into paths for the main page and link pages, and uses rootname/index to generate a thumbnail name. Non-NULL pointer checks do not limit string lengths, so when the formatted result plus the terminating NUL exceeds 512 bytes, an out-of-bounds write occurs.",
+        "unsafe_code_anchor": "sprintf(charbuf, \"%s/%s.html\", dirout, rootname);\n    mainname = stringNew(charbuf);\n    sprintf(charbuf, \"%s/%s-links.html\", dirout, rootname);"
+      },
+      "安全反证": {
+        "verification_goal_zh": "写入前证明目标实际可写容量足够（含结束符）；分支容量应匹配",
+        "repair_observed_not_proof_of_any_other_code": "after changes these three calls to snprintf(charbuf,sizeof(charbuf),...), directly binding the write bound to sizeof of the same array. The view name already used snprintf and is not newly protected by this change.",
+        "patch_code_anchor": "snprintf(charbuf, sizeof(charbuf), \"%s/%s.html\", dirout, rootname);\n    mainname = stringNew(charbuf);\n    snprintf(charbuf, sizeof(charbuf), \"%s/%s-links.html\", dirout, rootname);",
+        "after_location": [
+          {
+            "start_line": 59,
+            "end_line": 61
+          }
+        ],
+        "warning_zh": "修复补丁是该样本的对照证据，不等于已证明其他待测函数安全；需要逐路径验证保护条件和真实容量/状态。"
+      },
+      "证据需求": {
+        "must_verify": [
+          "定位修复前危险语句，确认敏感操作和实际受影响对象",
+          "确认写入长度与目标对象容量、整数运算溢出情况、写入前约束是否覆盖路径",
+          "确认危险路径可达，必要前提确实可由本函数实参或上游输入满足",
+          "在修复前后源码中对齐相关分支，并判断保护是否在操作之前生效",
+          "对已存在的检查进行安全反证分析，避免将危险API名称直接判作漏洞"
+        ],
+        "original_before_location": [
+          {
+            "start_line": 59,
+            "end_line": 61
+          }
+        ],
+        "original_after_location": [
+          {
+            "start_line": 59,
+            "end_line": 61
+          }
+        ],
+        "repair_diff_reference": "通过source.sample_id定位原始文件中的function_diff及完整code_before/code_after"
+      },
+      "适用边界": {
+        "scope_zh": "此知识直接对应 danbloomberg/leptonica 的 pixHtmlViewer；跨项目使用时需重新验证类型、数据来源、环境约束和控制流。",
+        "original_boundary_and_caveats": "Retain the bounded-formatting mechanism for the fixed stack array. The later sprintf that generates HTML remains, and the non-Windows branch still inserts unescaped dirout into a system command. These three replacements do not establish that the whole function is safe or that a truncated filename still meets application requirements."
+      },
+      "quality": {
+        "method": "确定性结构化迁移：基于已有人工可读行为/修复解释和定位注释；不是逐例LLM再分析",
+        "before_anchor_found": true,
+        "after_anchor_found": true,
+        "needs_manual_review": true,
+        "review_flags": [
+          "缺失父提交信息，无法仅凭此条追溯完整仓库修复上下文"
+        ]
+      }
+    },
+    {
+      "knowledge_id": "KG2_reposvul_001720_000_000",
+      "source": {
+        "sample_id": "reposvul_001720_000_000",
+        "dataset": "ReposVul",
+        "project": "libgit2/libgit2",
+        "cve": "CVE-2018-10887",
+        "cwe": [
+          "CWE-125",
+          "CWE-190",
+          "CWE-681"
+        ],
+        "fix_commit": "c1577110467b701dcbcf9439ac225ea851b47d22",
+        "parent_commit": null,
+        "file_path": "src/delta.c",
+        "function_name": "git_delta_apply",
+        "source_dataset": "data/high_quality_repair_pairs.json"
+      },
+      "classification": {
+        "vulnerability_type": "integer_overflow",
+        "vulnerability_name_zh": "整数溢出",
+        "repair_pattern": "checked_arithmetic",
+        "repair_pattern_zh": "加减乘除前后溢出检查",
+        "group_key": "integer_overflow__checked_arithmetic"
+      },
+      "危险操作": {
+        "mechanism_zh": "执行乘法、加法、长度或偏移运算",
+        "source_code": "if (base_len < off + len || res_sz < len)\n\t\t\t\tgoto fail;\n\t\t\tmemcpy(res_dp, base + off, len);\n\t\t\tres_dp += len;\n\t\t\tres_sz -= len;",
+        "location": [
+          {
+            "start_line": 57,
+            "end_line": 61
+          }
+        ],
+        "original_context_sentence": "The copy instruction decodes size_t values off and len from delta, then copies len bytes starting at base+off into res_dp."
+      },
+      "适用前提": {
+        "check_zh": "在目标代码中存在与样本类似的执行乘法、加法、长度或偏移运算；受影响对象、长度/偏移、可达路径应逐项匹配；不能仅凭同名函数匹配。",
+        "observed_input_and_state": "The copy instruction decodes size_t values off and len from delta, then copies len bytes starting at base+off into res_dp. If off+len wraps on the target platform, the wrapped value may be no greater than base_len, allowing the original check to accept a source read that actually extends beyond base. base_sz==base_len checks only the declared length, ADD_DELTA limits only reads while decoding delta, and res_sz<len protects only the remaining destination space; none guarantees a valid source interval. Triggerability depends on type widths and the range of decodable values and is not universal across platforms.\nCurrent review classification: integer-addition wraparound causing a boundary-check bypass and out-of-bounds read (CWE-190, CWE-125)."
+      },
+      "漏洞触发条件": {
+        "potential_failure_zh": "当相关输入或状态违反安全不变量时，整数溢出可能发生；必须以本条原始机制和路径证据确证。",
+        "precise_case_mechanism": "The copy instruction decodes size_t values off and len from delta, then copies len bytes starting at base+off into res_dp. If off+len wraps on the target platform, the wrapped value may be no greater than base_len, allowing the original check to accept a source read that actually extends beyond base. base_sz==base_len checks only the declared length, ADD_DELTA limits only reads while decoding delta, and res_sz<len protects only the remaining destination space; none guarantees a valid source interval. Triggerability depends on type widths and the range of decodable values and is not universal across platforms.\nCurrent review classification: integer-addition wraparound causing a boundary-check bypass and out-of-bounds read (CWE-190, CWE-125).",
+        "unsafe_code_anchor": "if (base_len < off + len || res_sz < len)\n\t\t\t\tgoto fail;\n\t\t\tmemcpy(res_dp, base + off, len);\n\t\t\tres_dp += len;\n\t\t\tres_sz -= len;"
+      },
+      "安全反证": {
+        "verification_goal_zh": "运算前做范围检查或扩大运算类型；检查后续缩窄转换",
+        "repair_observed_not_proof_of_any_other_code": "The copy branch adds end, first calls GIT_ADD_SIZET_OVERFLOW(&end, off, len), and then checks base_len<end and res_sz<len. Assuming the macro detects size_t addition overflow and writes the sum on success as its name and call pattern imply, overflow short-circuits directly to fail; otherwise the non-wrapped endpoint checks the source range, and only then are memcpy and the destination-pointer/remaining-length updates performed. fail frees the output and clears the output state.\nCurrent review mechanism description: for the source interval formed by an offset and length, first detect endpoint-addition overflow, then compare the valid endpoint with the source length while also checking remaining destination capacity; every failure must exit before pointer arithmetic and copying.",
+        "patch_code_anchor": "if (GIT_ADD_SIZET_OVERFLOW(&end, off, len) ||\n\t\t\t    base_len < end || res_sz < len)\n\t\t\t\tgoto fail;\n\n\t\t\tmemcpy(res_dp, base + off, len);\n\t\t\tres_dp += len;\n\t\t\tres_sz -= len;",
+        "after_location": [
+          {
+            "start_line": 57,
+            "end_line": 63
+          }
+        ],
+        "warning_zh": "修复补丁是该样本的对照证据，不等于已证明其他待测函数安全；需要逐路径验证保护条件和真实容量/状态。"
+      },
+      "证据需求": {
+        "must_verify": [
+          "定位修复前危险语句，确认敏感操作和实际受影响对象",
+          "确认参与运算变量的取值范围、提升转换、后续内存操作所用结果",
+          "确认危险路径可达，必要前提确实可由本函数实参或上游输入满足",
+          "在修复前后源码中对齐相关分支，并判断保护是否在操作之前生效",
+          "对已存在的检查进行安全反证分析，避免将危险API名称直接判作漏洞"
+        ],
+        "original_before_location": [
+          {
+            "start_line": 57,
+            "end_line": 61
+          }
+        ],
+        "original_after_location": [
+          {
+            "start_line": 57,
+            "end_line": 63
+          }
+        ],
+        "repair_diff_reference": "通过source.sample_id定位原始文件中的function_diff及完整code_before/code_after"
+      },
+      "适用边界": {
+        "scope_zh": "此知识直接对应 libgit2/libgit2 的 git_delta_apply；跨项目使用时需重新验证类型、数据来源、环境约束和控制流。",
+        "original_boundary_and_caveats": "Retain: both sides clearly show an addition-wraparound repair for the same copy operation, so the local relationship is determinable. The necessary assumption is that the new macro has the overflow-detection and result-writing semantics expressed by its name and call; its definition is not provided, so its implementation is not claimed verified. Triggering the vulnerability also depends on whether the platform permits the decoded off+len sum to exceed the size_t range. after does not change construction of delta+delta_len at the entry, whose validity still depends on the supplied buffer; this alone neither establishes another vulnerability nor proves the whole function safe."
+      },
+      "quality": {
+        "method": "确定性结构化迁移：基于已有人工可读行为/修复解释和定位注释；不是逐例LLM再分析",
+        "before_anchor_found": true,
+        "after_anchor_found": true,
+        "needs_manual_review": true,
+        "review_flags": [
+          "缺失父提交信息，无法仅凭此条追溯完整仓库修复上下文"
+        ]
+      }
+    },
+    {
+      "knowledge_id": "KG2_reposvul_000905_000_006",
+      "source": {
+        "sample_id": "reposvul_000905_000_006",
+        "dataset": "ReposVul",
+        "project": "verdammelt/tnef",
+        "cve": "CVE-2017-6308",
+        "cwe": [
+          "CWE-190"
+        ],
+        "fix_commit": "c5044689e50039635e7700fe2472fd632ac77176",
+        "parent_commit": "99c70157998ff5f3c3e0fd1669c7cffdaaa32048",
+        "file_path": "src/alloc.c",
+        "function_name": "checked_xcalloc",
+        "source_dataset": "data/high_quality_repair_pairs.json"
+      },
+      "classification": {
+        "vulnerability_type": "integer_overflow",
+        "vulnerability_name_zh": "整数溢出",
+        "repair_pattern": "checked_arithmetic",
+        "repair_pattern_zh": "加减乘除前后溢出检查",
+        "group_key": "integer_overflow__checked_arithmetic"
+      },
+      "危险操作": {
+        "mechanism_zh": "执行乘法、加法、长度或偏移运算",
+        "source_code": "alloc_limit_assert (\"checked_xcalloc\", (num *size));\n    return xcalloc (num, size);",
+        "location": [
+          {
+            "start_line": 4,
+            "end_line": 5
+          }
+        ],
+        "original_context_sentence": "before first computes the product of the element count num and single-element size size as size_t, then passes the result to alloc_limit_assert."
+      },
+      "适用前提": {
+        "check_zh": "在目标代码中存在与样本类似的执行乘法、加法、长度或偏移运算；受影响对象、长度/偏移、可达路径应逐项匹配；不能仅凭同名函数匹配。",
+        "observed_input_and_state": "before first computes the product of the element count num and single-element size size as size_t, then passes the result to alloc_limit_assert. If the mathematical product exceeds the size_t range, the value checked is the unsigned wrapped result and does not represent the true requested total; xcalloc is still called with the original num and size. The existing protection checks a value that may already have overflowed and cannot identify multiplication overflow from that result. Whether the limit is actually bypassed and how xcalloc handles overflow depend on implementations not provided, so a heap out-of-bounds access is not asserted from this code alone.\nCurrent review classification: integer multiplication overflow (CWE-190), potentially making the total-allocation limit check inaccurate."
+      },
+      "漏洞触发条件": {
+        "potential_failure_zh": "当相关输入或状态违反安全不变量时，整数溢出可能发生；必须以本条原始机制和路径证据确证。",
+        "precise_case_mechanism": "before first computes the product of the element count num and single-element size size as size_t, then passes the result to alloc_limit_assert. If the mathematical product exceeds the size_t range, the value checked is the unsigned wrapped result and does not represent the true requested total; xcalloc is still called with the original num and size. The existing protection checks a value that may already have overflowed and cannot identify multiplication overflow from that result. Whether the limit is actually bypassed and how xcalloc handles overflow depend on implementations not provided, so a heap out-of-bounds access is not asserted from this code alone.\nCurrent review classification: integer multiplication overflow (CWE-190), potentially making the total-allocation limit check inaccurate.",
+        "unsafe_code_anchor": "alloc_limit_assert (\"checked_xcalloc\", (num *size));\n    return xcalloc (num, size);"
+      },
+      "安全反证": {
+        "verification_goal_zh": "运算前做范围检查或扩大运算类型；检查后续缩窄转换",
+        "repair_observed_not_proof_of_any_other_code": "after first calls check_mul_overflow(num, size, &res), calls abort when it returns true, and passes res to alloc_limit_assert only when it returns false, followed by the xcalloc call. Assuming the helper detects overflow and writes the accurate product on success, the repair blocks an unrepresentable product before the total-limit check, preventing a wrapped value from participating in that check.\nCurrent review mechanism description: first validate that multiplication of the count and element size is representable; terminate on overflow, use the result of that same checked computation for the total-limit check on success, and allocate only afterward.",
+        "patch_code_anchor": "size_t res;\n    if (check_mul_overflow(num, size, &res))\n        abort();\n\n    alloc_limit_assert (\"checked_xcalloc\", (res));\n    return xcalloc (num, size);",
+        "after_location": [
+          {
+            "start_line": 4,
+            "end_line": 9
+          }
+        ],
+        "warning_zh": "修复补丁是该样本的对照证据，不等于已证明其他待测函数安全；需要逐路径验证保护条件和真实容量/状态。"
+      },
+      "证据需求": {
+        "must_verify": [
+          "定位修复前危险语句，确认敏感操作和实际受影响对象",
+          "确认参与运算变量的取值范围、提升转换、后续内存操作所用结果",
+          "确认危险路径可达，必要前提确实可由本函数实参或上游输入满足",
+          "在修复前后源码中对齐相关分支，并判断保护是否在操作之前生效",
+          "对已存在的检查进行安全反证分析，避免将危险API名称直接判作漏洞"
+        ],
+        "original_before_location": [
+          {
+            "start_line": 4,
+            "end_line": 5
+          }
+        ],
+        "original_after_location": [
+          {
+            "start_line": 4,
+            "end_line": 9
+          }
+        ],
+        "repair_diff_reference": "通过source.sample_id定位原始文件中的function_diff及完整code_before/code_after"
+      },
+      "适用边界": {
+        "scope_zh": "此知识直接对应 verdammelt/tnef 的 checked_xcalloc；跨项目使用时需重新验证类型、数据来源、环境约束和控制流。",
+        "original_boundary_and_caveats": "Retain and pass: both sides clearly show a local repair from direct multiplication to checking multiplication overflow first and then checking the total. The necessary assumption is that check_mul_overflow returns true for overflow and writes the correct product to res when false; its definition is not provided. after still passes the original operands to xcalloc, but the product on the normal continuation path has passed the overflow check. The unprovided allocator and limit-check implementations do not support broader safety conclusions."
+      },
+      "quality": {
+        "method": "确定性结构化迁移：基于已有人工可读行为/修复解释和定位注释；不是逐例LLM再分析",
+        "before_anchor_found": true,
+        "after_anchor_found": true,
+        "needs_manual_review": false,
+        "review_flags": []
+      }
+    },
+    {
+      "knowledge_id": "KG2_reposvul_002318_001_003",
+      "source": {
+        "sample_id": "reposvul_002318_001_003",
+        "dataset": "ReposVul",
+        "project": "abrt/libreport",
+        "cve": "CVE-2015-3151",
+        "cwe": [
+          "CWE-22"
+        ],
+        "fix_commit": "239c4f7d1f47265526b39ad70106767d00805277",
+        "parent_commit": null,
+        "file_path": "src/lib/dump_dir.c",
+        "function_name": "dd_save_binary",
+        "source_dataset": "data/high_quality_repair_pairs.json"
+      },
+      "classification": {
+        "vulnerability_type": "path_traversal",
+        "vulnerability_name_zh": "路径遍历",
+        "repair_pattern": "input_validation",
+        "repair_pattern_zh": "输入字段、格式或状态的合法性校验",
+        "group_key": "path_traversal__input_validation"
+      },
+      "危险操作": {
+        "mechanism_zh": "以未受约束的输入构造文件路径",
+        "source_code": "if (!dd->locked)\n        error_msg_and_die(\"dump_dir is not opened\"); /* bug */\n\n    char *full_path = concat_path_file(dd->dd_dirname, name);\n    save_binary_file(full_path, data, size, dd->dd_uid, dd->dd_gid, dd->mode);\n    free(full_path);",
+        "location": [
+          {
+            "start_line": 3,
+            "end_line": 8
+          }
+        ],
+        "original_context_sentence": "After checking dd->locked, before directly passes name and dd->dd_dirname to concat_path_file and uses the result as the destination path for save_binary_file, which writes data of the specified size."
+      },
+      "适用前提": {
+        "check_zh": "在目标代码中存在与样本类似的以未受约束的输入构造文件路径；受影响对象、长度/偏移、可达路径应逐项匹配；不能仅凭同名函数匹配。",
+        "observed_input_and_state": "After checking dd->locked, before directly passes name and dd->dd_dirname to concat_path_file and uses the result as the destination path for save_binary_file, which writes data of the specified size. If name contains components interpreted by path construction and saving as escaping the target directory, a file may be saved outside the intended directory. dd->locked checks only the directory object's state and does not constrain name or the final path.\nCurrent review classification: path-traversal risk (the filename participates in destination-path construction; the exact dangerous forms depend on the helper semantics)."
+      },
+      "漏洞触发条件": {
+        "potential_failure_zh": "当相关输入或状态违反安全不变量时，路径遍历可能发生；必须以本条原始机制和路径证据确证。",
+        "precise_case_mechanism": "After checking dd->locked, before directly passes name and dd->dd_dirname to concat_path_file and uses the result as the destination path for save_binary_file, which writes data of the specified size. If name contains components interpreted by path construction and saving as escaping the target directory, a file may be saved outside the intended directory. dd->locked checks only the directory object's state and does not constrain name or the final path.\nCurrent review classification: path-traversal risk (the filename participates in destination-path construction; the exact dangerous forms depend on the helper semantics).",
+        "unsafe_code_anchor": "if (!dd->locked)\n        error_msg_and_die(\"dump_dir is not opened\"); /* bug */\n\n    char *full_path = concat_path_file(dd->dd_dirname, name);\n    save_binary_file(full_path, data, size, dd->dd_uid, dd->dd_gid, dd->mode);\n    free(full_path);"
+      },
+      "安全反证": {
+        "verification_goal_zh": "规范化并在最终解析对象上验证限制目录或访问策略",
+        "repair_observed_not_proof_of_any_other_code": "After the existing state check and before path construction, after calls str_is_correct_filename(name) and calls error_msg_and_die when it returns false. Assuming that error handler terminates execution, the same name deemed invalid can no longer enter path construction and saving; the save-parameter handling and full_path release order after validation are unchanged.\nCurrent review mechanism description: validate the external name before combining it with the directory path, terminating on failure so an invalid name cannot flow into the later file write; the directory-object state check cannot replace validation of path-operation operands.",
+        "patch_code_anchor": "if (!dd->locked)\n        error_msg_and_die(\"dump_dir is not opened\"); /* bug */\n\n    if (!str_is_correct_filename(name))\n        error_msg_and_die(\"Cannot save binary. '%s' is not a valid file name\", name);\n\n    char *full_path = concat_path_file(dd->dd_dirname, name);\n    save_binary_file(full_path, data, size, dd->dd_uid, dd->dd_gid, dd->mode);\n    free(full_path);",
+        "after_location": [
+          {
+            "start_line": 3,
+            "end_line": 11
+          }
+        ],
+        "warning_zh": "修复补丁是该样本的对照证据，不等于已证明其他待测函数安全；需要逐路径验证保护条件和真实容量/状态。"
+      },
+      "证据需求": {
+        "must_verify": [
+          "定位修复前危险语句，确认敏感操作和实际受影响对象",
+          "检查路径拼接、规范化、符号链接、基目录约束和实际访问",
+          "确认危险路径可达，必要前提确实可由本函数实参或上游输入满足",
+          "在修复前后源码中对齐相关分支，并判断保护是否在操作之前生效",
+          "对已存在的检查进行安全反证分析，避免将危险API名称直接判作漏洞"
+        ],
+        "original_before_location": [
+          {
+            "start_line": 3,
+            "end_line": 8
+          }
+        ],
+        "original_after_location": [
+          {
+            "start_line": 3,
+            "end_line": 11
+          }
+        ],
+        "repair_diff_reference": "通过source.sample_id定位原始文件中的function_diff及完整code_before/code_after"
+      },
+      "适用边界": {
+        "scope_zh": "此知识直接对应 abrt/libreport 的 dd_save_binary；跨项目使用时需重新验证类型、数据来源、环境约束和控制流。",
+        "original_boundary_and_caveats": "Retain: the complete functions clearly show a local repair relation, adding validity validation before the filename enters the save path. Blocking on the error path depends on error_msg_and_die terminating execution; path-traversal coverage depends on which names str_is_correct_filename actually rejects. Those helper definitions are not supplied, so no exact bypass form or guarantee that the final path always remains inside the target directory is claimed."
+      },
+      "quality": {
+        "method": "确定性结构化迁移：基于已有人工可读行为/修复解释和定位注释；不是逐例LLM再分析",
+        "before_anchor_found": true,
+        "after_anchor_found": true,
+        "needs_manual_review": true,
+        "review_flags": [
+          "缺失父提交信息，无法仅凭此条追溯完整仓库修复上下文"
+        ]
+      }
+    },
+    {
+      "knowledge_id": "KG2_reposvul_002549_000_000",
+      "source": {
+        "sample_id": "reposvul_002549_000_000",
+        "dataset": "ReposVul",
+        "project": "libvips/libvips",
+        "cve": "CVE-2020-20739",
+        "cwe": [
+          "CWE-908"
+        ],
+        "fix_commit": "2ab5aa7bf515135c2b02d42e9a72e4c98e17031a",
+        "parent_commit": "8ddbfbaf0c7481a2da53f745458bf7037e0f937c",
+        "file_path": "libvips/deprecated/im_vips2dz.c",
+        "function_name": "im_vips2dz",
+        "source_dataset": "data/high_quality_repair_pairs.json"
+      },
+      "classification": {
+        "vulnerability_type": "uninitialized_use",
+        "vulnerability_name_zh": "未初始化值使用",
+        "repair_pattern": "initialization",
+        "repair_pattern_zh": "未初始化状态修复",
+        "group_key": "uninitialized_use__initialization"
+      },
+      "危险操作": {
+        "mechanism_zh": "读取尚未赋确定有效值的变量或对象",
+        "source_code": "im_strncpy( name, filename, FILENAME_MAX ); \n\tif( (p = strchr( name, ':' )) ) {\n\t\t*p = '\\0';\n\t\tim_strncpy( mode, p + 1, FILENAME_MAX ); \n\t}\n\n\tstrcpy( buf, mode );",
+        "location": [
+          {
+            "start_line": 24,
+            "end_line": 30
+          }
+        ],
+        "original_context_sentence": "mode is an uninitialized automatic character array, written only when a colon is found in name; the no-colon path unconditionally executes strcpy(buf,mode), searching uninitialized contents for a NUL and parsing options."
+      },
+      "适用前提": {
+        "check_zh": "在目标代码中存在与样本类似的读取尚未赋确定有效值的变量或对象；受影响对象、长度/偏移、可达路径应逐项匹配；不能仅凭同名函数匹配。",
+        "observed_input_and_state": "mode is an uninitialized automatic character array, written only when a colon is found in name; the no-colon path unconditionally executes strcpy(buf,mode), searching uninitialized contents for a NUL and parsing options. Initialization of default layout and other configuration values does not initialize mode."
+      },
+      "漏洞触发条件": {
+        "potential_failure_zh": "当相关输入或状态违反安全不变量时，未初始化值使用可能发生；必须以本条原始机制和路径证据确证。",
+        "precise_case_mechanism": "mode is an uninitialized automatic character array, written only when a colon is found in name; the no-colon path unconditionally executes strcpy(buf,mode), searching uninitialized contents for a NUL and parsing options. Initialization of default layout and other configuration values does not initialize mode.",
+        "unsafe_code_anchor": "im_strncpy( name, filename, FILENAME_MAX ); \n\tif( (p = strchr( name, ':' )) ) {\n\t\t*p = '\\0';\n\t\tim_strncpy( mode, p + 1, FILENAME_MAX ); \n\t}\n\n\tstrcpy( buf, mode );"
+      },
+      "安全反证": {
+        "verification_goal_zh": "所有可达使用路径必须先赋合法初值",
+        "repair_observed_not_proof_of_any_other_code": "after adds strcpy(mode,\"\") to the no-colon branch, writing a terminating NUL before the unconditional copy and making buf explicitly an empty string on that path, so option parsing starts from an empty string.",
+        "patch_code_anchor": "im_strncpy( name, filename, FILENAME_MAX ); \n\tif( (p = strchr( name, ':' )) ) {\n\t\t*p = '\\0';\n\t\tim_strncpy( mode, p + 1, FILENAME_MAX ); \n\t}\n\telse \n\t\tstrcpy( mode, \"\" ); \n\n\tstrcpy( buf, mode );",
+        "after_location": [
+          {
+            "start_line": 24,
+            "end_line": 32
+          }
+        ],
+        "warning_zh": "修复补丁是该样本的对照证据，不等于已证明其他待测函数安全；需要逐路径验证保护条件和真实容量/状态。"
+      },
+      "证据需求": {
+        "must_verify": [
+          "定位修复前危险语句，确认敏感操作和实际受影响对象",
+          "确认声明、初始化、条件分支与使用的控制流",
+          "确认危险路径可达，必要前提确实可由本函数实参或上游输入满足",
+          "在修复前后源码中对齐相关分支，并判断保护是否在操作之前生效",
+          "对已存在的检查进行安全反证分析，避免将危险API名称直接判作漏洞"
+        ],
+        "original_before_location": [
+          {
+            "start_line": 24,
+            "end_line": 30
+          }
+        ],
+        "original_after_location": [
+          {
+            "start_line": 24,
+            "end_line": 32
+          }
+        ],
+        "repair_diff_reference": "通过source.sample_id定位原始文件中的function_diff及完整code_before/code_after"
+      },
+      "适用边界": {
+        "scope_zh": "此知识直接对应 libvips/libvips 的 im_vips2dz；跨项目使用时需重新验证类型、数据来源、环境约束和控制流。",
+        "original_boundary_and_caveats": "Retain the mechanism of initializing an object before a later unconditional read at branch convergence; the new write does not depend on input length. Whether im_strncpy guarantees termination on the colon path is not provided, so that path is not treated as verified by this patch."
+      },
+      "quality": {
+        "method": "确定性结构化迁移：基于已有人工可读行为/修复解释和定位注释；不是逐例LLM再分析",
+        "before_anchor_found": true,
+        "after_anchor_found": true,
+        "needs_manual_review": false,
+        "review_flags": []
+      }
+    },
+    {
+      "knowledge_id": "KG2_reposvul_000344_000_000",
+      "source": {
+        "sample_id": "reposvul_000344_000_000",
+        "dataset": "ReposVul",
+        "project": "file/file",
+        "cve": "CVE-2014-0238",
+        "cwe": [
+          "CWE-119"
+        ],
+        "fix_commit": "f97486ef5dc3e8735440edc4fc8808c63e1a3ef0",
+        "parent_commit": null,
+        "file_path": "src/cdf.c",
+        "function_name": "cdf_read_property_info",
+        "source_dataset": "data/high_quality_repair_pairs.json"
+      },
+      "classification": {
+        "vulnerability_type": "infinite_loop",
+        "vulnerability_name_zh": "无限循环",
+        "repair_pattern": "loop_termination",
+        "repair_pattern_zh": "迭代终止性保障",
+        "group_key": "infinite_loop__loop_termination"
+      },
+      "危险操作": {
+        "mechanism_zh": "输入控制的循环缺失可证明的终止条件",
+        "source_code": "DPRINTF((\"nelements = %\" SIZE_T_FORMAT \"u\\n\",\n\t\t\t    nelements));\n\t\t\tfor (j = 0; j < nelements; j++, i++) {\n\t\t\t\tuint32_t l = CDF_GETUINT32(q, o);\n\t\t\t\tinp[i].pi_str.s_len = l;\n\t\t\t\tinp[i].pi_str.s_buf = (const char *)\n\t\t\t\t    (const void *)(&q[o4 + sizeof(l)]);\n\t\t\t\tDPRINTF((\"l = %d, r = %\" SIZE_T_FORMAT\n\t\t\t\t    \"u, s = %s\\n\", l,\n\t\t\t\t    CDF_ROUND(l, sizeof(l)),\n\t\t\t\t    inp[i].pi_str.s_buf));\n\t\t\t\tif (l & 1)\n\t\t\t\t\tl++;\n\t\t\t\to += l >> 1;\n\t\t\t\tif (q + o >= e)\n\t\t\t\t\tgoto out;\n\t\t\t\to4 = o * sizeof(uint32_t);\n\t\t\t}\n\t\t\ti--;",
+        "location": [
+          {
+            "start_line": 147,
+            "end_line": 165
+          }
+        ],
+        "original_context_sentence": "The inner loop for a string property reuses the outer index i and decrements i after it ends."
+      },
+      "适用前提": {
+        "check_zh": "在目标代码中存在与样本类似的输入控制的循环缺失可证明的终止条件；受影响对象、长度/偏移、可达路径应逐项匹配；不能仅凭同名函数匹配。",
+        "observed_input_and_state": "The inner loop for a string property reuses the outer index i and decrements i after it ends. When CDF_VECTOR's nelements is zero, the inner loop does not execute, and i-- cancels the outer i++, so the next iteration repeats the same property and cannot advance. The old expansion for nelements>1 does not handle the zero-element path."
+      },
+      "漏洞触发条件": {
+        "potential_failure_zh": "当相关输入或状态违反安全不变量时，无限循环可能发生；必须以本条原始机制和路径证据确证。",
+        "precise_case_mechanism": "The inner loop for a string property reuses the outer index i and decrements i after it ends. When CDF_VECTOR's nelements is zero, the inner loop does not execute, and i-- cancels the outer i++, so the next iteration repeats the same property and cannot advance. The old expansion for nelements>1 does not handle the zero-element path.",
+        "unsafe_code_anchor": "DPRINTF((\"nelements = %\" SIZE_T_FORMAT \"u\\n\",\n\t\t\t    nelements));\n\t\t\tfor (j = 0; j < nelements; j++, i++) {\n\t\t\t\tuint32_t l = CDF_GETUINT32(q, o);\n\t\t\t\tinp[i].pi_str.s_len = l;\n\t\t\t\tinp[i].pi_str.s_buf = (const char *)\n\t\t\t\t    (const void *)(&q[o4 + sizeof(l)]);\n\t\t\t\tDPRINTF((\"l = %d, r = %\" SIZE_T_FORMAT\n\t\t\t\t    \"u, s = %s\\n\", l,\n\t\t\t\t    CDF_ROUND(l, sizeof(l)),\n\t\t\t\t    inp[i].pi_str.s_buf));\n\t\t\t\tif (l & 1)\n\t\t\t\t\tl++;\n\t\t\t\to += l >> 1;\n\t\t\t\tif (q + o >= e)\n\t\t\t\t\tgoto out;\n\t\t\t\to4 = o * sizeof(uint32_t);\n\t\t\t}\n\t\t\ti--;"
+      },
+      "安全反证": {
+        "verification_goal_zh": "确保循环状态单调推进或具备独立退出机制",
+        "repair_observed_not_proof_of_any_other_code": "After reading the vector element count, after rejects zero, blocking the no-iteration path that leaves the outer index unchanged; it also requires the inner loop to satisfy i<sh.sh_properties, bounding shared-property index advancement.\nCurrent review mechanism description: reject a zero vector before the shared-index loop.\nCurrent review mechanism description: reject_zero_vector_before_shared_index_loop",
+        "patch_code_anchor": "DPRINTF((\"nelements = %\" SIZE_T_FORMAT \"u\\n\",\n\t\t\t    nelements));\n\t\t\tfor (j = 0; j < nelements && i < sh.sh_properties;\n\t\t\t    j++, i++)\n\t\t\t{\n\t\t\t\tuint32_t l = CDF_GETUINT32(q, o);\n\t\t\t\tinp[i].pi_str.s_len = l;\n\t\t\t\tinp[i].pi_str.s_buf = (const char *)\n\t\t\t\t    (const void *)(&q[o4 + sizeof(l)]);\n\t\t\t\tDPRINTF((\"l = %d, r = %\" SIZE_T_FORMAT\n\t\t\t\t    \"u, s = %s\\n\", l,\n\t\t\t\t    CDF_ROUND(l, sizeof(l)),\n\t\t\t\t    inp[i].pi_str.s_buf));\n\t\t\t\tif (l & 1)\n\t\t\t\t\tl++;\n\t\t\t\to += l >> 1;\n\t\t\t\tif (q + o >= e)\n\t\t\t\t\tgoto out;\n\t\t\t\to4 = o * sizeof(uint32_t);\n\t\t\t}\n\t\t\ti--;",
+        "after_location": [
+          {
+            "start_line": 151,
+            "end_line": 171
+          }
+        ],
+        "warning_zh": "修复补丁是该样本的对照证据，不等于已证明其他待测函数安全；需要逐路径验证保护条件和真实容量/状态。"
+      },
+      "证据需求": {
+        "must_verify": [
+          "定位修复前危险语句，确认敏感操作和实际受影响对象",
+          "检查输入约束、循环变量进展、异常路径和退出条件",
+          "确认危险路径可达，必要前提确实可由本函数实参或上游输入满足",
+          "在修复前后源码中对齐相关分支，并判断保护是否在操作之前生效",
+          "对已存在的检查进行安全反证分析，避免将危险API名称直接判作漏洞"
+        ],
+        "original_before_location": [
+          {
+            "start_line": 147,
+            "end_line": 165
+          }
+        ],
+        "original_after_location": [
+          {
+            "start_line": 151,
+            "end_line": 171
+          }
+        ],
+        "repair_diff_reference": "通过source.sample_id定位原始文件中的function_diff及完整code_before/code_after"
+      },
+      "适用边界": {
+        "scope_zh": "此知识直接对应 file/file 的 cdf_read_property_info；跨项目使用时需重新验证类型、数据来源、环境约束和控制流。",
+        "original_boundary_and_caveats": "Retain the direct mechanism by which zero elements make the parsing loop fail to progress, and classify it as an infinite loop. The concrete memory-safety benefit of the new nonzero upper bound cannot be inferred solely from the check: the old code already expanded according to nelements. Other read boundaries are not guaranteed by this repair. Source classification label: infinite_loop."
+      },
+      "quality": {
+        "method": "确定性结构化迁移：基于已有人工可读行为/修复解释和定位注释；不是逐例LLM再分析",
+        "before_anchor_found": true,
+        "after_anchor_found": true,
+        "needs_manual_review": true,
+        "review_flags": [
+          "缺失父提交信息，无法仅凭此条追溯完整仓库修复上下文"
+        ]
+      }
+    },
+    {
+      "knowledge_id": "KG2_reposvul_000242_005_000",
+      "source": {
+        "sample_id": "reposvul_000242_005_000",
+        "dataset": "ReposVul",
+        "project": "ffmpeg/ffmpeg",
+        "cve": "CVE-2013-4263",
+        "cwe": [
+          "CWE-119"
+        ],
+        "fix_commit": "e43a0a232dbf6d3c161823c2e07c52e76227a1bc",
+        "parent_commit": null,
+        "file_path": "libavfilter/vf_hflip.c",
+        "function_name": "filter_frame",
+        "source_dataset": "data/high_quality_repair_pairs.json"
+      },
+      "classification": {
+        "vulnerability_type": "buffer_size_mismatch",
+        "vulnerability_name_zh": "缓冲区大小不匹配",
+        "repair_pattern": "input_validation",
+        "repair_pattern_zh": "输入字段、格式或状态的合法性校验",
+        "group_key": "buffer_size_mismatch__input_validation"
+      },
+      "危险操作": {
+        "mechanism_zh": "以不相符的长度执行数据操作",
+        "source_code": "/* copy palette if required */\n    if (av_pix_fmt_desc_get(inlink->format)->flags & AV_PIX_FMT_FLAG_PAL)\n        memcpy(out->data[1], in->data[1], AVPALETTE_SIZE);\n\n    for (plane = 0; plane < 4 && in->data[plane]; plane++) {\n        const int width  = (plane == 1 || plane == 2) ? FF_CEIL_RSHIFT(inlink->w, s->hsub) : inlink->w;\n        const int height = (plane == 1 || plane == 2) ? FF_CEIL_RSHIFT(inlink->h, s->vsub) : inlink->h;\n        step = s->max_step[plane];\n\n        outrow = out->data[plane];\n        inrow  = in ->data[plane] + (width - 1) * step;\n        for (i = 0; i < height; i++) {\n            switch (step) {\n            case 1:\n                for (j = 0; j < width; j++)\n                    outrow[j] = inrow[-j];",
+        "location": [
+          {
+            "start_line": 17,
+            "end_line": 32
+          },
+          {
+            "start_line": 64,
+            "end_line": 70
+          }
+        ],
+        "original_context_sentence": "The old loop required only plane<4 and a non-NULL input data pointer, so it allowed an object with linesize[plane]==0 into the flip operation."
+      },
+      "适用前提": {
+        "check_zh": "在目标代码中存在与样本类似的以不相符的长度执行数据操作；受影响对象、长度/偏移、可达路径应逐项匹配；不能仅凭同名函数匹配。",
+        "observed_input_and_state": "The old loop required only plane<4 and a non-NULL input data pointer, so it allowed an object with linesize[plane]==0 into the flip operation. It then computed width and height from image dimensions, used (width-1)*step to locate input, and read/wrote pixels one by one; the input row pointer advances by zero each round while the output row pointer advances by output stride. A non-NULL pointer does not establish the image storage needed for these accesses, and if actual capacity is insufficient, nonzero-length access may go out of bounds. The source also has a fixed-size palette copy that does not prevent the same data[1] from entering the generic plane loop afterward. The actual palette stride and step cannot be determined from this function alone.\nCurrent review classification: a zero-row-stride object is treated as an image plane and may cause out-of-bounds reads/writes."
+      },
+      "漏洞触发条件": {
+        "potential_failure_zh": "当相关输入或状态违反安全不变量时，缓冲区大小不匹配可能发生；必须以本条原始机制和路径证据确证。",
+        "precise_case_mechanism": "The old loop required only plane<4 and a non-NULL input data pointer, so it allowed an object with linesize[plane]==0 into the flip operation. It then computed width and height from image dimensions, used (width-1)*step to locate input, and read/wrote pixels one by one; the input row pointer advances by zero each round while the output row pointer advances by output stride. A non-NULL pointer does not establish the image storage needed for these accesses, and if actual capacity is insufficient, nonzero-length access may go out of bounds. The source also has a fixed-size palette copy that does not prevent the same data[1] from entering the generic plane loop afterward. The actual palette stride and step cannot be determined from this function alone.\nCurrent review classification: a zero-row-stride object is treated as an image plane and may cause out-of-bounds reads/writes.",
+        "unsafe_code_anchor": "/* copy palette if required */\n    if (av_pix_fmt_desc_get(inlink->format)->flags & AV_PIX_FMT_FLAG_PAL)\n        memcpy(out->data[1], in->data[1], AVPALETTE_SIZE);\n\n    for (plane = 0; plane < 4 && in->data[plane]; plane++) {\n        const int width  = (plane == 1 || plane == 2) ? FF_CEIL_RSHIFT(inlink->w, s->hsub) : inlink->w;\n        const int height = (plane == 1 || plane == 2) ? FF_CEIL_RSHIFT(inlink->h, s->vsub) : inlink->h;\n        step = s->max_step[plane];\n\n        outrow = out->data[plane];\n        inrow  = in ->data[plane] + (width - 1) * step;\n        for (i = 0; i < height; i++) {\n            switch (step) {\n            case 1:\n                for (j = 0; j < width; j++)\n                    outrow[j] = inrow[-j];"
+      },
+      "安全反证": {
+        "verification_goal_zh": "验证声明长度、分配容量与实际数据长度的一致性",
+        "repair_observed_not_proof_of_any_other_code": "The sole change requires in->linesize[plane] to be nonzero in the plane-loop condition. When the data pointer is non-NULL but the input row stride is zero, the loop terminates before dimension calculation, input-offset construction, and pixel access, preventing that object from entering the generic flip path; later planes are not processed either. The earlier fixed-size palette copy is unchanged.\nCurrent review mechanism description: before constructing row-end addresses and performing per-row pixel access, constrain image-processing objects by input row stride rather than relying only on a non-NULL data pointer with image dimensions and step.",
+        "patch_code_anchor": "/* copy palette if required */\n    if (av_pix_fmt_desc_get(inlink->format)->flags & AV_PIX_FMT_FLAG_PAL)\n        memcpy(out->data[1], in->data[1], AVPALETTE_SIZE);\n\n    for (plane = 0; plane < 4 && in->data[plane] && in->linesize[plane]; plane++) {\n        const int width  = (plane == 1 || plane == 2) ? FF_CEIL_RSHIFT(inlink->w, s->hsub) : inlink->w;\n        const int height = (plane == 1 || plane == 2) ? FF_CEIL_RSHIFT(inlink->h, s->vsub) : inlink->h;\n        step = s->max_step[plane];\n\n        outrow = out->data[plane];\n        inrow  = in ->data[plane] + (width - 1) * step;\n        for (i = 0; i < height; i++) {\n            switch (step) {\n            case 1:\n                for (j = 0; j < width; j++)\n                    outrow[j] = inrow[-j];",
+        "after_location": [
+          {
+            "start_line": 17,
+            "end_line": 32
+          },
+          {
+            "start_line": 64,
+            "end_line": 70
+          }
+        ],
+        "warning_zh": "修复补丁是该样本的对照证据，不等于已证明其他待测函数安全；需要逐路径验证保护条件和真实容量/状态。"
+      },
+      "证据需求": {
+        "must_verify": [
+          "定位修复前危险语句，确认敏感操作和实际受影响对象",
+          "追踪容量来源、长度字段、复制/解析操作和非一致性",
+          "确认危险路径可达，必要前提确实可由本函数实参或上游输入满足",
+          "在修复前后源码中对齐相关分支，并判断保护是否在操作之前生效",
+          "对已存在的检查进行安全反证分析，避免将危险API名称直接判作漏洞"
+        ],
+        "original_before_location": [
+          {
+            "start_line": 17,
+            "end_line": 32
+          },
+          {
+            "start_line": 64,
+            "end_line": 70
+          }
+        ],
+        "original_after_location": [
+          {
+            "start_line": 17,
+            "end_line": 32
+          },
+          {
+            "start_line": 64,
+            "end_line": 70
+          }
+        ],
+        "repair_diff_reference": "通过source.sample_id定位原始文件中的function_diff及完整code_before/code_after"
+      },
+      "适用边界": {
+        "scope_zh": "此知识直接对应 ffmpeg/ffmpeg 的 filter_frame；跨项目使用时需重新验证类型、数据来源、环境约束和控制流。",
+        "original_boundary_and_caveats": "Retain: the local relationship between allowing a zero-stride object into dimension-driven access and excluding it before access is clear. The out-of-bounds conclusion is conditional on insufficient actual storage and a valid read/write, so zero stride alone is not declared inevitably out of bounds. after excludes only zero input stride and does not prove nonzero stride, step, dimensions, and input/output capacities match; it also leaves palette-copy pointer/capacity assumptions unchanged."
+      },
+      "quality": {
+        "method": "确定性结构化迁移：基于已有人工可读行为/修复解释和定位注释；不是逐例LLM再分析",
+        "before_anchor_found": true,
+        "after_anchor_found": true,
+        "needs_manual_review": true,
+        "review_flags": [
+          "缺失父提交信息，无法仅凭此条追溯完整仓库修复上下文"
+        ]
+      }
+    },
+    {
+      "knowledge_id": "KG2_reposvul_003705_002_000",
+      "source": {
+        "sample_id": "reposvul_003705_002_000",
+        "dataset": "ReposVul",
+        "project": "flatpak/flatpak",
+        "cve": "CVE-2023-28101",
+        "cwe": [
+          "CWE-116"
+        ],
+        "fix_commit": "6cac99dafe6003c8a4bd5666341c217876536869",
+        "parent_commit": null,
+        "file_path": "app/flatpak-cli-transaction.c",
+        "function_name": "print_perm_line",
+        "source_dataset": "data/high_quality_repair_pairs.json"
+      },
+      "classification": {
+        "vulnerability_type": "injection",
+        "vulnerability_name_zh": "注入",
+        "repair_pattern": "safe_api_or_argument",
+        "repair_pattern_zh": "接口替换以及安全参数/容量参数",
+        "group_key": "injection__safe_api_or_argument"
+      },
+      "危险操作": {
+        "mechanism_zh": "将未受约束输入用于解释器、命令或查询",
+        "source_code": "g_string_append_printf (res, \"    [%d] %s\", idx, (char *) items->pdata[0]);\n\n  for (i = 1; i < items->len; i++)",
+        "location": [
+          {
+            "start_line": 9,
+            "end_line": 11
+          },
+          {
+            "start_line": 20,
+            "end_line": 27
+          }
+        ],
+        "original_context_sentence": "before writes items->pdata[0] and each items->pdata[i] through a fixed-format %s into res, then outputs res->str."
+      },
+      "适用前提": {
+        "check_zh": "在目标代码中存在与样本类似的将未受约束输入用于解释器、命令或查询；受影响对象、长度/偏移、可达路径应逐项匹配；不能仅凭同名函数匹配。",
+        "observed_input_and_state": "before writes items->pdata[0] and each items->pdata[i] through a fixed-format %s into res, then outputs res->str. If an item contains newlines or terminal control sequences and the output endpoint interprets them, its content can alter layout or terminal display. A fixed format string prevents an item from becoming a format string but does not remove control characters; cols only selects separator/newline formatting and does not filter output content.\nCurrent review classification: unescaped control characters in output, with conditional terminal-control-sequence injection."
+      },
+      "漏洞触发条件": {
+        "potential_failure_zh": "当相关输入或状态违反安全不变量时，注入可能发生；必须以本条原始机制和路径证据确证。",
+        "precise_case_mechanism": "before writes items->pdata[0] and each items->pdata[i] through a fixed-format %s into res, then outputs res->str. If an item contains newlines or terminal control sequences and the output endpoint interprets them, its content can alter layout or terminal display. A fixed format string prevents an item from becoming a format string but does not remove control characters; cols only selects separator/newline formatting and does not filter output content.\nCurrent review classification: unescaped control characters in output, with conditional terminal-control-sequence injection.",
+        "unsafe_code_anchor": "g_string_append_printf (res, \"    [%d] %s\", idx, (char *) items->pdata[0]);\n\n  for (i = 1; i < items->len; i++)"
+      },
+      "安全反证": {
+        "verification_goal_zh": "使用安全参数化/转义及相应上下文边界",
+        "repair_observed_not_proof_of_any_other_code": "after first passes the first item to flatpak_escape_string and appends the returned value; in the loop it likewise converts the current item, then uses that same escaped value for length calculation and both layout branches. The first and later items therefore all undergo the same conversion, and length checks match the data actually appended rather than the raw item. The exact control-character coverage depends on the unshown flatpak_escape_string and FLATPAK_ESCAPE_DEFAULT.\nCurrent review mechanism description: convert data to a safe display form before it enters the output buffer, covering the first item and every loop-item append branch and using the converted result for layout length.",
+        "patch_code_anchor": "escaped_first_perm = flatpak_escape_string (items->pdata[0], FLATPAK_ESCAPE_DEFAULT);\n  g_string_append_printf (res, \"    [%d] %s\", idx, escaped_first_perm);\n\n  for (i = 1; i < items->len; i++)\n    {\n      g_autofree char *escaped = flatpak_escape_string (items->pdata[i],\n                                                        FLATPAK_ESCAPE_DEFAULT);",
+        "after_location": [
+          {
+            "start_line": 10,
+            "end_line": 16
+          },
+          {
+            "start_line": 24,
+            "end_line": 31
+          }
+        ],
+        "warning_zh": "修复补丁是该样本的对照证据，不等于已证明其他待测函数安全；需要逐路径验证保护条件和真实容量/状态。"
+      },
+      "证据需求": {
+        "must_verify": [
+          "定位修复前危险语句，确认敏感操作和实际受影响对象",
+          "追踪外部输入到解释执行点及上下文编码规则",
+          "确认危险路径可达，必要前提确实可由本函数实参或上游输入满足",
+          "在修复前后源码中对齐相关分支，并判断保护是否在操作之前生效",
+          "对已存在的检查进行安全反证分析，避免将危险API名称直接判作漏洞"
+        ],
+        "original_before_location": [
+          {
+            "start_line": 9,
+            "end_line": 11
+          },
+          {
+            "start_line": 20,
+            "end_line": 27
+          }
+        ],
+        "original_after_location": [
+          {
+            "start_line": 10,
+            "end_line": 16
+          },
+          {
+            "start_line": 24,
+            "end_line": 31
+          }
+        ],
+        "repair_diff_reference": "通过source.sample_id定位原始文件中的function_diff及完整code_before/code_after"
+      },
+      "适用边界": {
+        "scope_zh": "此知识直接对应 flatpak/flatpak 的 print_perm_line；跨项目使用时需重新验证类型、数据来源、环境约束和控制流。",
+        "original_boundary_and_caveats": "Retain: both sides clearly show the same output path changing from raw items to escaped results, enough to extract pre-output escaping and synchronized length calculation. Terminal-injection impact is conditional on control characters, an interpreting output endpoint, and the escaping function covering them; complete reachability and treatment of every sequence are not claimed. after still directly accesses pdata[0] without proving the array nonempty in this function, and does not explicitly check the escape return value; whether these are other deficiencies depends on unprovided input/API contracts."
+      },
+      "quality": {
+        "method": "确定性结构化迁移：基于已有人工可读行为/修复解释和定位注释；不是逐例LLM再分析",
+        "before_anchor_found": true,
+        "after_anchor_found": true,
+        "needs_manual_review": true,
+        "review_flags": [
+          "缺失父提交信息，无法仅凭此条追溯完整仓库修复上下文"
+        ]
+      }
+    },
+    {
+      "knowledge_id": "KG2_reposvul_001928_000_001",
+      "source": {
+        "sample_id": "reposvul_001928_000_001",
+        "dataset": "ReposVul",
+        "project": "ccxvii/mujs",
+        "cve": "CVE-2019-11411",
+        "cwe": [
+          "CWE-119",
+          "CWE-787"
+        ],
+        "fix_commit": "da632ca08f240590d2dec786722ed08486ce1be6",
+        "parent_commit": "0c03f9c05745d13fec4c9c6b2d947c5be8a8b4de",
+        "file_path": "jsnumber.c",
+        "function_name": "numtostr",
+        "source_dataset": "data/high_quality_repair_pairs.json"
+      },
+      "classification": {
+        "vulnerability_type": "bounds_write",
+        "vulnerability_name_zh": "越界写入",
+        "repair_pattern": "length_or_capacity_check",
+        "repair_pattern_zh": "写入/读取前的长度与实际容量约束",
+        "group_key": "bounds_write__length_or_capacity_check"
+      },
+      "危险操作": {
+        "mechanism_zh": "写入、复制或格式化内容到目标对象",
+        "source_code": "char buf[32], *e;\n\tsprintf(buf, fmt, w, n);",
+        "location": [
+          {
+            "start_line": 3,
+            "end_line": 4
+          }
+        ],
+        "original_context_sentence": "numtostr accepts a format string, width/precision, and double; the old 32-byte buf is filled by unbounded sprintf."
+      },
+      "适用前提": {
+        "check_zh": "在目标代码中存在与样本类似的写入、复制或格式化内容到目标对象；受影响对象、长度/偏移、可达路径应逐项匹配；不能仅凭同名函数匹配。",
+        "observed_input_and_state": "numtostr accepts a format string, width/precision, and double; the old 32-byte buf is filled by unbounded sprintf. For example, with fmt=%.*f, w=20, and n=1e20, the output needs 21 integer digits, one decimal point, 20 fractional digits, and a terminator, 43 bytes in total, exceeding the old capacity."
+      },
+      "漏洞触发条件": {
+        "potential_failure_zh": "当相关输入或状态违反安全不变量时，越界写入可能发生；必须以本条原始机制和路径证据确证。",
+        "precise_case_mechanism": "numtostr accepts a format string, width/precision, and double; the old 32-byte buf is filled by unbounded sprintf. For example, with fmt=%.*f, w=20, and n=1e20, the output needs 21 integer digits, one decimal point, 20 fractional digits, and a terminator, 43 bytes in total, exceeding the old capacity.",
+        "unsafe_code_anchor": "char buf[32], *e;\n\tsprintf(buf, fmt, w, n);"
+      },
+      "安全反证": {
+        "verification_goal_zh": "写入前证明目标实际可写容量足够（含结束符）；分支容量应匹配",
+        "repair_observed_not_proof_of_any_other_code": "buf is expanded to 50 bytes, covering this concretely calculable fixed-decimal formatting case; later exponent normalization and js_pushstring remain unchanged.\nCurrent review mechanism description: expand the numeric-format buffer for precision.\nCurrent review mechanism description: expand_numeric_format_buffer_for_precision",
+        "patch_code_anchor": "/* buf needs to fit printf(\"%.20f\", 1e20) */\n\tchar buf[50], *e;\n\tsprintf(buf, fmt, w, n);",
+        "after_location": [
+          {
+            "start_line": 3,
+            "end_line": 5
+          }
+        ],
+        "warning_zh": "修复补丁是该样本的对照证据，不等于已证明其他待测函数安全；需要逐路径验证保护条件和真实容量/状态。"
+      },
+      "证据需求": {
+        "must_verify": [
+          "定位修复前危险语句，确认敏感操作和实际受影响对象",
+          "确认写入长度与目标对象容量、整数运算溢出情况、写入前约束是否覆盖路径",
+          "确认危险路径可达，必要前提确实可由本函数实参或上游输入满足",
+          "在修复前后源码中对齐相关分支，并判断保护是否在操作之前生效",
+          "对已存在的检查进行安全反证分析，避免将危险API名称直接判作漏洞"
+        ],
+        "original_before_location": [
+          {
+            "start_line": 3,
+            "end_line": 4
+          }
+        ],
+        "original_after_location": [
+          {
+            "start_line": 3,
+            "end_line": 5
+          }
+        ],
+        "repair_diff_reference": "通过source.sample_id定位原始文件中的function_diff及完整code_before/code_after"
+      },
+      "适用边界": {
+        "scope_zh": "此知识直接对应 ccxvii/mujs 的 numtostr；跨项目使用时需重新验证类型、数据来源、环境约束和控制流。",
+        "original_boundary_and_caveats": "Retain as a local capacity repair; the single comment example does not establish that callers restrict fmt, w, and n, so 50 bytes is still not an upper bound for arbitrary parameters."
+      },
+      "quality": {
+        "method": "确定性结构化迁移：基于已有人工可读行为/修复解释和定位注释；不是逐例LLM再分析",
+        "before_anchor_found": true,
+        "after_anchor_found": true,
+        "needs_manual_review": false,
+        "review_flags": []
+      }
+    },
+    {
+      "knowledge_id": "KG2_reposvul_002275_000_000",
+      "source": {
+        "sample_id": "reposvul_002275_000_000",
+        "dataset": "ReposVul",
+        "project": "saitoha/libsixel",
+        "cve": "CVE-2019-19638",
+        "cwe": [
+          "CWE-190",
+          "CWE-787"
+        ],
+        "fix_commit": "e17c0765ed708186865f0f8badfed44181063776",
+        "parent_commit": null,
+        "file_path": "src/frompnm.c",
+        "function_name": "load_pnm",
+        "source_dataset": "data/high_quality_repair_pairs.json"
+      },
+      "classification": {
+        "vulnerability_type": "logic_validation",
+        "vulnerability_name_zh": "逻辑或输入验证缺陷",
+        "repair_pattern": "input_validation",
+        "repair_pattern_zh": "输入字段、格式或状态的合法性校验",
+        "group_key": "logic_validation__input_validation"
+      },
+      "危险操作": {
+        "mechanism_zh": "按不足的条件验证输入或对象状态",
+        "source_code": "/* parse height */\n    height = 0;\n    for (; *s >= '0' && *s <= '9'; ++s) {\n        height = height * 10 + (*s - '0');\n        if (width > PNM_MAX_WIDTH) {\n            status = SIXEL_RUNTIME_ERROR;\n            sprintf(\n              message,\n              \"load_pnm: image height exceeds the limit %d.\",\n              PNM_MAX_HEIGHT);\n            sixel_helper_set_additional_message(message);\n            goto end;\n        }\n    }",
+        "location": [
+          {
+            "start_line": 109,
+            "end_line": 122
+          },
+          {
+            "start_line": 128,
+            "end_line": 149
+          },
+          {
+            "start_line": 151,
+            "end_line": 157
+          }
+        ],
+        "original_context_sentence": "The height parser updates height but compares width with PNM_MAX_WIDTH; when maps > 0, after parsing deps it also compares width again."
+      },
+      "适用前提": {
+        "check_zh": "在目标代码中存在与样本类似的按不足的条件验证输入或对象状态；受影响对象、长度/偏移、可达路径应逐项匹配；不能仅凭同名函数匹配。",
+        "observed_input_and_state": "The height parser updates height but compares width with PNM_MAX_WIDTH; when maps > 0, after parsing deps it also compares width again. width has already passed the earlier width check, so neither comparison constrains height or depth. A representable positive height or deps can therefore exceed its respective limit and still pass the later positive-value check. height then participates in the output allocation size width * height * 3 + 1, loop count, and write-offset calculations; if the related int operations exceed the representable range, signed overflow occurs, and conversion to size_t happens afterward, so it cannot protect the calculation. deps is used as the divisor for color scaling; the positive-value check excludes zero but does not enforce a depth limit. The source cannot by itself establish that an out-of-bounds write necessarily occurs.\nType description under current review: wrong object for input-range validation (CWE-20); conditional integer-overflow risk"
+      },
+      "漏洞触发条件": {
+        "potential_failure_zh": "当相关输入或状态违反安全不变量时，逻辑或输入验证缺陷可能发生；必须以本条原始机制和路径证据确证。",
+        "precise_case_mechanism": "The height parser updates height but compares width with PNM_MAX_WIDTH; when maps > 0, after parsing deps it also compares width again. width has already passed the earlier width check, so neither comparison constrains height or depth. A representable positive height or deps can therefore exceed its respective limit and still pass the later positive-value check. height then participates in the output allocation size width * height * 3 + 1, loop count, and write-offset calculations; if the related int operations exceed the representable range, signed overflow occurs, and conversion to size_t happens afterward, so it cannot protect the calculation. deps is used as the divisor for color scaling; the positive-value check excludes zero but does not enforce a depth limit. The source cannot by itself establish that an out-of-bounds write necessarily occurs.\nType description under current review: wrong object for input-range validation (CWE-20); conditional integer-overflow risk",
+        "unsafe_code_anchor": "/* parse height */\n    height = 0;\n    for (; *s >= '0' && *s <= '9'; ++s) {\n        height = height * 10 + (*s - '0');\n        if (width > PNM_MAX_WIDTH) {\n            status = SIXEL_RUNTIME_ERROR;\n            sprintf(\n              message,\n              \"load_pnm: image height exceeds the limit %d.\",\n              PNM_MAX_HEIGHT);\n            sixel_helper_set_additional_message(message);\n            goto end;\n        }\n    }"
+      },
+      "安全反证": {
+        "verification_goal_zh": "检查所有与安全性质相关的输入约束及分支一致性",
+        "repair_observed_not_proof_of_any_other_code": "There are only two condition changes: after each height update in the height loop, height is compared with PNM_MAX_HEIGHT; after depth parsing completes, deps is compared with PNM_MAX_DEPTH. For values that have not already undergone arithmetic overflow and exceed the corresponding limit, the function sets an error state and jumps to end, exiting before allocation, the pixel loop, and color scaling, thereby restoring the correspondence between each parsed field and its limit.\nRepair mechanism description under current review: bind field parsing to that field's dedicated limit and take the error exit before the field participates in resource-size, loop-boundary, or data-transformation operations; also distinguish field-limit checks from representability checks before arithmetic.",
+        "patch_code_anchor": "/* parse height */\n    height = 0;\n    for (; *s >= '0' && *s <= '9'; ++s) {\n        height = height * 10 + (*s - '0');\n        if (height > PNM_MAX_HEIGHT) {\n            status = SIXEL_RUNTIME_ERROR;\n            sprintf(\n              message,\n              \"load_pnm: image height exceeds the limit %d.\",\n              PNM_MAX_HEIGHT);\n            sixel_helper_set_additional_message(message);\n            goto end;\n        }\n    }",
+        "after_location": [
+          {
+            "start_line": 109,
+            "end_line": 122
+          },
+          {
+            "start_line": 128,
+            "end_line": 149
+          },
+          {
+            "start_line": 151,
+            "end_line": 157
+          }
+        ],
+        "warning_zh": "修复补丁是该样本的对照证据，不等于已证明其他待测函数安全；需要逐路径验证保护条件和真实容量/状态。"
+      },
+      "证据需求": {
+        "must_verify": [
+          "定位修复前危险语句，确认敏感操作和实际受影响对象",
+          "核查数据合法范围、非法状态的分支行为和修复前遗漏的条件",
+          "确认危险路径可达，必要前提确实可由本函数实参或上游输入满足",
+          "在修复前后源码中对齐相关分支，并判断保护是否在操作之前生效",
+          "对已存在的检查进行安全反证分析，避免将危险API名称直接判作漏洞"
+        ],
+        "original_before_location": [
+          {
+            "start_line": 109,
+            "end_line": 122
+          },
+          {
+            "start_line": 128,
+            "end_line": 149
+          },
+          {
+            "start_line": 151,
+            "end_line": 157
+          }
+        ],
+        "original_after_location": [
+          {
+            "start_line": 109,
+            "end_line": 122
+          },
+          {
+            "start_line": 128,
+            "end_line": 149
+          },
+          {
+            "start_line": 151,
+            "end_line": 157
+          }
+        ],
+        "repair_diff_reference": "通过source.sample_id定位原始文件中的function_diff及完整code_before/code_after"
+      },
+      "适用边界": {
+        "scope_zh": "此知识直接对应 saitoha/libsixel 的 load_pnm；跨项目使用时需重新验证类型、数据来源、环境约束和控制流。",
+        "original_boundary_and_caveats": "Retain as a confirmable local repair: both conditions that incorrectly checked width are changed to check the currently parsed object, which can be confirmed without relying on caller constraints. Macro values and int widths are not provided, so it cannot be shown that the permitted size product is necessarily safe. after still performs decimal accumulation before checking, and deps in particular is checked only after the entire parsing loop, so the check cannot prevent overflow in the accumulation itself; allocation size, write offset, and pixel-value arithmetic also receive no new overflow protection. Therefore, passing confirms only that the wrong-object range-validation repair is valid."
+      },
+      "quality": {
+        "method": "确定性结构化迁移：基于已有人工可读行为/修复解释和定位注释；不是逐例LLM再分析",
+        "before_anchor_found": true,
+        "after_anchor_found": true,
+        "needs_manual_review": true,
+        "review_flags": [
+          "缺失父提交信息，无法仅凭此条追溯完整仓库修复上下文"
+        ]
+      }
+    },
+    {
+      "knowledge_id": "KG2_reposvul_002965_004_001",
+      "source": {
+        "sample_id": "reposvul_002965_004_001",
+        "dataset": "ReposVul",
+        "project": "reddit/snudown",
+        "cve": "CVE-2021-41168",
+        "cwe": [
+          "CWE-20",
+          "CWE-327",
+          "CWE-400",
+          "CWE-407"
+        ],
+        "fix_commit": "1ac2c130b210539ee1e5d67a7bac93f9d8007c0e",
+        "parent_commit": "4a16cf0b1798a1c7433fb4757aee1945347db682",
+        "file_path": "src/markdown.c",
+        "function_name": "hash_link_ref",
+        "source_dataset": "data/high_quality_repair_pairs.json"
+      },
+      "classification": {
+        "vulnerability_type": "resource_exhaustion",
+        "vulnerability_name_zh": "资源耗尽",
+        "repair_pattern": "safe_api_or_argument",
+        "repair_pattern_zh": "接口替换以及安全参数/容量参数",
+        "group_key": "resource_exhaustion__safe_api_or_argument"
+      },
+      "危险操作": {
+        "mechanism_zh": "执行可能导致大量资源消耗的分配、循环或递归",
+        "source_code": "size_t i;\n\tunsigned int hash = 0;\n\n\tfor (i = 0; i < length; ++i)\n\t\thash = tolower(link_ref[i]) + (hash << 6) + (hash << 16) - hash;\n\n\treturn hash;",
+        "location": [
+          {
+            "start_line": 4,
+            "end_line": 10
+          }
+        ],
+        "original_context_sentence": "The old implementation starts from a fixed value of 0, lowercases each of the length bytes in link_ref, and accumulates a hash with a fixed recurrence without a key."
+      },
+      "适用前提": {
+        "check_zh": "在目标代码中存在与样本类似的执行可能导致大量资源消耗的分配、循环或递归；受影响对象、长度/偏移、可达路径应逐项匹配；不能仅凭同名函数匹配。",
+        "observed_input_and_state": "The old implementation starts from a fixed value of 0, lowercases each of the length bytes in link_ref, and accumulates a hash with a fixed recurrence without a key. If an attacker controls the input and the result is used in a hash table whose collision-handling cost grows with the number of collisions, crafted colliding inputs can increase processing cost. i < length limits only the read index and cannot prevent collisions; the input does not show the hash table or attack reachability, so a denial of service cannot be asserted, and there is no basis for classifying this as an out-of-bounds access. Reviewed type: predictable-hash collision denial-of-service risk, dependent on the call context."
+      },
+      "漏洞触发条件": {
+        "potential_failure_zh": "当相关输入或状态违反安全不变量时，资源耗尽可能发生；必须以本条原始机制和路径证据确证。",
+        "precise_case_mechanism": "The old implementation starts from a fixed value of 0, lowercases each of the length bytes in link_ref, and accumulates a hash with a fixed recurrence without a key. If an attacker controls the input and the result is used in a hash table whose collision-handling cost grows with the number of collisions, crafted colliding inputs can increase processing cost. i < length limits only the read index and cannot prevent collisions; the input does not show the hash table or attack reachability, so a denial of service cannot be asserted, and there is no basis for classifying this as an out-of-bounds access. Reviewed type: predictable-hash collision denial-of-service risk, dependent on the call context.",
+        "unsafe_code_anchor": "size_t i;\n\tunsigned int hash = 0;\n\n\tfor (i = 0; i < length; ++i)\n\t\thash = tolower(link_ref[i]) + (hash << 6) + (hash << 16) - hash;\n\n\treturn hash;"
+      },
+      "安全反证": {
+        "verification_goal_zh": "实施资源上界、进度/次数或速率限制并及时失败",
+        "repair_observed_not_proof_of_any_other_code": "The new implementation removes the fixed initial value and per-byte recurrence, passes the same link_ref and length together with sip_hash_key to siphash_nocase, and returns its result directly. The local change makes hash calculation receive a key instead of using a keyless predictable calculation; collision-mitigation benefit depends on that function implementing a suitable keyed hash and on generation and secrecy of the key. Reviewed fix mechanism: for the same byte sequence and length, replace a public fixed recurrence with a keyed hash so information needed to precompute effective collisions depends on the key; this does not change the input-range boundary visible in this function.",
+        "patch_code_anchor": "return siphash_nocase(link_ref, length, sip_hash_key);",
+        "after_location": [
+          {
+            "start_line": 4,
+            "end_line": 4
+          }
+        ],
+        "warning_zh": "修复补丁是该样本的对照证据，不等于已证明其他待测函数安全；需要逐路径验证保护条件和真实容量/状态。"
+      },
+      "证据需求": {
+        "must_verify": [
+          "定位修复前危险语句，确认敏感操作和实际受影响对象",
+          "检查由输入控制的资源增长路径及资源限制",
+          "确认危险路径可达，必要前提确实可由本函数实参或上游输入满足",
+          "在修复前后源码中对齐相关分支，并判断保护是否在操作之前生效",
+          "对已存在的检查进行安全反证分析，避免将危险API名称直接判作漏洞"
+        ],
+        "original_before_location": [
+          {
+            "start_line": 4,
+            "end_line": 10
+          }
+        ],
+        "original_after_location": [
+          {
+            "start_line": 4,
+            "end_line": 4
+          }
+        ],
+        "repair_diff_reference": "通过source.sample_id定位原始文件中的function_diff及完整code_before/code_after"
+      },
+      "适用边界": {
+        "scope_zh": "此知识直接对应 reddit/snudown 的 hash_link_ref；跨项目使用时需重新验证类型、数据来源、环境约束和控制流。",
+        "original_boundary_and_caveats": "Retain: both sides clearly show the same input range changing from a fixed recurrence hash to a keyed-hash call, which is a locally extractable security hardening. The denial-of-service consequence depends on attacker-controlled input and downstream collision handling. after does not show the called-function implementation, key management, or return type, so it cannot prove the collision risk is fully eliminated, that case handling is entirely equivalent, or that the whole function is safe."
+      },
+      "quality": {
+        "method": "确定性结构化迁移：基于已有人工可读行为/修复解释和定位注释；不是逐例LLM再分析",
+        "before_anchor_found": true,
+        "after_anchor_found": true,
+        "needs_manual_review": false,
+        "review_flags": []
+      }
+    },
+    {
+      "knowledge_id": "KG2_reposvul_001382_000_000",
+      "source": {
+        "sample_id": "reposvul_001382_000_000",
+        "dataset": "ReposVul",
+        "project": "the-tcpdump-group/tcpdump",
+        "cve": "CVE-2017-12894",
+        "cwe": [
+          "CWE-119",
+          "CWE-125"
+        ],
+        "fix_commit": "730fc35968c5433b9e2a829779057f4f9495dc51",
+        "parent_commit": "6f5ba2b651cd9d4b7fa8ee5c4f94460645877c45",
+        "file_path": "addrtoname.c",
+        "function_name": "lookup_bytestring",
+        "source_dataset": "data/high_quality_repair_pairs.json"
+      },
+      "classification": {
+        "vulnerability_type": "bounds_read",
+        "vulnerability_name_zh": "越界读取",
+        "repair_pattern": "length_or_capacity_check",
+        "repair_pattern_zh": "写入/读取前的长度与实际容量约束",
+        "group_key": "bounds_read__length_or_capacity_check"
+      },
+      "危险操作": {
+        "mechanism_zh": "从内存、缓冲区或索引位置读取数据",
+        "source_code": "tp = &bytestringtable[(i ^ j) & (HASHNAMESIZE-1)];\n\twhile (tp->e_nxt)\n\t\tif (tp->e_addr0 == i &&\n\t\t    tp->e_addr1 == j &&\n\t\t    tp->e_addr2 == k &&\n\t\t    memcmp((const char *)bs, (const char *)(tp->e_bs), nlen) == 0)\n\t\t\treturn tp;\n\t\telse\n\t\t\ttp = tp->e_nxt;",
+        "location": [
+          {
+            "start_line": 19,
+            "end_line": 27
+          },
+          {
+            "start_line": 33,
+            "end_line": 38
+          }
+        ],
+        "original_context_sentence": "The old code compares nlen bytes from the query against bs and cache entry e_bs using memcmp, without checking the entry's original length."
+      },
+      "适用前提": {
+        "check_zh": "在目标代码中存在与样本类似的从内存、缓冲区或索引位置读取数据；受影响对象、长度/偏移、可达路径应逐项匹配；不能仅凭同名函数匹配。",
+        "observed_input_and_state": "The old code compares nlen bytes from the query against bs and cache entry e_bs using memcmp, without checking the entry's original length. If an existing entry has length 6 and is allocated as 7 bytes, while a later query has length 8 and the first six bytes match, all i, j, and k checks pass and memcmp reads beyond the cache allocation. The original length branches constrain only input indices used to calculate i, j, and k; equality of the three fields cannot prove that the cache buffer is long enough. A shorter query may also falsely match a longer entry based only on the same prefix.\nType description under current review: out-of-bounds read (CWE-125); byte strings of different lengths may be incorrectly treated as equal"
+      },
+      "漏洞触发条件": {
+        "potential_failure_zh": "当相关输入或状态违反安全不变量时，越界读取可能发生；必须以本条原始机制和路径证据确证。",
+        "precise_case_mechanism": "The old code compares nlen bytes from the query against bs and cache entry e_bs using memcmp, without checking the entry's original length. If an existing entry has length 6 and is allocated as 7 bytes, while a later query has length 8 and the first six bytes match, all i, j, and k checks pass and memcmp reads beyond the cache allocation. The original length branches constrain only input indices used to calculate i, j, and k; equality of the three fields cannot prove that the cache buffer is long enough. A shorter query may also falsely match a longer entry based only on the same prefix.\nType description under current review: out-of-bounds read (CWE-125); byte strings of different lengths may be incorrectly treated as equal",
+        "unsafe_code_anchor": "tp = &bytestringtable[(i ^ j) & (HASHNAMESIZE-1)];\n\twhile (tp->e_nxt)\n\t\tif (tp->e_addr0 == i &&\n\t\t    tp->e_addr1 == j &&\n\t\t    tp->e_addr2 == k &&\n\t\t    memcmp((const char *)bs, (const char *)(tp->e_bs), nlen) == 0)\n\t\t\treturn tp;\n\t\telse\n\t\t\ttp = tp->e_nxt;"
+      },
+      "安全反证": {
+        "verification_goal_zh": "读取前验证偏移、长度、真实对象容量；检查加法溢出",
+        "repair_observed_not_proof_of_any_other_code": "Entries use bsnamemem, and after copying the new byte string nlen is stored in bs_nbytes before bs_nxt is established. On lookup, nlen is first compared with the entry's stored length; && short-circuit evaluation skips the later memcmp when lengths differ, and only equal lengths proceed to digest-field and full-byte comparison, making comparison length consistent with the cache object's logical length.\nRepair mechanism description under current review: when caching variable-length data, store its logical length as well; before comparing, verify that query and entry lengths are equal, then enter byte comparison through a short-circuit condition, avoiding direct reads of a differently sized cache object using query length.",
+        "patch_code_anchor": "tp = &bytestringtable[(i ^ j) & (HASHNAMESIZE-1)];\n\twhile (tp->bs_nxt)\n\t\tif (nlen == tp->bs_nbytes &&\n\t\t    tp->bs_addr0 == i &&\n\t\t    tp->bs_addr1 == j &&\n\t\t    tp->bs_addr2 == k &&\n\t\t    memcmp((const char *)bs, (const char *)(tp->bs_bytes), nlen) == 0)\n\t\t\treturn tp;\n\t\telse\n\t\t\ttp = tp->bs_nxt;",
+        "after_location": [
+          {
+            "start_line": 19,
+            "end_line": 28
+          },
+          {
+            "start_line": 34,
+            "end_line": 40
+          }
+        ],
+        "warning_zh": "修复补丁是该样本的对照证据，不等于已证明其他待测函数安全；需要逐路径验证保护条件和真实容量/状态。"
+      },
+      "证据需求": {
+        "must_verify": [
+          "定位修复前危险语句，确认敏感操作和实际受影响对象",
+          "确认输入到长度/偏移的传递、实际源缓冲区界限、读操作前全部路径的检查",
+          "确认危险路径可达，必要前提确实可由本函数实参或上游输入满足",
+          "在修复前后源码中对齐相关分支，并判断保护是否在操作之前生效",
+          "对已存在的检查进行安全反证分析，避免将危险API名称直接判作漏洞"
+        ],
+        "original_before_location": [
+          {
+            "start_line": 19,
+            "end_line": 27
+          },
+          {
+            "start_line": 33,
+            "end_line": 38
+          }
+        ],
+        "original_after_location": [
+          {
+            "start_line": 19,
+            "end_line": 28
+          },
+          {
+            "start_line": 34,
+            "end_line": 40
+          }
+        ],
+        "repair_diff_reference": "通过source.sample_id定位原始文件中的function_diff及完整code_before/code_after"
+      },
+      "适用边界": {
+        "scope_zh": "此知识直接对应 the-tcpdump-group/tcpdump 的 lookup_bytestring；跨项目使用时需重新验证类型、数据来源、环境约束和控制流。",
+        "original_boundary_and_caveats": "Retain: both sides clearly show the same cache lookup changing from decoupled query and entry lengths to bound lengths. The conclusion assumes bs has at least nlen readable bytes, allocation succeeds, and length-plus-one does not overflow, with entry length maintained by the shown insertion path. after still does not check overflow in nlen + 1 or explicitly exit after an allocation-failure callback; whether the callback returns cannot be determined from the fragment. These limitations do not affect the local validity of the length-binding repair."
+      },
+      "quality": {
+        "method": "确定性结构化迁移：基于已有人工可读行为/修复解释和定位注释；不是逐例LLM再分析",
+        "before_anchor_found": true,
+        "after_anchor_found": true,
+        "needs_manual_review": false,
+        "review_flags": []
+      }
+    },
+    {
+      "knowledge_id": "KG2_reposvul_002342_000_000",
+      "source": {
+        "sample_id": "reposvul_002342_000_000",
+        "dataset": "ReposVul",
+        "project": "jedisct1/pure-ftpd",
+        "cve": "CVE-2020-9365",
+        "cwe": [
+          "CWE-125"
+        ],
+        "fix_commit": "bf6fcd4935e95128cf22af5924cdc8fe5c0579da",
+        "parent_commit": null,
+        "file_path": "src/utils.c",
+        "function_name": "pure_strcmp",
+        "source_dataset": "data/high_quality_repair_pairs.json"
+      },
+      "classification": {
+        "vulnerability_type": "bounds_read",
+        "vulnerability_name_zh": "越界读取",
+        "repair_pattern": "length_or_capacity_check",
+        "repair_pattern_zh": "写入/读取前的长度与实际容量约束",
+        "group_key": "bounds_read__length_or_capacity_check"
+      },
+      "危险操作": {
+        "mechanism_zh": "从内存、缓冲区或索引位置读取数据",
+        "source_code": "return pure_memcmp(s1, s2, strlen(s1) + 1U);",
+        "location": [
+          {
+            "start_line": 3,
+            "end_line": 3
+          }
+        ],
+        "original_context_sentence": "The old implementation uses strlen(s1) + 1U as the length for pure_memcmp comparing s1 and s2."
+      },
+      "适用前提": {
+        "check_zh": "在目标代码中存在与样本类似的从内存、缓冲区或索引位置读取数据；受影响对象、长度/偏移、可达路径应逐项匹配；不能仅凭同名函数匹配。",
+        "observed_input_and_state": "The old implementation uses strlen(s1) + 1U as the length for pure_memcmp comparing s1 and s2. If pure_memcmp reads both buffers for that length while s2's readable range is smaller, it may read s2 out of bounds. A shorter s2 string alone does not establish an out-of-bounds access; it also depends on readable range and pure_memcmp's actual reading behavior. strlen(s1) measures only s1 and cannot constrain reads from s2.\nType description under current review: conditional out-of-bounds read: comparison length is determined only by the first string"
+      },
+      "漏洞触发条件": {
+        "potential_failure_zh": "当相关输入或状态违反安全不变量时，越界读取可能发生；必须以本条原始机制和路径证据确证。",
+        "precise_case_mechanism": "The old implementation uses strlen(s1) + 1U as the length for pure_memcmp comparing s1 and s2. If pure_memcmp reads both buffers for that length while s2's readable range is smaller, it may read s2 out of bounds. A shorter s2 string alone does not establish an out-of-bounds access; it also depends on readable range and pure_memcmp's actual reading behavior. strlen(s1) measures only s1 and cannot constrain reads from s2.\nType description under current review: conditional out-of-bounds read: comparison length is determined only by the first string",
+        "unsafe_code_anchor": "return pure_memcmp(s1, s2, strlen(s1) + 1U);"
+      },
+      "安全反证": {
+        "verification_goal_zh": "读取前验证偏移、长度、真实对象容量；检查加法溢出",
+        "repair_observed_not_proof_of_any_other_code": "The new implementation computes both string lengths in sequence, takes the smaller value, and uses that value plus one as the comparison length. Assuming both are valid NUL-terminated strings and pure_memcmp does not read beyond the specified range, the comparison covers at most the shorter string's terminator and does not continue reading because the other string is longer. The extra byte also includes the terminator after a common prefix.\nRepair mechanism description under current review: for equal-length reads from two objects, obtain each available boundary first and limit the read by the smaller boundary; because the boundary here includes the string terminator, take the minimum character length and add one for the comparison operation.",
+        "patch_code_anchor": "const size_t s1_len = strlen(s1);\n    const size_t s2_len = strlen(s2);\n    const size_t len = (s1_len < s2_len) ? s1_len : s2_len;\n\n    return pure_memcmp(s1, s2, len + 1);",
+        "after_location": [
+          {
+            "start_line": 3,
+            "end_line": 7
+          }
+        ],
+        "warning_zh": "修复补丁是该样本的对照证据，不等于已证明其他待测函数安全；需要逐路径验证保护条件和真实容量/状态。"
+      },
+      "证据需求": {
+        "must_verify": [
+          "定位修复前危险语句，确认敏感操作和实际受影响对象",
+          "确认输入到长度/偏移的传递、实际源缓冲区界限、读操作前全部路径的检查",
+          "确认危险路径可达，必要前提确实可由本函数实参或上游输入满足",
+          "在修复前后源码中对齐相关分支，并判断保护是否在操作之前生效",
+          "对已存在的检查进行安全反证分析，避免将危险API名称直接判作漏洞"
+        ],
+        "original_before_location": [
+          {
+            "start_line": 3,
+            "end_line": 3
+          }
+        ],
+        "original_after_location": [
+          {
+            "start_line": 3,
+            "end_line": 7
+          }
+        ],
+        "repair_diff_reference": "通过source.sample_id定位原始文件中的function_diff及完整code_before/code_after"
+      },
+      "适用边界": {
+        "scope_zh": "此知识直接对应 jedisct1/pure-ftpd 的 pure_strcmp；跨项目使用时需重新验证类型、数据来源、环境约束和控制流。",
+        "original_boundary_and_caveats": "Retain: the local repair is clear—the comparison length changes from one-sided length to the minimum of both lengths, eliminating a length parameter beyond the shorter string's terminator. pure_memcmp's implementation is not provided, so actual out-of-bounds behavior still depends on its reading semantics and object readable ranges; this does not negate the visible boundary repair. after still requires both arguments to be safely traversable by strlen and does not handle invalid pointers or missing terminators, nor prove that pure_memcmp is completely safe internally."
+      },
+      "quality": {
+        "method": "确定性结构化迁移：基于已有人工可读行为/修复解释和定位注释；不是逐例LLM再分析",
+        "before_anchor_found": true,
+        "after_anchor_found": true,
+        "needs_manual_review": true,
+        "review_flags": [
+          "缺失父提交信息，无法仅凭此条追溯完整仓库修复上下文"
+        ]
+      }
+    },
+    {
+      "knowledge_id": "KG2_reposvul_003056_000_001",
+      "source": {
+        "sample_id": "reposvul_003056_000_001",
+        "dataset": "ReposVul",
+        "project": "tmate-io/tmate-ssh-server",
+        "cve": "CVE-2021-44512",
+        "cwe": [
+          "CWE-281"
+        ],
+        "fix_commit": "1c020d1f5ca462f5b150b46a027aaa1bbe3c9596",
+        "parent_commit": "9dd7f0779ef6ada3226895fe7c999c57d153cfe1",
+        "file_path": "tmate-main.c",
+        "function_name": "main",
+        "source_dataset": "data/high_quality_repair_pairs.json"
+      },
+      "classification": {
+        "vulnerability_type": "authorization_bypass",
+        "vulnerability_name_zh": "授权绕过",
+        "repair_pattern": "authorization_check",
+        "repair_pattern_zh": "权限、身份与资源归属验证",
+        "group_key": "authorization_bypass__authorization_check"
+      },
+      "危险操作": {
+        "mechanism_zh": "在权限、身份或状态判定不足时执行受保护操作",
+        "source_code": "if ((mkdir(TMATE_WORKDIR, 0701)             < 0 && errno != EEXIST) ||\n\t    (mkdir(TMATE_WORKDIR \"/sessions\", 0703) < 0 && errno != EEXIST) ||\n\t    (mkdir(TMATE_WORKDIR \"/jail\", 0700)     < 0 && errno != EEXIST))\n\t\ttmate_fatal(\"Cannot prepare session in \" TMATE_WORKDIR);\n\n\t/* The websocket server needs to access the /session dir to rename sockets */\n\tif ((chmod(TMATE_WORKDIR, 0701)             < 0) ||\n\t    (chmod(TMATE_WORKDIR \"/sessions\", 0703) < 0) ||\n\t    (chmod(TMATE_WORKDIR \"/jail\", 0700)     < 0))\n\t\ttmate_fatal(\"Cannot prepare session in \" TMATE_WORKDIR);",
+        "location": [
+          {
+            "start_line": 54,
+            "end_line": 63
+          }
+        ],
+        "original_context_sentence": "The old code sets TMATE_WORKDIR permissions to 0701 and its sessions subdirectory to 0703, allowing other users to search the parent and write and search sessions."
+      },
+      "适用前提": {
+        "check_zh": "在目标代码中存在与样本类似的在权限、身份或状态判定不足时执行受保护操作；受影响对象、长度/偏移、可达路径应逐项匹配；不能仅凭同名函数匹配。",
+        "observed_input_and_state": "The old code sets TMATE_WORKDIR permissions to 0701 and its sessions subdirectory to 0703, allowing other users to search the parent and write and search sessions. If the upper path is traversable and no other access control blocks it, a local user covered by the other permission bits can operate on directory entries with known names in sessions, such as deleting or renaming them; directory-read permission or write permission on the target file is not required. mkdir's error check excludes only failures other than EEXIST, and chmod, even when successful, enforces the broad permissions above rather than preventing such operations.\nType description under current review: overly broad directory permissions (CWE-732)"
+      },
+      "漏洞触发条件": {
+        "potential_failure_zh": "当相关输入或状态违反安全不变量时，授权绕过可能发生；必须以本条原始机制和路径证据确证。",
+        "precise_case_mechanism": "The old code sets TMATE_WORKDIR permissions to 0701 and its sessions subdirectory to 0703, allowing other users to search the parent and write and search sessions. If the upper path is traversable and no other access control blocks it, a local user covered by the other permission bits can operate on directory entries with known names in sessions, such as deleting or renaming them; directory-read permission or write permission on the target file is not required. mkdir's error check excludes only failures other than EEXIST, and chmod, even when successful, enforces the broad permissions above rather than preventing such operations.\nType description under current review: overly broad directory permissions (CWE-732)",
+        "unsafe_code_anchor": "if ((mkdir(TMATE_WORKDIR, 0701)             < 0 && errno != EEXIST) ||\n\t    (mkdir(TMATE_WORKDIR \"/sessions\", 0703) < 0 && errno != EEXIST) ||\n\t    (mkdir(TMATE_WORKDIR \"/jail\", 0700)     < 0 && errno != EEXIST))\n\t\ttmate_fatal(\"Cannot prepare session in \" TMATE_WORKDIR);\n\n\t/* The websocket server needs to access the /session dir to rename sockets */\n\tif ((chmod(TMATE_WORKDIR, 0701)             < 0) ||\n\t    (chmod(TMATE_WORKDIR \"/sessions\", 0703) < 0) ||\n\t    (chmod(TMATE_WORKDIR \"/jail\", 0700)     < 0))\n\t\ttmate_fatal(\"Cannot prepare session in \" TMATE_WORKDIR);"
+      },
+      "安全反证": {
+        "verification_goal_zh": "在敏感操作前校验主体、资源与对应权限及其绑定",
+        "repair_observed_not_proof_of_any_other_code": "after changes the mkdir and chmod modes for the work directory and sessions to 0700, while jail remains 0700. Creation no longer requests other-user access, and chmod also tightens existing directories to owner-only access. Before starting the SSH service, it adds check_owned_directory_mode(path, 0700) for the same three paths; any nonzero return enters the tmate_fatal branch. The helper implementation is not provided, so only call order, arguments, and error branch can be confirmed, not its actual ownership, directory-type, or symlink validation.\nRepair mechanism description under current review: tighten permissions on both the sensitive parent directory and its writable child: use owner-only mode for mkdir, normalize existing paths to the same mode with chmod, and check directory attributes before service startup, routing nonzero results to error handling. Creation and subsequent correction modes must agree, otherwise an existing path or later chmod may restore broad permissions.",
+        "patch_code_anchor": "if ((mkdir(TMATE_WORKDIR, 0700)             < 0 && errno != EEXIST) ||\n\t    (mkdir(TMATE_WORKDIR \"/sessions\", 0700) < 0 && errno != EEXIST) ||\n\t    (mkdir(TMATE_WORKDIR \"/jail\", 0700)     < 0 && errno != EEXIST))\n\t\ttmate_fatal(\"Cannot prepare session in \" TMATE_WORKDIR);\n\n\tif ((chmod(TMATE_WORKDIR, 0700)             < 0) ||\n\t    (chmod(TMATE_WORKDIR \"/sessions\", 0700) < 0) ||\n\t    (chmod(TMATE_WORKDIR \"/jail\", 0700)     < 0))\n\t\ttmate_fatal(\"Cannot prepare session in \" TMATE_WORKDIR);\n\n\tif (check_owned_directory_mode(TMATE_WORKDIR, 0700) ||\n\t    check_owned_directory_mode(TMATE_WORKDIR \"/sessions\", 0700) ||\n\t    check_owned_directory_mode(TMATE_WORKDIR \"/jail\", 0700))\n\t\ttmate_fatal(TMATE_WORKDIR \" and subdirectories has incorrect ownership/mode. \"\n\t\t\t    \"Try deleting \" TMATE_WORKDIR \" and try again\");",
+        "after_location": [
+          {
+            "start_line": 54,
+            "end_line": 68
+          }
+        ],
+        "warning_zh": "修复补丁是该样本的对照证据，不等于已证明其他待测函数安全；需要逐路径验证保护条件和真实容量/状态。"
+      },
+      "证据需求": {
+        "must_verify": [
+          "定位修复前危险语句，确认敏感操作和实际受影响对象",
+          "梳理请求身份、资源归属、认证授权顺序与绕过路径",
+          "确认危险路径可达，必要前提确实可由本函数实参或上游输入满足",
+          "在修复前后源码中对齐相关分支，并判断保护是否在操作之前生效",
+          "对已存在的检查进行安全反证分析，避免将危险API名称直接判作漏洞"
+        ],
+        "original_before_location": [
+          {
+            "start_line": 54,
+            "end_line": 63
+          }
+        ],
+        "original_after_location": [
+          {
+            "start_line": 54,
+            "end_line": 68
+          }
+        ],
+        "repair_diff_reference": "通过source.sample_id定位原始文件中的function_diff及完整code_before/code_after"
+      },
+      "适用边界": {
+        "scope_zh": "此知识直接对应 tmate-io/tmate-ssh-server 的 main；跨项目使用时需重新验证类型、数据来源、环境约束和控制流。",
+        "original_boundary_and_caveats": "Retain: the permission-bit changes directly support a local repair relationship and do not depend on helper internals. The risk requires other users to reach the path and be covered by the other permission bits. after's 0700 tightening can block that source of access; however, the source is insufficient to prove existing-path ownership checks, symlink handling, or concurrent path replacement are safe, and it does not show whether tmate_fatal terminates execution, so complete safety is not claimed."
+      },
+      "quality": {
+        "method": "确定性结构化迁移：基于已有人工可读行为/修复解释和定位注释；不是逐例LLM再分析",
+        "before_anchor_found": true,
+        "after_anchor_found": true,
+        "needs_manual_review": false,
+        "review_flags": []
+      }
+    },
+    {
+      "knowledge_id": "KG2_reposvul_001591_006_000",
+      "source": {
+        "sample_id": "reposvul_001591_006_000",
+        "dataset": "ReposVul",
+        "project": "lurcher/unixodbc",
+        "cve": "CVE-2018-7485",
+        "cwe": [
+          "CWE-119"
+        ],
+        "fix_commit": "45ef78e037f578b15fc58938a3a3251655e71d6f",
+        "parent_commit": null,
+        "file_path": "odbcinst/SQLWriteFileDSN.c",
+        "function_name": "SQLWriteFileDSN",
+        "source_dataset": "data/high_quality_repair_pairs.json"
+      },
+      "classification": {
+        "vulnerability_type": "logic_validation",
+        "vulnerability_name_zh": "逻辑或输入验证缺陷",
+        "repair_pattern": "safe_api_or_argument",
+        "repair_pattern_zh": "接口替换以及安全参数/容量参数",
+        "group_key": "logic_validation__safe_api_or_argument"
+      },
+      "危险操作": {
+        "mechanism_zh": "按不足的条件验证输入或对象状态",
+        "source_code": "char\tszFileName[ODBC_FILENAME_MAX+1];\n\n\tif ( pszFileName[0] == '/' )\n\t{\n\t\tstrncpy( szFileName, sizeof(szFileName) - 5, pszFileName );\n\t}",
+        "location": [
+          {
+            "start_line": 7,
+            "end_line": 12
+          },
+          {
+            "start_line": 21,
+            "end_line": 24
+          }
+        ],
+        "original_context_sentence": "When the first character of pszFileName is '/', before passes sizeof(szFileName) - 5 as the source-pointer argument to strncpy and pszFileName as the copy-length argument."
+      },
+      "适用前提": {
+        "check_zh": "在目标代码中存在与样本类似的按不足的条件验证输入或对象状态；受影响对象、长度/偏移、可达路径应逐项匹配；不能仅凭同名函数匹配。",
+        "observed_input_and_state": "When the first character of pszFileName is '/', before passes sizeof(szFileName) - 5 as the source-pointer argument to strncpy and pszFileName as the copy-length argument. Under the standard strncpy prototype, both types and roles are wrong; normal type checking should diagnose this, so it cannot be asserted that the code compiles and executes. If an implementation accepts the conversions and executes, the copy uses the wrong source address and length and may cause an invalid read or out-of-bounds write. The expression originally intended to limit copy amount is not in the length-argument position and cannot constrain writes to szFileName; the later suffix check cannot protect the preceding copy.\nType description under current review: strncpy source-pointer and length arguments are reversed, potentially causing invalid memory access"
+      },
+      "漏洞触发条件": {
+        "potential_failure_zh": "当相关输入或状态违反安全不变量时，逻辑或输入验证缺陷可能发生；必须以本条原始机制和路径证据确证。",
+        "precise_case_mechanism": "When the first character of pszFileName is '/', before passes sizeof(szFileName) - 5 as the source-pointer argument to strncpy and pszFileName as the copy-length argument. Under the standard strncpy prototype, both types and roles are wrong; normal type checking should diagnose this, so it cannot be asserted that the code compiles and executes. If an implementation accepts the conversions and executes, the copy uses the wrong source address and length and may cause an invalid read or out-of-bounds write. The expression originally intended to limit copy amount is not in the length-argument position and cannot constrain writes to szFileName; the later suffix check cannot protect the preceding copy.\nType description under current review: strncpy source-pointer and length arguments are reversed, potentially causing invalid memory access",
+        "unsafe_code_anchor": "char\tszFileName[ODBC_FILENAME_MAX+1];\n\n\tif ( pszFileName[0] == '/' )\n\t{\n\t\tstrncpy( szFileName, sizeof(szFileName) - 5, pszFileName );\n\t}"
+      },
+      "安全反证": {
+        "verification_goal_zh": "检查所有与安全性质相关的输入约束及分支一致性",
+        "repair_observed_not_proof_of_any_other_code": "after only swaps the second and third strncpy arguments in the absolute-path branch, making pszFileName the source string and sizeof(szFileName) - 5 the copy limit. When the copy executes, this restores the correct correspondence between source object and capacity bound and blocks the reversed-argument mechanism; no string-termination handling is added.\nRepair mechanism description under current review: when calling a bounded-copy function, place the source pointer in the source parameter and the bound calculated from destination capacity in the length parameter; copy bound and terminator guarantee require separate review.",
+        "patch_code_anchor": "char\tszFileName[ODBC_FILENAME_MAX+1];\n\n\tif ( pszFileName[0] == '/' )\n\t{\n\t\tstrncpy( szFileName, pszFileName, sizeof(szFileName) - 5 );\n\t}",
+        "after_location": [
+          {
+            "start_line": 7,
+            "end_line": 12
+          },
+          {
+            "start_line": 21,
+            "end_line": 24
+          }
+        ],
+        "warning_zh": "修复补丁是该样本的对照证据，不等于已证明其他待测函数安全；需要逐路径验证保护条件和真实容量/状态。"
+      },
+      "证据需求": {
+        "must_verify": [
+          "定位修复前危险语句，确认敏感操作和实际受影响对象",
+          "核查数据合法范围、非法状态的分支行为和修复前遗漏的条件",
+          "确认危险路径可达，必要前提确实可由本函数实参或上游输入满足",
+          "在修复前后源码中对齐相关分支，并判断保护是否在操作之前生效",
+          "对已存在的检查进行安全反证分析，避免将危险API名称直接判作漏洞"
+        ],
+        "original_before_location": [
+          {
+            "start_line": 7,
+            "end_line": 12
+          },
+          {
+            "start_line": 21,
+            "end_line": 24
+          }
+        ],
+        "original_after_location": [
+          {
+            "start_line": 7,
+            "end_line": 12
+          },
+          {
+            "start_line": 21,
+            "end_line": 24
+          }
+        ],
+        "repair_diff_reference": "通过source.sample_id定位原始文件中的function_diff及完整code_before/code_after"
+      },
+      "适用边界": {
+        "scope_zh": "此知识直接对应 lurcher/unixodbc 的 SQLWriteFileDSN；跨项目使用时需重新验证类型、数据来源、环境约束和控制流。",
+        "original_boundary_and_caveats": "Retain and pass local repair review. Under standard strncpy semantics, correcting argument roles is clear and does not require proving real attack reachability. after has a visible terminator risk: if the source reaches the copy limit, strncpy does not guarantee a NUL, while the local array is uninitialized and no explicit terminator is added; later strlen, strcmp, and strcat may therefore read out of bounds. Reserving capacity alone does not guarantee termination, so after is not claimed completely safe."
+      },
+      "quality": {
+        "method": "确定性结构化迁移：基于已有人工可读行为/修复解释和定位注释；不是逐例LLM再分析",
+        "before_anchor_found": true,
+        "after_anchor_found": true,
+        "needs_manual_review": true,
+        "review_flags": [
+          "缺失父提交信息，无法仅凭此条追溯完整仓库修复上下文"
+        ]
+      }
+    },
+    {
+      "knowledge_id": "KG2_reposvul_002005_001_000",
+      "source": {
+        "sample_id": "reposvul_002005_001_000",
+        "dataset": "ReposVul",
+        "project": "univention/univention-corporate-server",
+        "cve": "CVE-2019-1010283",
+        "cwe": [
+          "CWE-200",
+          "CWE-213"
+        ],
+        "fix_commit": "a28053045bd2e778c50ed1acaf4e52e1e34f6e34",
+        "parent_commit": null,
+        "file_path": "management/univention-directory-notifier/src/callback.c",
+        "function_name": "data_on_connection",
+        "source_dataset": "data/high_quality_repair_pairs.json"
+      },
+      "classification": {
+        "vulnerability_type": "logic_validation",
+        "vulnerability_name_zh": "逻辑或输入验证缺陷",
+        "repair_pattern": "input_validation",
+        "repair_pattern_zh": "输入字段、格式或状态的合法性校验",
+        "group_key": "logic_validation__input_validation"
+      },
+      "危险操作": {
+        "mechanism_zh": "按不足的条件验证输入或对象状态",
+        "source_code": "} else if ( !strncmp(network_line, \"GET_DN \", strlen(\"GET_DN \")) && msg_id != UINT32_MAX && network_client_get_version(fd) > 0) {\n\n\t\t\tunivention_debug(UV_DEBUG_TRANSFILE, UV_DEBUG_ALL, \"RECV: GET_DN\");\n\n\t\t\tid=strtoul(&(network_line[strlen(\"GET_DN \")]), NULL, 10);\n\n\t\t\tunivention_debug(UV_DEBUG_TRANSFILE, UV_DEBUG_ALL, \"id: %ld\",id);\n\n\t\t\tif ( id <= notify_last_id.id) {",
+        "location": [
+          {
+            "start_line": 111,
+            "end_line": 119
+          },
+          {
+            "start_line": 147,
+            "end_line": 155
+          }
+        ],
+        "original_context_sentence": "The old GET_DN branch requires only a matching command, a valid msg_id, and network_client_get_version(fd) > 0; it has no upper version bound."
+      },
+      "适用前提": {
+        "check_zh": "在目标代码中存在与样本类似的按不足的条件验证输入或对象状态；受影响对象、长度/偏移、可达路径应逐项匹配；不能仅凭同名函数匹配。",
+        "observed_input_and_state": "The old GET_DN branch requires only a matching command, a valid msg_id, and network_client_get_version(fd) > 0; it has no upper version bound. When these conditions hold and id <= notify_last_id.id, it obtains dn_string from a cache or transaction file, formats it, and writes it back to fd; a larger id is registered as a later request. The existing message-identifier and id checks do not prevent a newer protocol from entering this data-read path. If the newer protocol forbids GET_DN, this branch crosses that protocol boundary; the source is insufficient to prove unauthenticated access or the specific sensitivity of the data.\nCurrent review type: improper protocol-version constraint; conditional information exposure"
+      },
+      "漏洞触发条件": {
+        "potential_failure_zh": "当相关输入或状态违反安全不变量时，逻辑或输入验证缺陷可能发生；必须以本条原始机制和路径证据确证。",
+        "precise_case_mechanism": "The old GET_DN branch requires only a matching command, a valid msg_id, and network_client_get_version(fd) > 0; it has no upper version bound. When these conditions hold and id <= notify_last_id.id, it obtains dn_string from a cache or transaction file, formats it, and writes it back to fd; a larger id is registered as a later request. The existing message-identifier and id checks do not prevent a newer protocol from entering this data-read path. If the newer protocol forbids GET_DN, this branch crosses that protocol boundary; the source is insufficient to prove unauthenticated access or the specific sensitivity of the data.\nCurrent review type: improper protocol-version constraint; conditional information exposure",
+        "unsafe_code_anchor": "} else if ( !strncmp(network_line, \"GET_DN \", strlen(\"GET_DN \")) && msg_id != UINT32_MAX && network_client_get_version(fd) > 0) {\n\n\t\t\tunivention_debug(UV_DEBUG_TRANSFILE, UV_DEBUG_ALL, \"RECV: GET_DN\");\n\n\t\t\tid=strtoul(&(network_line[strlen(\"GET_DN \")]), NULL, 10);\n\n\t\t\tunivention_debug(UV_DEBUG_TRANSFILE, UV_DEBUG_ALL, \"id: %ld\",id);\n\n\t\t\tif ( id <= notify_last_id.id) {"
+      },
+      "安全反证": {
+        "verification_goal_zh": "检查所有与安全性质相关的输入约束及分支一致性",
+        "repair_observed_not_proof_of_any_other_code": "The only change is making the GET_DN version condition local version > PROTOCOL_UNKNOWN and version < PROTOCOL_3. version is read from the connection at entry and is also parsed, adjusted, and written back to the connection in the Version branch. Before parsing the GET_DN id, querying dn_string, sending a response, or registering a request, the new condition excludes version >= PROTOCOL_3 and limits the old command to its applicable protocol versions. This does not establish that PROTOCOL_UNKNOWN equals 0 or that the two version-reading methods are fully equivalent under all external states.\nCurrent review repair-mechanism description: at the command-dispatch entry, tighten an open-ended version condition into an interval with both lower and upper bounds, excluding inapplicable versions before any data query, response transmission, or request-state registration.",
+        "patch_code_anchor": "} else if ( !strncmp(network_line, \"GET_DN \", strlen(\"GET_DN \")) && msg_id != UINT32_MAX && version > PROTOCOL_UNKNOWN && version < PROTOCOL_3) {\n\n\t\t\tunivention_debug(UV_DEBUG_TRANSFILE, UV_DEBUG_ALL, \"RECV: GET_DN\");\n\n\t\t\tid=strtoul(&(network_line[strlen(\"GET_DN \")]), NULL, 10);\n\n\t\t\tunivention_debug(UV_DEBUG_TRANSFILE, UV_DEBUG_ALL, \"id: %ld\",id);\n\n\t\t\tif ( id <= notify_last_id.id) {",
+        "after_location": [
+          {
+            "start_line": 111,
+            "end_line": 119
+          },
+          {
+            "start_line": 147,
+            "end_line": 155
+          }
+        ],
+        "warning_zh": "修复补丁是该样本的对照证据，不等于已证明其他待测函数安全；需要逐路径验证保护条件和真实容量/状态。"
+      },
+      "证据需求": {
+        "must_verify": [
+          "定位修复前危险语句，确认敏感操作和实际受影响对象",
+          "核查数据合法范围、非法状态的分支行为和修复前遗漏的条件",
+          "确认危险路径可达，必要前提确实可由本函数实参或上游输入满足",
+          "在修复前后源码中对齐相关分支，并判断保护是否在操作之前生效",
+          "对已存在的检查进行安全反证分析，避免将危险API名称直接判作漏洞"
+        ],
+        "original_before_location": [
+          {
+            "start_line": 111,
+            "end_line": 119
+          },
+          {
+            "start_line": 147,
+            "end_line": 155
+          }
+        ],
+        "original_after_location": [
+          {
+            "start_line": 111,
+            "end_line": 119
+          },
+          {
+            "start_line": 147,
+            "end_line": 155
+          }
+        ],
+        "repair_diff_reference": "通过source.sample_id定位原始文件中的function_diff及完整code_before/code_after"
+      },
+      "适用边界": {
+        "scope_zh": "此知识直接对应 univention/univention-corporate-server 的 data_on_connection；跨项目使用时需重新验证类型、数据来源、环境约束和控制流。",
+        "original_boundary_and_caveats": "Keep: the version upper-bound repair in the same command branch is clear and can be extracted as a mechanism restricting the versions to which an old protocol command applies. The security interpretation requires the premise that a newer protocol should not provide GET_DN; it is not expanded into a confirmed authentication bypass. after still does not check the results of ioctl, malloc, or read, and the visible path does not free network_packet; these unchanged issues are outside this repair and do not support claiming after is completely safe."
+      },
+      "quality": {
+        "method": "确定性结构化迁移：基于已有人工可读行为/修复解释和定位注释；不是逐例LLM再分析",
+        "before_anchor_found": true,
+        "after_anchor_found": true,
+        "needs_manual_review": true,
+        "review_flags": [
+          "缺失父提交信息，无法仅凭此条追溯完整仓库修复上下文"
+        ]
+      }
+    },
+    {
+      "knowledge_id": "KG2_reposvul_003316_000_000",
+      "source": {
+        "sample_id": "reposvul_003316_000_000",
+        "dataset": "ReposVul",
+        "project": "radareorg/radare2",
+        "cve": "CVE-2022-1714",
+        "cwe": [
+          "CWE-125",
+          "CWE-787"
+        ],
+        "fix_commit": "3ecdbf8e21186a9c5a4d3cfa3b1e9fd27045340e",
+        "parent_commit": null,
+        "file_path": "libr/anal/p/anal_msp430.c",
+        "function_name": "msp430_op",
+        "source_dataset": "data/high_quality_repair_pairs.json"
+      },
+      "classification": {
+        "vulnerability_type": "bounds_read",
+        "vulnerability_name_zh": "越界读取",
+        "repair_pattern": "bounds_check",
+        "repair_pattern_zh": "索引与范围检查",
+        "group_key": "bounds_read__bounds_check"
+      },
+      "危险操作": {
+        "mechanism_zh": "从内存、缓冲区或索引位置读取数据",
+        "source_code": "ret = op->size = msp430_decode_command (buf, len, &cmd);",
+        "location": [
+          {
+            "start_line": 12,
+            "end_line": 12
+          },
+          {
+            "start_line": 32,
+            "end_line": 34
+          },
+          {
+            "start_line": 48,
+            "end_line": 52
+          }
+        ],
+        "original_context_sentence": "When the decode result is nonnegative and enters the MSP430_ONEOP / MSP430_CALL branch, the old code unconditionally calls r_read_at_le16(buf, 2) to set op->jump."
+      },
+      "适用前提": {
+        "check_zh": "在目标代码中存在与样本类似的从内存、缓冲区或索引位置读取数据；受影响对象、长度/偏移、可达路径应逐项匹配；不能仅凭同名函数匹配。",
+        "observed_input_and_state": "When the decode result is nonnegative and enters the MSP430_ONEOP / MSP430_CALL branch, the old code unconditionally calls r_read_at_le16(buf, 2) to set op->jump. Under the interface semantics of reading two bytes at offset 2, the access spans buf[2] through buf[3]; if len is the readable length, len < 4, and the branch is reachable, it overruns the buffer. The existing ret < 0 return checks only the decode result and does not establish the length required for this read. Current review type: conditional buffer out-of-bounds read (CWE-125)."
+      },
+      "漏洞触发条件": {
+        "potential_failure_zh": "当相关输入或状态违反安全不变量时，越界读取可能发生；必须以本条原始机制和路径证据确证。",
+        "precise_case_mechanism": "When the decode result is nonnegative and enters the MSP430_ONEOP / MSP430_CALL branch, the old code unconditionally calls r_read_at_le16(buf, 2) to set op->jump. Under the interface semantics of reading two bytes at offset 2, the access spans buf[2] through buf[3]; if len is the readable length, len < 4, and the branch is reachable, it overruns the buffer. The existing ret < 0 return checks only the decode result and does not establish the length required for this read. Current review type: conditional buffer out-of-bounds read (CWE-125).",
+        "unsafe_code_anchor": "ret = op->size = msp430_decode_command (buf, len, &cmd);"
+      },
+      "安全反证": {
+        "verification_goal_zh": "读取前验证偏移、长度、真实对象容量；检查加法溢出",
+        "repair_observed_not_proof_of_any_other_code": "In the same CALL branch and immediately before the same read, the code adds a len > 4 condition. It first sets op->type and op->fail, then reads and stores op->jump only when the length condition holds; for len <= 4 it skips the read. Other differences adjust command initialization, merge the ret declaration, and remove a comment. Current review repair-mechanism description: relate the offset and width required by a fixed-length read to the input’s readable length before performing the read; a prior decode-success check cannot replace this access-bound condition.",
+        "patch_code_anchor": "int ret = op->size = msp430_decode_command (buf, len, &cmd);",
+        "after_location": [
+          {
+            "start_line": 8,
+            "end_line": 8
+          },
+          {
+            "start_line": 28,
+            "end_line": 30
+          },
+          {
+            "start_line": 44,
+            "end_line": 50
+          }
+        ],
+        "warning_zh": "修复补丁是该样本的对照证据，不等于已证明其他待测函数安全；需要逐路径验证保护条件和真实容量/状态。"
+      },
+      "证据需求": {
+        "must_verify": [
+          "定位修复前危险语句，确认敏感操作和实际受影响对象",
+          "确认输入到长度/偏移的传递、实际源缓冲区界限、读操作前全部路径的检查",
+          "确认危险路径可达，必要前提确实可由本函数实参或上游输入满足",
+          "在修复前后源码中对齐相关分支，并判断保护是否在操作之前生效",
+          "对已存在的检查进行安全反证分析，避免将危险API名称直接判作漏洞"
+        ],
+        "original_before_location": [
+          {
+            "start_line": 12,
+            "end_line": 12
+          },
+          {
+            "start_line": 32,
+            "end_line": 34
+          },
+          {
+            "start_line": 48,
+            "end_line": 52
+          }
+        ],
+        "original_after_location": [
+          {
+            "start_line": 8,
+            "end_line": 8
+          },
+          {
+            "start_line": 28,
+            "end_line": 30
+          },
+          {
+            "start_line": 44,
+            "end_line": 50
+          }
+        ],
+        "repair_diff_reference": "通过source.sample_id定位原始文件中的function_diff及完整code_before/code_after"
+      },
+      "适用边界": {
+        "scope_zh": "此知识直接对应 radareorg/radare2 的 msp430_op；跨项目使用时需重新验证类型、数据来源、环境约束和控制流。",
+        "original_boundary_and_caveats": "Retain: the local read and length-guard repair relation is clear and passes. The necessary assumptions are that len represents buf’s readable length and that the read interface reads a 16-bit value at offset 2 as its name indicates; the interface and the condition allowing short input into CALL are not provided, so actual triggering is not asserted. after’s len > 4 is stricter than the usual len >= 4 needed for the read and skips exactly length-4 input; op->jump is not assigned on that path, with impact depending on external initialization and use, so after is not declared completely safe."
+      },
+      "quality": {
+        "method": "确定性结构化迁移：基于已有人工可读行为/修复解释和定位注释；不是逐例LLM再分析",
+        "before_anchor_found": true,
+        "after_anchor_found": true,
+        "needs_manual_review": true,
+        "review_flags": [
+          "缺失父提交信息，无法仅凭此条追溯完整仓库修复上下文"
+        ]
+      }
+    },
+    {
+      "knowledge_id": "KG2_reposvul_000636_000_000",
+      "source": {
+        "sample_id": "reposvul_000636_000_000",
+        "dataset": "ReposVul",
+        "project": "libarchive/libarchive",
+        "cve": "CVE-2016-1541",
+        "cwe": [
+          "CWE-20"
+        ],
+        "fix_commit": "d0331e8e5b05b475f20b1f3101fe1ad772d7e7e7",
+        "parent_commit": null,
+        "file_path": "libarchive/archive_read_support_format_zip.c",
+        "function_name": "zip_read_mac_metadata",
+        "source_dataset": "data/high_quality_repair_pairs.json"
+      },
+      "classification": {
+        "vulnerability_type": "bounds_write",
+        "vulnerability_name_zh": "越界写入",
+        "repair_pattern": "length_or_capacity_check",
+        "repair_pattern_zh": "写入/读取前的长度与实际容量约束",
+        "group_key": "bounds_write__length_or_capacity_check"
+      },
+      "危险操作": {
+        "mechanism_zh": "写入、复制或格式化内容到目标对象",
+        "source_code": "if (rsrc->uncompressed_size > (4 * 1024 * 1024)) {\n\t\tarchive_set_error(&a->archive, ARCHIVE_ERRNO_FILE_FORMAT,\n\t\t    \"Mac metadata is too large: %jd > 4M bytes\",\n\t\t    (intmax_t)rsrc->uncompressed_size);\n\t\treturn (ARCHIVE_WARN);\n\t}\n\n\tmetadata = malloc((size_t)rsrc->uncompressed_size);",
+        "location": [
+          {
+            "start_line": 28,
+            "end_line": 35
+          },
+          {
+            "start_line": 51,
+            "end_line": 55
+          },
+          {
+            "start_line": 68,
+            "end_line": 78
+          }
+        ],
+        "original_context_sentence": "In the uncompressed branch, the old code allocates metadata according to uncompressed_size but bounds the available input only with remaining_bytes derived from compressed_size, then calls memcpy(mp, p, bytes_avail)."
+      },
+      "适用前提": {
+        "check_zh": "在目标代码中存在与样本类似的写入、复制或格式化内容到目标对象；受影响对象、长度/偏移、可达路径应逐项匹配；不能仅凭同名函数匹配。",
+        "observed_input_and_state": "In the uncompressed branch, the old code allocates metadata according to uncompressed_size but bounds the available input only with remaining_bytes derived from compressed_size, then calls memcpy(mp, p, bytes_avail). When the declared compressed size is greater than the uncompressed size, and a read truncated by the remaining input still leaves bytes_avail greater than metadata_bytes, the copy goes beyond the destination buffer; the subsequent size_t subtraction of metadata_bytes underflows. The original 4 MiB check constrains only the allocation size and cannot ensure that the copy length is no greater than the destination's remaining capacity; checking metadata_bytes == 0 after the copy also cannot prevent the overrun. For example, sizes of 16 and 8 can trigger it when 16 bytes are copied in the first round.\nCurrent review type description: heap-buffer out-of-bounds write (CWE-122), with unsigned underflow of the remaining-capacity counter"
+      },
+      "漏洞触发条件": {
+        "potential_failure_zh": "当相关输入或状态违反安全不变量时，越界写入可能发生；必须以本条原始机制和路径证据确证。",
+        "precise_case_mechanism": "In the uncompressed branch, the old code allocates metadata according to uncompressed_size but bounds the available input only with remaining_bytes derived from compressed_size, then calls memcpy(mp, p, bytes_avail). When the declared compressed size is greater than the uncompressed size, and a read truncated by the remaining input still leaves bytes_avail greater than metadata_bytes, the copy goes beyond the destination buffer; the subsequent size_t subtraction of metadata_bytes underflows. The original 4 MiB check constrains only the allocation size and cannot ensure that the copy length is no greater than the destination's remaining capacity; checking metadata_bytes == 0 after the copy also cannot prevent the overrun. For example, sizes of 16 and 8 can trigger it when 16 bytes are copied in the first round.\nCurrent review type description: heap-buffer out-of-bounds write (CWE-122), with unsigned underflow of the remaining-capacity counter",
+        "unsafe_code_anchor": "if (rsrc->uncompressed_size > (4 * 1024 * 1024)) {\n\t\tarchive_set_error(&a->archive, ARCHIVE_ERRNO_FILE_FORMAT,\n\t\t    \"Mac metadata is too large: %jd > 4M bytes\",\n\t\t    (intmax_t)rsrc->uncompressed_size);\n\t\treturn (ARCHIVE_WARN);\n\t}\n\n\tmetadata = malloc((size_t)rsrc->uncompressed_size);"
+      },
+      "安全反证": {
+        "verification_goal_zh": "写入前证明目标实际可写容量足够（含结束符）；分支容量应匹配",
+        "repair_observed_not_proof_of_any_other_code": "The fix establishes three constraints in sequence: if the two declared sizes of an uncompressed entry differ, it returns ARCHIVE_FATAL before allocation and reading; if compressed_size exceeds 4 MiB, it returns ARCHIVE_WARN; after entering the uncompressed copy branch, it also limits bytes_avail to metadata_bytes. The last condition directly ensures that the copy length does not exceed the remaining destination capacity, keeping subsequent capacity subtraction and pointer advancement within the allocation boundary. The compressed-size limit constrains input scale, while size consistency and pre-copy capacity truncation jointly address the original overrun mechanism.\nCurrent review fix mechanism description: When input remaining bytes and target remaining capacity come from different length fields, first validate the field relationship required by the encoding mode, then constrain the write length simultaneously by input remaining bytes and target remaining capacity; limit the operation before copying, subtracting capacity, and advancing the pointer.",
+        "patch_code_anchor": "switch(rsrc->compression) {\n\tcase 0:  /* No compression. */\n\t\tif (rsrc->uncompressed_size != rsrc->compressed_size) {\n\t\t\tarchive_set_error(&a->archive, ARCHIVE_ERRNO_FILE_FORMAT,\n\t\t\t    \"Malformed OS X metadata entry: inconsistent size\");\n\t\t\treturn (ARCHIVE_FATAL);\n\t\t}",
+        "after_location": [
+          {
+            "start_line": 12,
+            "end_line": 18
+          },
+          {
+            "start_line": 33,
+            "end_line": 46
+          },
+          {
+            "start_line": 79,
+            "end_line": 91
+          }
+        ],
+        "warning_zh": "修复补丁是该样本的对照证据，不等于已证明其他待测函数安全；需要逐路径验证保护条件和真实容量/状态。"
+      },
+      "证据需求": {
+        "must_verify": [
+          "定位修复前危险语句，确认敏感操作和实际受影响对象",
+          "确认写入长度与目标对象容量、整数运算溢出情况、写入前约束是否覆盖路径",
+          "确认危险路径可达，必要前提确实可由本函数实参或上游输入满足",
+          "在修复前后源码中对齐相关分支，并判断保护是否在操作之前生效",
+          "对已存在的检查进行安全反证分析，避免将危险API名称直接判作漏洞"
+        ],
+        "original_before_location": [
+          {
+            "start_line": 28,
+            "end_line": 35
+          },
+          {
+            "start_line": 51,
+            "end_line": 55
+          },
+          {
+            "start_line": 68,
+            "end_line": 78
+          }
+        ],
+        "original_after_location": [
+          {
+            "start_line": 12,
+            "end_line": 18
+          },
+          {
+            "start_line": 33,
+            "end_line": 46
+          },
+          {
+            "start_line": 79,
+            "end_line": 91
+          }
+        ],
+        "repair_diff_reference": "通过source.sample_id定位原始文件中的function_diff及完整code_before/code_after"
+      },
+      "适用边界": {
+        "scope_zh": "此知识直接对应 libarchive/libarchive 的 zip_read_mac_metadata；跨项目使用时需重新验证类型、数据来源、环境约束和控制流。",
+        "original_boundary_and_caveats": "Retain and pass: the complete text clearly establishes the local repair relationship among the allocation basis, copy length, and remaining capacity in the same uncompressed branch. The trigger analysis requires only nonnegative, representable sizes and a read returning enough valid bytes; it does not depend on unknown type widths or actual attack reachability. after still does not uniformly verify that metadata_bytes is zero when the loop ends normally; this cannot be classified as another vulnerability from the current text alone and does not affect the overrun-fix conclusion. The entire function is not claimed safe."
+      },
+      "quality": {
+        "method": "确定性结构化迁移：基于已有人工可读行为/修复解释和定位注释；不是逐例LLM再分析",
+        "before_anchor_found": true,
+        "after_anchor_found": true,
+        "needs_manual_review": true,
+        "review_flags": [
+          "缺失父提交信息，无法仅凭此条追溯完整仓库修复上下文"
+        ]
+      }
+    }
+  ]
+}

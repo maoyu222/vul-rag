@@ -1,0 +1,66 @@
+{
+  "README.md": {
+    "size": 7017,
+    "sha256": "84de3b0ac9f6633a2b2ab4bcbc6134265a566f7d23758daa77e2e3091e97ef29"
+  },
+  "knowledge_v3_all.jsonl": {
+    "size": 37515920,
+    "sha256": "400f59c5c8b5d7612f5534c9aaa9e85f5c5fc7e0330077fea9c15051d0f0c9b6"
+  },
+  "knowledge_v3_all.json": {
+    "size": 37517202,
+    "sha256": "fdc06e520c8a60e0b76de285dc6d67b0df66854225f79ad70a394b5db9f0e275"
+  },
+  "knowledge_v3_retrieval.jsonl": {
+    "size": 8738348,
+    "sha256": "fd89e7ae7aab83b31a86a490318a3367301ef255290cab9849405647a400cf66"
+  },
+  "knowledge_v3_megavul.json": {
+    "size": 12509437,
+    "sha256": "add2dd7452843592bd314896d4338eace7aff7d02afd8482f36faca33a062d57"
+  },
+  "knowledge_v3_primevul.json": {
+    "size": 15171838,
+    "sha256": "65f5875eb58531356ead30b6d647a4d9196ee17f7731640ae58f4fc5fb7072b7"
+  },
+  "knowledge_v3_cleanvul.json": {
+    "size": 16161567,
+    "sha256": "aca3c53a967c419a468f56f1d84abc2cc331cf877ce01740445d4f9dfbd1a257"
+  },
+  "knowledge_v3_reposvul.json": {
+    "size": 572455,
+    "sha256": "7b17e57c3a26a5ca7e08dfa38380caf6aeea9e43cc3d882c3bcf153db499d98d"
+  },
+  "knowledge_v3_index.csv": {
+    "size": 179280,
+    "sha256": "1a748151dfed1ad8d40e7716478688da8006f4910c38b792bb88c9cd4118d382"
+  },
+  "critical_case_examples.json": {
+    "size": 200322,
+    "sha256": "387601a42c489957edd93a22d8ef8a113fc11ac2779b06da51576606816a9921"
+  },
+  "alignment_findings.json": {
+    "size": 4799,
+    "sha256": "504a2ed1ea1045ec1bfbef467719d391902ab1f0f71764e0d78481800afbdbb9"
+  },
+  "quality_report.json": {
+    "size": 1592,
+    "sha256": "83246de5946d0d87f5d0393a646a4ddde34af2c2a9c3399d30b9b06afcef73ef"
+  },
+  "build.py": {
+    "size": 25886,
+    "sha256": "3e6b0bc782b518618cfece0c69fffd14ccaba5dd0882cc7e2b77c472e4229b5f"
+  },
+  "build_accessory.py": {
+    "size": 1992,
+    "sha256": "9e86ad666e6ac120075623f4453fdb0ca553f86ed8c919387669ec8ce05539ac"
+  },
+  "read_knowledge.py": {
+    "size": 1887,
+    "sha256": "736b25576be4110a6894eacd7b0b201038ef823ec753f000c776117d59d89ab0"
+  },
+  "validate.py": {
+    "size": 2058,
+    "sha256": "12bb9cf43924c3f735067b2e81597071683869cb3910006ec857229588494c93"
+  }
+}

@@ -1,0 +1,272 @@
+[
+  {
+    "sample_id": "megavul_308849",
+    "findings": [
+      {
+        "side": "before",
+        "fragment_index": 2,
+        "type": "reported_line_range_disagrees",
+        "reported": [
+          40,
+          41
+        ],
+        "found": [
+          25,
+          26
+        ]
+      },
+      {
+        "side": "after",
+        "fragment_index": 3,
+        "type": "reported_line_range_disagrees",
+        "reported": [
+          43,
+          44
+        ],
+        "found": [
+          28,
+          29
+        ]
+      }
+    ]
+  },
+  {
+    "sample_id": "cleanvul_s4_002138",
+    "findings": [
+      {
+        "side": "after",
+        "fragment_index": 0,
+        "type": "reported_line_range_disagrees",
+        "reported": [
+          14,
+          20
+        ],
+        "found": [
+          14,
+          19
+        ]
+      }
+    ]
+  },
+  {
+    "sample_id": "primevul_valid_000230",
+    "findings": [
+      {
+        "side": "before",
+        "fragment_index": 0,
+        "type": "whitespace_equivalent"
+      },
+      {
+        "side": "after",
+        "fragment_index": 0,
+        "type": "whitespace_equivalent"
+      }
+    ]
+  },
+  {
+    "sample_id": "primevul_train_002581",
+    "findings": [
+      {
+        "side": "before",
+        "fragment_index": 0,
+        "type": "reported_line_range_disagrees",
+        "reported": [
+          214,
+          214
+        ],
+        "found": [
+          54,
+          54
+        ]
+      },
+      {
+        "side": "after",
+        "fragment_index": 0,
+        "type": "reported_line_range_disagrees",
+        "reported": [
+          214,
+          215
+        ],
+        "found": [
+          54,
+          55
+        ]
+      }
+    ]
+  },
+  {
+    "sample_id": "cleanvul_s4_000670",
+    "findings": [
+      {
+        "side": "before",
+        "fragment_index": 2,
+        "type": "reported_line_range_disagrees",
+        "reported": [
+          38,
+          44
+        ],
+        "found": [
+          23,
+          29
+        ]
+      },
+      {
+        "side": "after",
+        "fragment_index": 2,
+        "type": "reported_line_range_disagrees",
+        "reported": [
+          38,
+          44
+        ],
+        "found": [
+          23,
+          29
+        ]
+      }
+    ]
+  },
+  {
+    "sample_id": "primevul_valid_000059",
+    "findings": [
+      {
+        "side": "before",
+        "fragment_index": 0,
+        "type": "whitespace_equivalent"
+      },
+      {
+        "side": "after",
+        "fragment_index": 0,
+        "type": "whitespace_equivalent"
+      }
+    ]
+  },
+  {
+    "sample_id": "primevul_train_002419",
+    "findings": [
+      {
+        "side": "after",
+        "fragment_index": 0,
+        "type": "reported_line_range_disagrees",
+        "reported": [
+          32,
+          38
+        ],
+        "found": [
+          32,
+          37
+        ]
+      }
+    ]
+  },
+  {
+    "sample_id": "megavul_077895",
+    "findings": [
+      {
+        "side": "after",
+        "fragment_index": 1,
+        "type": "reported_line_range_disagrees",
+        "reported": [
+          75,
+          83
+        ],
+        "found": [
+          75,
+          82
+        ]
+      }
+    ]
+  },
+  {
+    "sample_id": "primevul_train_002734",
+    "findings": [
+      {
+        "side": "before",
+        "fragment_index": 1,
+        "type": "reported_line_range_disagrees",
+        "reported": [
+          146,
+          147
+        ],
+        "found": [
+          109,
+          110
+        ]
+      },
+      {
+        "side": "before",
+        "fragment_index": 2,
+        "type": "reported_line_range_disagrees",
+        "reported": [
+          194,
+          195
+        ],
+        "found": [
+          109,
+          110
+        ]
+      },
+      {
+        "side": "after",
+        "fragment_index": 1,
+        "type": "reported_line_range_disagrees",
+        "reported": [
+          150,
+          155
+        ],
+        "found": [
+          109,
+          114
+        ]
+      },
+      {
+        "side": "after",
+        "fragment_index": 2,
+        "type": "reported_line_range_disagrees",
+        "reported": [
+          202,
+          207
+        ],
+        "found": [
+          109,
+          114
+        ]
+      }
+    ]
+  },
+  {
+    "sample_id": "cleanvul_s4_002883",
+    "findings": [
+      {
+        "side": "after",
+        "fragment_index": 0,
+        "type": "reported_line_range_disagrees",
+        "reported": [
+          38,
+          43
+        ],
+        "found": [
+          38,
+          42
+        ]
+      }
+    ]
+  },
+  {
+    "sample_id": "megavul_040662",
+    "findings": [
+      {
+        "side": "before",
+        "fragment_index": 2,
+        "type": "reported_line_range_disagrees",
+        "reported": [
+          73,
+          94
+        ],
+        "found": [
+          73,
+          93
+        ]
+      }
+    ]
+  }
+]

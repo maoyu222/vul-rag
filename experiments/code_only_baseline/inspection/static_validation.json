@@ -1,0 +1,29 @@
+{
+  "method": "AST and JSON syntax inspection only; no project modules or tests executed",
+  "python_files_checked": 27,
+  "config_json_files_checked": 3,
+  "syntax_errors": [],
+  "declared_prediction_labels": [
+    "vulnerable",
+    "benign"
+  ],
+  "prompt_name": "code_only",
+  "protocol": "code_only_baseline",
+  "prompt_files": [
+    "system.txt",
+    "user.txt"
+  ],
+  "test_methods_written_not_executed": 20,
+  "environment": {
+    "python": "/home/luoxiao/miniconda3/envs/vul-rag/bin/python",
+    "prefix": "/home/luoxiao/miniconda3/envs/vul-rag",
+    "python_version": "3.12.14",
+    "pip_module": "/home/luoxiao/miniconda3/envs/vul-rag/lib/python3.12/site-packages/pip/__init__.py",
+    "httpx_version": "0.28.1",
+    "httpx_install_root": "/home/luoxiao/miniconda3/envs/vul-rag/lib/python3.12/site-packages"
+  },
+  "dependencies_installed_this_task": [],
+  "tests_executed": false,
+  "real_inference_executed": false,
+  "formal_dataset_read_this_update": false
+}

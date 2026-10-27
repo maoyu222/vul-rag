@@ -1,0 +1,12 @@
+{
+  "base_url": null,
+  "model": "Qwen2.5-Coder-7B-Instruct",
+  "concurrency": 4,
+  "timeout": 120,
+  "max_retries": 2,
+  "temperature": 0,
+  "max_tokens": 1024,
+  "seed": 42,
+  "max_code_chars": 30000,
+  "json_mode": "json_object"
+}

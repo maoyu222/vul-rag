@@ -1,0 +1,20 @@
+请判断以下 C/C++ 函数是否存在安全漏洞，必须作出二分类判断。
+
+输出格式：
+
+{
+  "label": "vulnerable|benign",
+  "vulnerability_type": "",
+  "evidence": [],
+  "reason": ""
+}
+
+其中：
+label 只能为 vulnerable 或 benign，分别表示有漏洞或无漏洞。
+vulnerability_type 表示漏洞类型，无法确定具体类型时为空。
+evidence 表示能够从源码中找到的关键证据。
+reason 表示简明的判断依据。
+
+待检测函数：
+
+{code}
